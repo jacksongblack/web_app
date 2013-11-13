@@ -1,0 +1,69 @@
+
+/* ·âÃæ */
+.wrap a.cover{background:url(../../images/320x480/cover.jpg) no-repeat; width:320px; height:480px; display:block;}
+
+/* ÍÆ¼ö¶ÌÐÅ */
+.about{margin:15px; color:#0d4c7f; line-height:28px; font-size:18px;}
+.about span{ visibility:hidden;}
+.contenter{width:320px; height:380px; overflow:auto; overflow-x:hidden;}
+.contenter_sms{width:320px; height:430px; overflow:auto; overflow-x:hidden;}
+.homecon a{
+	width:300px;
+	height:60px;
+	margin:5px 10px 0px 10px;
+	display:block;
+	background:#dbeefc;
+	border:1px solid #6198c2;
+	overflow:hidden;
+}
+.homecon a span{display:block; padding-top:11px; padding-left:5px; color:#16558a; overflow:hidden;}
+.homecon a:hover, .homecon a:active{background:url(../../images/320x480/sms_hov.png) repeat-x;}
+.anniu{
+	background:url(../../images/320x480/btn_bg.png) repeat-x; 
+	width:320px; 
+	height:50px;
+}
+.anniu li{float:left;}
+.anniu li a{
+	display:block;
+	width:80px;
+	height:50px;
+}
+.anniu li a span{ 
+    display: block;
+    font-size: 14px;
+    text-align:center;
+    padding-top: 31px;
+}
+.anniu li a span.recommend{background: url("../../images/320x480/recommend.png") no-repeat scroll 26px 5px transparent;}
+.anniu li a span.category{background: url("../../images/320x480/category.png") no-repeat scroll 30px 6px transparent;}
+.anniu li a span.collect{background: url("../../images/320x480/collect.png") no-repeat scroll 29px 5px transparent;}
+.anniu li a span.feedback{background: url("../../images/320x480/feedback.png") no-repeat scroll 27px 7px transparent;}
+.anniu li a:hover, 
+.anniu li a:active,
+.anniu li.stop a{background:transparent url(../../images/320x480/smshover.png) no-repeat left top;}
+.anniu li a:hover span, .anniu li a:active span,.anniu li.stop a span{color:#000000;}
+.anniu li a:hover span.recommend, 
+.anniu li a:active span.recommend,
+.anniu li.stop a:link span.recommend,
+.anniu li.stop a:visited span.recommend,
+.anniu li.stop a:hover span.recommend,
+.anniu li.stop a:active span.recommend{background: url("../../images/320x480/recommendhov.png") no-repeat scroll 26px 5px transparent;}
+.anniu li a:hover span.category, 
+.anniu li a:active span.category,
+.anniu li.stop a:link span.category,
+.anniu li.stop a:visited span.category,
+.anniu li.stop a:hover span.category,
+.anniu li.stop a:active span.category{background: url("../../images/320x480/categoryhov.png") no-repeat scroll 30px 6px transparent;}
+.anniu li a:hover span.collect, 
+.anniu li a:active span.collect,
+.anniu li.stop a:link span.collect,
+.anniu li.stop a:visited span.collect,
+.anniu li.stop a:hover span.collect,
+.anniu li.stop a:active span.collect{background: url("../../images/320x480/collecthov.png") no-repeat scroll 29px 5px transparent;}
+.anniu li a:hover span.feedback, 
+.anniu li a:active span.feedback,
+.anniu li.stop a:link span.feedback,
+.anniu li.stop a:visited span.feedback,
+.anniu li.stop a:hover span.feedback,
+.anniu li.stop a:active span.feedback{background: url("../../images/320x480/feedbackhov.png") no-repeat scroll 27px 7px transparent;}

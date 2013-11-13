@@ -1,0 +1,25 @@
+
+/*всрЁ*/
+.souhu{ width:320px; height:480px;}
+.souhu .souhu_content { width:320px; height:429px; overflow:scroll; overflow-x:hidden; overflow-y:hidden;}
+.souhu .top_header ul.header1 { width:320px; height:51px;}
+.souhu .top_header ul li { float:left;}
+.souhu .top_header ul li.souhu_fanhui a { width:44px; height:35px; background:url(../../images/320x480/fanhui.png)  no-repeat; display:block; margin-left:20px; margin-top:5px;}
+.souhu .top_header ul li.souhu_fanhui a:hover {  background:url(../../images/320x480/fanhui_hov.png);}
+.souhu .top_header ul li.souhu_fanhui a:active  {  background:url(../../images/320x480/fanhui_hov.png);}
+.souhu .top_header ul li.souhu_biaoti { width:120px; text-align:center; color:#000000;}
+.souhu .top_header ul li ul li a.souhu_houtui:link { display:block; width:50px; height:40px; background:url(../../images/320x480/houtui_b.png)  no-repeat; margin-top:5px; margin-right:10px;}
+.souhu .top_header ul li ul li a.souhu_houtui:visited { display:block; width:50px; height:40px; background:url(../../images/320x480/houtui_b.png)  no-repeat; margin-top:5px; margin-right:10px;}
+.souhu .top_header ul li ul li a.souhu_houtui:hover { background:url(../../images/320x480/houtui_b.png)  no-repeat; display:block; width:50px; height:40px; margin-top:5px; margin-right:10px; }
+.souhu .top_header ul li ul li a.souhu_houtui:active { background:url(../../images/320x480/houtui_b.png)  no-repeat;display:block; width:50px; height:40px; margin-top:5px; margin-right:10px;}
+.souhu .top_header ul li ul li a.souhu_houtui1 { display:block; width:50px; height:40px; background:url(../../images/320x480/houtui.png) no-repeat; margin-top:5px; margin-right:10px;}
+.souhu .top_header ul li ul li a.souhu_houtui1:hover { background:url(../../images/320x480/houtui_hov.png);}
+.souhu .top_header ul li ul li a.souhu_houtui1:active { background:url(../../images/320x480/houtui_hov.png);}
+.souhu .top_header ul li ul li a.souhu_qianjin:link { display:block; width:50px; height:40px; background:url(../../images/320x480/qianjin_b.png) no-repeat;margin-top:5px;}
+.souhu .top_header ul li ul li a.souhu_qianjin:visited { display:block; width:50px; height:40px; background:url(../../images/320x480/qianjin_b.png) no-repeat;; margin-top:5px;}
+.souhu .top_header ul li ul li a.souhu_qianjin:hover {  background:url(../../images/320x480/qianjin_b.png) no-repeat;}
+.souhu .top_header ul li ul li a.souhu_qianjin:active { background:url(../../images/320x480/qianjin_b.png) no-repeat;}
+.souhu .top_header ul li ul li a.souhu_qianjin1 { display:block; width:50px; height:40px; background:url(../../images/320x480/qianjin.png)  no-repeat; margin-top:5px;}
+.souhu .top_header ul li ul li a.souhu_qianjin1:hover { background:url(../../images/320x480/qianjin_hov.png);}
+.souhu .top_header ul li ul li a.souhu_qianjin1:active { background:url(../../images/320x480/qianjin_hov.png);}
+.souhu .top_header .fenye { width:320px; height:429px; margin:0px; padding:0px; border:0px; /*overflow:scroll; overflow-x:hidden;*/}

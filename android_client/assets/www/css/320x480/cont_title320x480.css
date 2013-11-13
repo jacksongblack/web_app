@@ -1,0 +1,8 @@
+/*top*/
+.dianxin { width:320px; height:480px; position:relative; }
+.dianxin .theader { width:320px; height:52px; background:url(../../images/320x480/headerbg.png) 0px 0px repeat-x; line-height:52px; color:#000000; text-align:center; position:relative;}
+.dianxin .theader .dx_fanhui { position:absolute; width:42px; height:30px; top:9px; left:20px;}
+.dianxin .theader .dx_fanhui a { display:block; width:42px; height:30px; background:url(../../images/320x480/jiantou.png);}
+.dianxin .theader .dx_fanhui a:hover { background:url(../../images/320x480/jiantou_hov.png);}
+.dianxin .theader .dx_fanhui a:active { background:url(../../images/320x480/jiantou_hov.png);}
+

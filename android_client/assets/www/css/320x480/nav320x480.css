@@ -1,0 +1,20 @@
+.head_nav table td a em.tj{background:url(../../images/320x480/tuijian1_03.png) 0 0 no-repeat;display:block;width:44px;height:32px;}
+.head_nav table td a em.fl{background:url(../../images/320x480/sort1_03.png) 0 0 no-repeat;display:block;width:44px;height:32px;}
+.head_nav table td a em.ph{background:url(../../images/320x480/ph1_03.png) 0 0 no-repeat;display:block;width:44px;height:32px;}
+.head_nav table td a em.zh{background:url(../../images/320x480/count1_03.png) 0 0 no-repeat;display:block;width:44px;height:32px;}
+
+.head_nav{background:url(../../images/320x480/conp1_03.gif) 0 0 repeat-x;height:60px;width:320px;}
+.head_nav table td{text-align:center;width:78px;height:58px;border-left:1px solid #f1f1f1;border-right:1px solid #000;}
+.head_nav table td.le_no{border-left:none;}
+.head_nav table td.rig_no{border-right:none;}
+.head_nav table td a{text-align:center;width:78px;height:54px;display:block;padding:3px 0 0 0;color:#000;}
+.head_nav table td a em{margin:2px 0 0 18px;}.head_nav table td a span{line-height:15px;}
+.head_nav table td a:hover,.head_nav table td a.ha{background:url(../../images/320x480/hov1_03.gif) 0 0 repeat-x;}
+.head_nav table td a:active{background:#EEEEEE;}
+.str_content{height:395px;overflow:scroll;overflow-x:hidden;}
+.tab_ul li {width:320px;height:40px;border-bottom:1px solid #4e4e4e;}
+.tab_ul li a{width:309px;height:40px;display:block;line-height:40px;color:#fff;}
+.tab_ul li a:hover{background:url(../../images/320x480/conp1_03.gif) 0 -60px repeat-x;}
+.tab_ul li a:active{background:url(../../images/320x480/conp1_03.gif) 0 -60px repeat-x;}
+.tab_ul li a span{float:left;padding:0 0 0 10px;}
+.tab_ul li a em{background:url(../../images/320x480/direction.png) 0 0 no-repeat;height:11px;width:8px;display:block;float:right;margin:15px 15px 0 0;}

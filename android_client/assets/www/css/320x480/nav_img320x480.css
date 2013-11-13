@@ -1,0 +1,213 @@
+/* Íâ¿ò */
+.wrap{ width:320px; height:480px; background:#fff;}
+#contbox{ width:320px; height:378px; overflow:scroll; overflow-x:hidden;}
+/* Í¼Æ¬µ¼º½ */
+.nav{
+	background:url(../../images/320x480/topbg.png) repeat-x; 
+	width:320px; 
+	height:60px;
+	clear:both
+	}
+.nav li{ float:left; width:50px; text-align:center; height:56px; margin-left:12px; padding-top:4px;}
+.nav li span{ padding-top:5px; margin:0;}
+.nav li span.img1{
+	display:block;
+	background:url(../../images/320x480/topimg1_3_4.png) no-repeat center center;
+	width:28px;
+	height:33px;
+	padding-left:23px;
+	}
+.nav li span.img2{
+	display:block;
+	background:url(../../images/320x480/topimg2_3_4.png) no-repeat center center;
+	width:25px;
+	height:33px;
+	padding-left:28px;
+	}
+.nav li span.img3{
+	display:block;
+	background:url(../../images/320x480/topimg3_3_4.png) no-repeat center center;
+	width:33px;
+	height:33px;
+	padding-left:18px;
+	}
+.nav li span.img4{
+	display:block;
+	background:url(../../images/320x480/topimg4_3_4.png) no-repeat center center;
+	width:30px;
+	height:33px;
+	padding-left:23px;
+	}
+.nav li span.img5{
+	display:block;
+	background:url(../../images/320x480/topimg6_3_4.png) no-repeat center center;
+	width:30px;
+	height:33px;
+	padding-left:18px;
+	}
+
+.nav li a:link,
+.nav li a:visited{
+	display:block;
+	width:52px;
+	height:56px;
+	font-size:14px;
+	color:#fff;
+	}
+.nav li a:hover,
+.nav li a:active{
+	background:url(../../images/320x480/topimgbg.png) no-repeat;
+	}
+.nav li a.stop:link,
+.nav li a.stop:visited,
+.nav li a.stop:hover,
+.nav li a.stop:active{
+	display:block;
+	width:52px;
+	height:56px;
+	background:url(../../images/320x480/topimgbg.png) no-repeat;
+	}
+	
+.btmbr{ width:320px; height:1px; font-size:0; border-bottom:1px #c20000 solid; border-top:1px #c20000 solid; background:#c20000;}
+
+/* µ×²¿button */
+.bottom{
+	background:url(../../images/320x480/bottombg3_4.png) repeat-x; 
+	width:320px; 
+	height:40px; 
+	line-height:40px;
+	text-align:center;
+	font-weight:bold;
+	
+	}
+.bottom p{position:relative; height:40px; width:320px;}
+.bottom a:link,
+.bottom a:visited{
+	display:block;
+	width:64px; 
+	height:40px;
+	color:#fff;
+	}
+.bottom a:hover,
+.bottom a:active{ background:url(../../images/320x480/btm_bg3_4.png) no-repeat;}
+
+.bottom a.l_btn{
+	position:absolute;
+	bottom:0;
+	left:0;
+	}
+.bottom a.c_btn{
+	position:absolute;
+	bottom:0;
+	left:128px;
+	}
+.bottom a.r_btn{
+	position:absolute;
+	bottom:0;
+	right:0;
+	}
+.bottom a.btn1,.bottom a.btn2,.bottom a.btn3,.bottom a.btn4,.bottom a.btn5,.bottom a.btn01,.bottom a.btn02,.bottom a.btn03,.bottom a.btn04{ float:left;}
+
+.bottom a.btn1:link,
+.bottom a.btn1:visited{
+	display:block;
+	background:url(../../images/320x480/btn03_4.png) no-repeat 0 0;
+	width:64px;
+	height:40px;
+	}
+.bottom a.btn1:hover,
+.bottom a.btn1:active{
+	background:url(../../images/320x480/btn03_4.png) no-repeat 0 -40px;
+	}
+.bottom a.btn01:link,
+.bottom a.btn01:visited{
+	display:block;
+	background:url(../../images/320x480/btn03_4.png) no-repeat 0 -80px;
+	width:64px;
+	height:40px;
+	}
+.bottom a.btn01:hover,
+.bottom a.btn01:active{
+	background:url(../../images/320x480/btn03_4.png) no-repeat 0 -80px;
+	}
+	
+.bottom a.btn2:link,
+.bottom a.btn2:visited{
+	display:block;
+	background:url(../../images/320x480/btn13_4.png) no-repeat 0 0;
+	width:64px;
+	height:40px;
+	}
+.bottom a.btn2:hover,
+.bottom a.btn2:active{
+	background:url(../../images/320x480/btn13_4.png) no-repeat 0 -40px;
+	}
+.bottom a.btn02:link,
+.bottom a.btn02:visited{
+	display:block;
+	background:url(../../images/320x480/btn13_4.png) no-repeat 0 -80px;
+	width:64px;
+	height:40px;
+	}
+.bottom a.btn02:hover,
+.bottom a.btn02:active{
+	background:url(../../images/320x480/btn13_4.png) no-repeat 0 -80px;
+	}
+	
+.bottom a.btn3:link,
+.bottom a.btn3:visited{
+	display:block;
+	background:url(../../images/320x480/btn23_4.png) no-repeat 0 0;
+	width:64px;
+	height:40px;
+	}
+.bottom a.btn3:hover,
+.bottom a.btn3:active{
+	background:url(../../images/320x480/btn23_4.png) no-repeat 0 -40px;
+	}
+.bottom a.btn03:link,
+.bottom a.btn03:visited{
+	display:block;
+	background:url(../../images/320x480/btn23_4.png) no-repeat 0 -80px;
+	width:64px;
+	height:40px;
+	}
+.bottom a.btn03:hover,
+.bottom a.btn03:active{
+	background:url(../../images/320x480/btn23_4.png) no-repeat 0 -80px;
+	}
+	
+.bottom a.btn4:link,
+.bottom a.btn4:visited{
+	display:block;
+	background:url(../../images/320x480/btn33_4.png) no-repeat 0 0;
+	width:64px;
+	height:40px;
+	}
+.bottom a.btn4:hover,
+.bottom a.btn4:active{
+	background:url(../../images/320x480/btn33_4.png) no-repeat 0 -40px;
+	}
+.bottom a.btn04:link,
+.bottom a.btn04:visited{
+	display:block;
+	background:url(../../images/320x480/btn33_4.png) no-repeat 0 -80px;
+	width:64px;
+	height:40px;
+	}
+.bottom a.btn04:hover,
+.bottom a.btn04:active{
+	background:url(../../images/320x480/btn33_4.png) no-repeat 0 -80px;
+	}
+	
+.bottom a.btn5:link,
+.bottom a.btn5:visited{
+	display:block;
+	background:url(../../images/320x480/btn53_4.png) no-repeat 0 0;
+	width:64px;
+	height:40px;
+	}
+.bottom a.btn5:hover,
+.bottom a.btn5:active{
+	background:url(../../images/320x480/btn53_4.png) no-repeat 0 -40px;
+	}

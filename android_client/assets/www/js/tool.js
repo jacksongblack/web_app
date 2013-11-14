@@ -1,0 +1,3 @@
+$(".wrap").bind("swiperight", function(){
+    //...
+});

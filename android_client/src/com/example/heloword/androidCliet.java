@@ -1,4 +1,4 @@
-package com.example.heloword;
+package com.example.app;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

@@ -30,7 +30,7 @@
         Apache Cordova Team
     </author>
 
-    <access origin="http://0.0.0.0:3000/"/>
+    <access origin="http://192.168.1.111:3000"/>
 
     <!-- <content src="http://mysite.com/myapp.html" /> for external pages -->
     <content src="index.html" />

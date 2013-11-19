@@ -7,25 +7,25 @@ $(document).bind("mobileinit", function () {
     $.mobile.defaultDialogTransition = 'slidefade';
     $.mobile.allowCrossDomainPages = true;
     $.support.cors = true;
-    //¹Ø±ÕDOM Cache½µµÍÄÚ´æÏûºÄ
+    //ï¿½Ø±ï¿½DOM Cacheï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½
     $.mobile.page.prototype.options.domCache = false;
     $.mobile.buttonMarkup.hoverDelay = true;
-    $.mobile.loadingMessage = "ÇëµÈ´ı";
-    $.mobile.pageLoadErrorMessage = '±§Ç¸¡«¡«¡«³ö´íÁË';
+    $.mobile.loadingMessage = "ï¿½ï¿½È´ï¿½";
+    $.mobile.pageLoadErrorMessage = 'ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
 });
 function showLoader() {
 
-    //ÏÔÊ¾¼ÓÔØÆ÷.for jQuery Mobile 1.2.0
+    //ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.for jQuery Mobile 1.2.0
     $.mobile.loading('show', {
-        textVisible: true, //ÊÇ·ñÏÔÊ¾ÎÄ×Ö
-        theme: 'b',        //¼ÓÔØÆ÷Ö÷ÌâÑùÊ½a-e
-        html: " <a onclick='hideLoader()'  data-icon='delete' data-role='button' class='stopLoader' style='display: none;' >ÔØÈëÖĞ.....Í£Ö¹Çëµã»÷ÎÒ</a>"         //ÒªÏÔÊ¾µÄhtmlÄÚÈİ£¬ÈçÍ¼Æ¬µÈ
+        textVisible: true, //ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
+        theme: 'b',        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½a-e
+        html: " <a onclick='hideLoader()'  data-icon='delete' data-role='button' class='stopLoader' style='display: none;' >è½½å…¥ä¸­.....ç‚¹å‡»å–æ¶ˆ</a>"         //Òªï¿½ï¿½Ê¾ï¿½ï¿½htmlï¿½ï¿½ï¿½İ£ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½
     })
     $('a.stopLoader').show();
 };
 function hideLoader() {
-    //Òş²Ø¼ÓÔØÆ÷
+    //ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½
     $.mobile.loading('hide');
 };
 
@@ -33,10 +33,10 @@ function hideLoader() {
 
 $(document).bind('pagecreate', function () {
     $("ul.news_theme li a").each(
-        function () {
-            $(this).bind('click', function () {
-                    showLoader();
-                    getJsonToData(this);
+    function () {
+         var url =  $(this).attr("href")
+        $(this).bind('click', function () {
+                        getJsonToData(url);
                 }
             )
         } )

@@ -7,20 +7,20 @@ $(document).bind("mobileinit", function () {
     $.mobile.defaultDialogTransition = 'slidefade';
     $.mobile.allowCrossDomainPages = true;
     $.support.cors = true;
-    //ï¿½Ø±ï¿½DOM Cacheï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½
-    $.mobile.page.prototype.options.domCache = false;
+    //ï¿½Ø±ï¿½DOM Cacheï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿?    $.mobile.page.prototype.options.domCache = false;
     $.mobile.buttonMarkup.hoverDelay = true;
-    $.mobile.loadingMessage = "ï¿½ï¿½È´ï¿½";
-    $.mobile.pageLoadErrorMessage = 'ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
+    $.mobile.loadingMessage = "¼ÓÔØÖĞ";
+    $.mobile.pageLoadErrorMessage = '³ö´íÁË';
+    $.mobile.ajaxEnabled=false;
 
 });
 function showLoader() {
 
     //ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.for jQuery Mobile 1.2.0
     $.mobile.loading('show', {
-        textVisible: true, //ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
-        theme: 'b',        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½a-e
-        html: " <a onclick='hideLoader()'  data-icon='delete' data-role='button' class='stopLoader' style='display: none;' >è½½å…¥ä¸­.....ç‚¹å‡»å–æ¶ˆ</a>"         //Òªï¿½ï¿½Ê¾ï¿½ï¿½htmlï¿½ï¿½ï¿½İ£ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½
+        textVisible: true, //Ö»ÏÔÊ¾×ÖµÄÄÚÈİ
+        theme: 'b',        //Ö÷Ìâ·ç¸ñ
+        html: " <a onclick='hideLoader()'  data-icon='delete' data-role='button' class='stopLoader' style='display: none;' >¼ÓÔÚÖĞ....µã»÷È¡Ïû</a>"         //Òªï¿½ï¿½Ê¾ï¿½ï¿½htmlï¿½ï¿½ï¿½İ£ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½
     })
     $('a.stopLoader').show();
 };
@@ -28,16 +28,29 @@ function hideLoader() {
     //ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½
     $.mobile.loading('hide');
 };
-
-
-
-$(document).bind('pagecreate', function () {
-    $("ul.news_theme li a").each(
-    function () {
-         var url =  $(this).attr("href")
-        $(this).bind('click', function () {
-                        getJsonToData(url);
+function bindLink(doc){
+    $(doc).each(
+        function () {
+            $(this).bind("tap", function () {
+                    sendToServer($(this).attr("path"));
                 }
             )
         } )
+};
+
+$(document).bind('pageinit', function () {
+      bindLink("ul.news_theme li a")
 });
+
+function addButton(document,buttonName,callfunctionName){
+    $(document).append('<a data-role="button"  data-mini="true" class="addButton" onclick="'+callfunctionName +'" >'+ buttonName +'</a>')
+
+}
+function hideButton(document){
+   $(document).hide();
+};
+
+function showOrHide(showElement,hideElement){
+     $(showElement).show()
+     $(hideElement).hide()
+};

@@ -16,27 +16,17 @@
 </head>
 <body>
 　
-<div data-role="page" data-theme="b">
+<div data-role="page" data-theme="c" id="news">
     <!-- /header -->　
-    <div data-role="header" data-theme="b">
+    <div data-role="header" data-theme="c">
         <h1>新闻</h1>
-
-        <div data-role="navbar">
-            <ul>
-                <li><a href="#">新闻</a></li>
-                <li><a href="#">行业信息</a></li>
-                <li><a href="#">产品市场</a></li>
-                <li><a href="#">科技超市</a></li>
-                <li><a href="#">企业黄页</a></li>
-            </ul>
-        </div>
-        <!-- /navbar -->
+        <a href="index.html" data-role="button"  data-mini="true" style="font-size: 12px">返回主菜单</a>
     </div>
     <!-- /content --> 　
-    <div data-role="content">
+    <div data-role="content" id="news-theme">
         <div data-role="collapsible-set">
-            <ul data-role="listview" data-theme="b" class="news_theme">
-                <li><a href="mes/api/posts">国内新闻</a></li>
+            <ul data-role="listview" data-theme="c" class="news_theme">
+                <li><a path="mes/posts">国内新闻</a></li>
                 <li><a >国外新闻</a></li>
                 <li><a >科技新闻</a></li>
                 <li><a >市场新闻</a></li>

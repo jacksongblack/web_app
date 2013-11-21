@@ -39,18 +39,7 @@ function bindLink(doc){
 };
 
 $(document).bind('pageinit', function () {
-      bindLink("ul.news_theme li a")
+      bindLink("ul.list li a")
 });
 
-function addButton(document,buttonName,callfunctionName){
-    $(document).append('<a data-role="button"  data-mini="true" class="addButton" onclick="'+callfunctionName +'" >'+ buttonName +'</a>')
 
-}
-function hideButton(document){
-   $(document).hide();
-};
-
-function showOrHide(showElement,hideElement){
-     $(showElement).show()
-     $(hideElement).hide()
-};

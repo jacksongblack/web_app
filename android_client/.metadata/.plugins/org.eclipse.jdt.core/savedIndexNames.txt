@@ -1,4 +1,0 @@
-INDEX VERSION 1.126+/home/jack/文档/git/micro_enterprise_service_client/android_client/.metadata/.plugins/org.eclipse.jdt.core
-2842832292.index
-2573942827.index
-1154810107.index

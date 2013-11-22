@@ -13,7 +13,7 @@ function sendToServer(url) {
         dataType: 'json',
         success: function (response) {
             hideLoader();
-            callBack(response,url);
+            callBack(response,path);
         },
         error: function () {
             alert('出错了...链接出现问题，请检查你的网络');
@@ -25,7 +25,7 @@ function callBack(response,url) {
     var thermeObj = $("#news-theme");
     var pageObj = $("[data-role='page']");
     thermeObj.hide();
-    pageObj.append(buildHtml(response,url));
+    pageObj.append(buildHtml(response));
     $(".news-content").trigger("create")
     $('.news-list').listview('refresh');
     addButton('[data-role="header"]', "返回", "hideAction('.addButton','#news-theme','.news-content')");
@@ -36,7 +36,7 @@ function getRootPath() {
     return "http://192.168.0.251:3000/"
 };
 //创建需要插入的HTML字符串
-function buildHtml(response,url) {
+function buildHtml(response) {
     var htmlCache = "";
     var newsContent;
     $.each(response, function (n, value) {

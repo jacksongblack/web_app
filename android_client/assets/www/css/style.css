@@ -1,6 +1,6 @@
 body, p, div, ul, ol, li, dl, dt, dd, span, var, em, a, img, strong, table, td, tr, h2, h3, h4, h5 {
     font-family: Arial, Helvetica, sans-serif;
-    font-family: 微 软 雅 黑;
+    /*font-family: 微 软 雅 黑;*/
     margin: 0;
     padding: 0;
     font-size: 16px;
@@ -26,7 +26,6 @@ a {
 
 var, em {
     font-style: normal;
-    font-weight: noraml;
 }
 
 /* 外框*/
@@ -87,7 +86,6 @@ var, em {
 }
 
 .ttop a {
-    background: url(../../images/320x480/bt_bgt.png) no-repeat;
     width: 49px;
     height: 32px;
     position: absolute;
@@ -99,7 +97,6 @@ var, em {
 }
 
 .ttop a:hover, .ttop a:active {
-    background: url(../../images/320x480/bt_bgthov.png) no-repeat;
     color: #000;
 }
 
@@ -212,4 +209,21 @@ var, em {
 }
 .ui-btn-text{
     font-size: 12px;
+}
+div a {
+    margin:auto auto auto auto;
+}
+
+.main div{
+    margin-bottom:3%;
+    margin-top:3%;
+}
+
+.ui-page{
+    min-height: 100% !important;
+}
+
+
+.ui-content{
+    height: 100%;
 }

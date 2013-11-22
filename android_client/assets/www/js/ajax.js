@@ -1,6 +1,7 @@
 //主要用于异步请求数据，输入参数为服务服务端地址（不要带有根节点）
 function sendToServer(url) {
     var path = getRootPath() + url;
+    alert(path);
     $.ajax({
         type: "GET",
         url: path,
@@ -33,7 +34,7 @@ function callBack(response,url) {
 };
 //发送地址的根地址。返回结果为地址的字符串
 function getRootPath() {
-    return "http://192.168.0.251:3000/"
+    return "http://10.0.2.2:3000/"
 };
 //创建需要插入的HTML字符串
 function buildHtml(response) {
@@ -44,7 +45,7 @@ function buildHtml(response) {
         newsContent = newsContent + htmlCache;
         htmlCache = newsContent;
     });
-    return '<div data-role="content" class="news-content">' + '<ul data-role="listview" class="news-list">' + newsContent + '</ul>';
+    return '<div data-role="content" class="news-content" data-iscroll>' + '<ul data-role="listview" class="news-list">' + newsContent + '</ul>';
 };
 
 function addButton(document, buttonName, callfunctionName) {

@@ -38,8 +38,16 @@ function bindLink(doc){
         } )
 };
 
-$(document).bind('pageinit', function () {
-      bindLink("ul.list li a")
-});
+function jsonToString(jsonObj){
+   return JSON.stringify(jsonObj);
+};
+function stirngToJson(string){
+   return eval('(' + string + ')');
+}
+
+function sessionToJson(session){
+    sessionStorage.clear();
+    return stirngToJson(session);
+}
 
 

@@ -1,7 +1,6 @@
 //主要用于异步请求数据，输入参数为服务服务端地址（不要带有根节点）
 function sendToServer(url) {
     var path = getRootPath() + url;
-    alert(path);
     $.ajax({
         type: "GET",
         url: path,
@@ -14,7 +13,7 @@ function sendToServer(url) {
         dataType: 'json',
         success: function (response) {
             hideLoader();
-            callBack(response,path);
+            callBack(response, path);
         },
         error: function () {
             alert('出错了...链接出现问题，请检查你的网络');
@@ -22,19 +21,13 @@ function sendToServer(url) {
     });
 };
 //异步发送成功后回调函数，参数为返回的结果
-function callBack(response,url) {
-    var thermeObj = $("#news-theme");
-    var pageObj = $("[data-role='page']");
-    thermeObj.hide();
-    pageObj.append(buildHtml(response));
-    $(".news-content").trigger("create")
-    $('.news-list').listview('refresh');
-    addButton('[data-role="header"]', "返回", "hideAction('.addButton','#news-theme','.news-content')");
-    bindContainer(".news-content");
+function callBack(response, url) {
+    sessionStorage.setItem("posts",jsonToString(response));
+    window.location.href="news_list.html";
 };
 //发送地址的根地址。返回结果为地址的字符串
 function getRootPath() {
-    return "http://10.0.2.2:3000/"
+    return "http://192.168.0.251:3000/"
 };
 //创建需要插入的HTML字符串
 function buildHtml(response) {
@@ -45,16 +38,16 @@ function buildHtml(response) {
         newsContent = newsContent + htmlCache;
         htmlCache = newsContent;
     });
-    return '<div data-role="content" class="news-content" data-iscroll>' + '<ul data-role="listview" class="news-list">' + newsContent + '</ul>';
+    return newsContent;
 };
 
 function addButton(document, buttonName, callfunctionName) {
-    $(document).append('<a  data-mini="true" class="addButton ui-btn-right" data-icon="forward" onclick="' + callfunctionName + '" >' + buttonName + '</a>')
+    $(document).append('<a href="news_theme.html" data-json="false" data-mini="true" class="addButton ui-btn-right" data-icon="forward" onclick="' + callfunctionName + '" >' + buttonName + '</a>')
     $('.addButton').button();
 }
 
-function hideAction(buttonElement, showElement, hideElement) {
-    $(buttonElement).hide();
+function hideAction(buttonElement, showElement,removeElement) {
+    $(buttonElement).remove();
     $(showElement).show();
-    $(hideElement).hide();
+    $(removeElement).remove();
 };

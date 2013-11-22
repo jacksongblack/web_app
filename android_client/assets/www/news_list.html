@@ -15,8 +15,18 @@
     <script src="js/iScroll.js"></script>
     <script src="js/jquery.mobile.iscrollview.js"></script>
     <script src="js/ajax.js"></script>
-    <script src="js/tool.js"></script>
     <script src="js/initialization.js"></script>
+    <script src="js/tool.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var params = sessionStorage.getItem("posts");
+            var jsonObj = sessionToJson(params)
+            $("[data-role='listview']").append(buildHtml(jsonObj));
+            $(".news-content").trigger("create")
+            $('.news-list').listview('refresh');
+            addButton('[data-role="header"]', "返回", "hideAction('.addButton','#news-theme','.news-content')");
+        });
+    </script>
 </head>
 <body>
 　
@@ -27,13 +37,9 @@
         <h1>新闻</h1>
     </div>
     <!-- /content --> 　
-    <div data-role="content" id="news-theme">
+    <div data-role="content" class="news-content">
         <div data-role="collapsible-set">
-            <ul data-role="listview" data-theme="c" class="list">
-                <li><a path="api/posts?posts_page=1" rel="pop">国内新闻</a></li>
-                <li><a >国外新闻</a></li>
-                <li><a >科技新闻</a></li>
-                <li><a >市场新闻</a></li>
+            <ul data-role="listview" data-theme="c" class="news-list">
             </ul>
         </div>
     </div>

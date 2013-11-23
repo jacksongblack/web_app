@@ -11,7 +11,7 @@ $(document).bind("mobileinit", function () {
     $.mobile.buttonMarkup.hoverDelay = true;
     $.mobile.loadingMessage = "加载中";
     $.mobile.pageLoadErrorMessage = '出错了';
-    $.mobile.ajaxEnabled=false;
+//    $.mobile.ajaxEnabled=false;
 
 });
 function showLoader() {
@@ -49,5 +49,12 @@ function sessionToJson(session){
     sessionStorage.clear();
     return stirngToJson(session);
 }
+
+function onPullDown(){
+    alert("++++++++++++=")
+};
+function onPullUp(){
+   alert("----------------")
+} ;
 
 

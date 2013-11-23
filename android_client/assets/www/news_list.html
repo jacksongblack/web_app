@@ -18,31 +18,45 @@
     <script src="js/initialization.js"></script>
     <script src="js/tool.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
             var params = sessionStorage.getItem("posts");
             var jsonObj = sessionToJson(params)
             $("[data-role='listview']").append(buildHtml(jsonObj));
             $(".news-content").trigger("create")
             $('.news-list').listview('refresh');
-            addButton('[data-role="header"]', "返回", "hideAction('.addButton','#news-theme','.news-content')");
+        });
+        $(document).delegate(".index-page", "pageinit", function (event) {
+            $(".iscroll-wrapper", this).bind({
+                "iscroll_onpulldown": onPullDown,
+                "iscroll_onpullup": onPullUp
+            });
         });
     </script>
 </head>
 <body>
 　
-<div data-role="page" data-theme="c" id="news">
+<div data-role="page" data-theme="c" id="news" class="index-page">
     <!-- /header -->　
     <div data-role="header" data-theme="c">
         <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主菜单</a>
+        <a href="news_theme.html" data-json="false" data-mini="true" class="addButton ui-btn-right" data-icon="forward">返回</a>
+
         <h1>新闻</h1>
     </div>
     <!-- /content --> 　
-    <div data-role="content" class="news-content">
-        <div data-role="collapsible-set">
-            <ul data-role="listview" data-theme="c" class="news-list">
-            </ul>
+    <div data-role="content" class="news-content" data-iscroll>
+        <div class="iscroll-pulldown">
+            <span class="iscroll-pull-icon"></span>
+            <span class="iscroll-pull-label"></span>
+        </div>
+        <ul data-role="listview" data-theme="c" class="news-list">
+        </ul>
+        <div class="iscroll-pullup">
+            <span class="iscroll-pull-icon"></span>
+            <span class="iscroll-pull-label"></span>
         </div>
     </div>
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>
 </div>
 <!-- /page -->
 </body>

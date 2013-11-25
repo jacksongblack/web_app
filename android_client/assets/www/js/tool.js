@@ -50,7 +50,16 @@ function sessionToJson(session) {
     return stirngToJson(session);
 }
 
+function showSimpleLoad(){
+    $.mobile.loading('show',{
+        textVisible: true,
+        text: "Мгдижа",
+        textonly: false,
+        theme: "c"
+    })
+}
 function onPullDown() {
+    showSimpleLoad()
     var url = $("#pullAjaxUrl").attr("href") + "1";
     $.getJSON(getRootPath()+url,function(response){
         $("[data-role='listview']").empty();
@@ -58,15 +67,18 @@ function onPullDown() {
         $(".news-content").trigger("create")
         $('.news-list').listview('refresh');
         $("#pullAjaxUrl").attr("data-page","1")
+        hideLoader();
     });
 
 };
 function onPullUp() {
+    showSimpleLoad();
  var url = addOneUrl( $("#pullAjaxUrl"));
     $.getJSON(getRootPath()+url ,function(response){
         $("[data-role='listview']").append(buildHtml(response));
         $(".news-content").trigger("create")
         $('.news-list').listview('refresh');
+        hideLoader();
     });
 
 };

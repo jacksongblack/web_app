@@ -28,33 +28,53 @@ function hideLoader() {
     //���ؼ�����
     $.mobile.loading('hide');
 };
-function bindLink(doc){
+function bindLink(doc) {
     $(doc).each(
         function () {
             $(this).bind("tap", function () {
                     sendToServer($(this).attr("path"));
                 }
             )
-        } )
+        })
 };
 
-function jsonToString(jsonObj){
-   return JSON.stringify(jsonObj);
+function jsonToString(jsonObj) {
+    return JSON.stringify(jsonObj);
 };
-function stirngToJson(string){
-   return eval('(' + string + ')');
+function stirngToJson(string) {
+    return eval('(' + string + ')');
 }
 
-function sessionToJson(session){
+function sessionToJson(session) {
     sessionStorage.clear();
     return stirngToJson(session);
 }
 
-function onPullDown(){
-    alert("++++++++++++=")
+function onPullDown() {
+    var url = $("#pullAjaxUrl").attr("href") + "1";
+    $.getJSON(getRootPath()+url,function(response){
+        $("[data-role='listview']").empty();
+        $("[data-role='listview']").append(buildHtml(response));
+        $(".news-content").trigger("create")
+        $('.news-list').listview('refresh');
+        $("#pullAjaxUrl").attr("data-page","1")
+    });
+
 };
-function onPullUp(){
-   alert("----------------")
-} ;
+function onPullUp() {
+ var url = addOneUrl( $("#pullAjaxUrl"));
+    $.getJSON(getRootPath()+url ,function(response){
+        $("[data-role='listview']").append(buildHtml(response));
+        $(".news-content").trigger("create")
+        $('.news-list').listview('refresh');
+    });
+
+};
+function addOneUrl(docObj){
+ var pageNumber= docObj.attr("data-page");
+     pageNumber =  new Number(pageNumber) + 1 ;
+     docObj.attr("data-page",pageNumber);
+     return docObj.attr("href") + pageNumber;
+}
 
 

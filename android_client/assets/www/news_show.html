@@ -21,16 +21,7 @@
         $(document).ready(function () {
             var params = sessionStorage.getItem("posts");
             var jsonObj = sessionToJson(params)
-            $("[data-role='listview']").append(buildHtml(jsonObj));
-            bindLink("ul.news-list li h3 a")
-            $(".news-content").trigger("create")
-            $('.news-list').listview('refresh');
-        });
-        $(document).delegate(".index-page", "pageinit", function (event) {
-            $(".iscroll-wrapper", this).bind({
-                "iscroll_onpulldown": onPullDown,
-                "iscroll_onpullup": onPullUp
-            });
+            $(".news-content").append(buildHtml(jsonObj));
         });
     </script>
 </head>
@@ -45,17 +36,8 @@
         <h1>新闻</h1>
     </div>
     <!-- /content --> 　
-    <div data-role="content" class="news-content" data-iscroll>
-        <div class="iscroll-pulldown">
-            <span class="iscroll-pull-icon"></span>
-            <span class="iscroll-pull-label" data-iscroll-pulled-text="刷新">加载中</span>
-        </div>
-        <ul data-role="listview" data-theme="c" class="news-list">
-        </ul>
-        <div class="iscroll-pullup">
-            <span class="iscroll-pull-icon"></span>
-            <span class="iscroll-pull-label" data-iscroll-pulled-text="下一页">加载中</span>
-        </div>
+    <div data-role="content" class="news-content">
+
     </div>
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>
 </div>

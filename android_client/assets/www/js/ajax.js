@@ -1,6 +1,7 @@
 //主要用于异步请求数据，输入参数为服务服务端地址（不要带有根节点）
 function sendToServer(url) {
     var path = getRootPath() + url;
+    alert(path);
     $.ajax({
         type: "GET",
         url: path,
@@ -34,7 +35,7 @@ function buildHtml(response) {
     var htmlCache = "";
     var newsContent;
     $.each(response, function (n, value) {
-        newsContent = "<li><img src="+ value.logo +" class='ul-li-icon'><h3><a href='"+getRootPath()+"api/posts/"+ value.id + "'>" + value.title + "</a></h3>" + "<p>" + value.content + "</p></li>";
+        newsContent = "<li><img src="+ value.logo +" class='ul-li-icon'><h3><a  data-ajax='false' path='api/posts/"+ value.id + "'>" + value.title + "</a></h3>" + "<p>" + value.content + "</p></li>";
         newsContent = newsContent + htmlCache;
         htmlCache = newsContent;
     });

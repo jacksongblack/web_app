@@ -34,17 +34,13 @@ function buildHtml(response) {
     var htmlCache = "";
     var newsContent;
     $.each(response, function (n, value) {
-        newsContent = "<li><h3>" + value.title + "</h3>" + "<p>" + value.content + "</p></li>";
+        newsContent = "<li><img src="+ value.logo +" class='ul-li-icon'><h3><a href='"+getRootPath()+"api/posts/"+ value.id + "'>" + value.title + "</a></h3>" + "<p>" + value.content + "</p></li>";
         newsContent = newsContent + htmlCache;
         htmlCache = newsContent;
     });
     return newsContent;
 };
 
-function addButton(document, buttonName, callfunctionName) {
-    $(document).append('<a href="news_theme.html" data-json="false" data-mini="true" class="addButton ui-btn-right" data-icon="forward" onclick="' + callfunctionName + '" >' + buttonName + '</a>')
-    $('.addButton').button();
-}
 
 function hideAction(buttonElement, showElement,removeElement) {
     $(buttonElement).remove();

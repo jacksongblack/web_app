@@ -1,0 +1,11 @@
+/libs
+/out
+/gen
+/res
+/src
+/.idea
+/bin
+*.iml
+*.xml
+*.properties
+*.txt

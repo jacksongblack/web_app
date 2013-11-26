@@ -22,7 +22,7 @@ function stirngToJson(string) {
 }
 
 function sessionToJson(session) {
-    sessionStorage.clear();
+//    sessionStorage.clear();
     return stirngToJson(session);
 }
 
@@ -44,6 +44,7 @@ function onPullDown() {
         $('.news-list').listview('refresh');
         $("#pullAjaxUrl").attr("data-page","1")
         hideLoader();
+        bindLink("a.ui-link");
     });
 
 };
@@ -55,6 +56,7 @@ function onPullUp() {
         $(".news-content").trigger("create")
         $('.news-list').listview('refresh');
         hideLoader();
+        bindLink("a.ui-link");
     });
 
 };

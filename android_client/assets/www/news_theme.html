@@ -27,9 +27,12 @@
                         )
                     })
         };
-         $(document).bind("pagebeforecreate",function(){
+         $(document).bind("pagebeforeshow",function(){
              bindLink(".list a");
          })
+        $(document).ready(function(){
+            bindLink("a.ui-link");
+        })
         //异步发送成功后回调函数，参数为返回的结果
         function getPosts(url) {
             showLoader();

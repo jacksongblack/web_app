@@ -38,10 +38,10 @@
         $(document).ready(function () {
             var params = sessionStorage.getItem("posts");
             var jsonObj = sessionToJson(params)
-            bindLink("ul.news-list li h3 a")
             $("[data-role='listview']").append(buildHtml(jsonObj));
             $(".news-content").trigger("create")
             $('.news-list').listview('refresh');
+            bindLink("a.ui-link")
         });
         $(document).delegate(".index-page", "pageinit", function (event) {
             $(".iscroll-wrapper", this).bind({

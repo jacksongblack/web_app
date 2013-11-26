@@ -10,19 +10,36 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.iscrollview.css"/>
     <!--javascript-->
     <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/initialization.js"></script>
     <script src="js/jquery.mobile-1.3.2.js"></script>
     <!--<script src="js/cordova.js"></script>-->
     <script src="js/iScroll.js"></script>
     <script src="js/jquery.mobile.iscrollview.js"></script>
     <script src="js/ajax.js"></script>
-    <script src="js/initialization.js"></script>
     <script src="js/tool.js"></script>
     <script type="text/javascript">
+        function bindLink(doc) {
+            $(doc).each(
+                    function () {
+                        $(this).bind("tap", function () {
+                                    getShowPost($(this).attr("path"));
+                                }
+                        )
+                    })
+        };
+        function getShowPost(url){
+            showLoader();
+            $.getJSON(getRootPath()+ url,function(response){
+                sessionStorage.setItem("post",jsonToString(response));
+                window.location.href="news_show.html";
+                hideLoader();
+            })
+        };
         $(document).ready(function () {
             var params = sessionStorage.getItem("posts");
             var jsonObj = sessionToJson(params)
-            $("[data-role='listview']").append(buildHtml(jsonObj));
             bindLink("ul.news-list li h3 a")
+            $("[data-role='listview']").append(buildHtml(jsonObj));
             $(".news-content").trigger("create")
             $('.news-list').listview('refresh');
         });

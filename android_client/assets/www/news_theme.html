@@ -10,13 +10,36 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.iscrollview.css"/>
     <!--javascript-->
     <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/initialization.js"></script>
     <script src="js/jquery.mobile-1.3.2.js"></script>
     <!--<script src="js/cordova.js"></script>-->
     <script src="js/iScroll.js"></script>
     <script src="js/jquery.mobile.iscrollview.js"></script>
     <script src="js/ajax.js"></script>
     <script src="js/tool.js"></script>
-    <script src="js/initialization.js"></script>
+    <script type="text/javascript">
+        function bindLink(doc) {
+            $(doc).each(
+                    function () {
+                        $(this).bind("tap", function () {
+                                    getPosts($(this).attr("path"));
+                                }
+                        )
+                    })
+        };
+         $(document).bind("pagebeforecreate",function(){
+             bindLink(".list a");
+         })
+        //异步发送成功后回调函数，参数为返回的结果
+        function getPosts(url) {
+            showLoader();
+            $.getJSON(getRootPath()+url,function(response){
+                sessionStorage.setItem("posts",jsonToString(response));
+                window.location.href="news_list.html";
+                hideLoader();
+            })
+        };
+    </script>
 </head>
 <body>
 　

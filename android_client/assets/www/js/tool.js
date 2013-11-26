@@ -1,19 +1,3 @@
-$(document).bind("mobileinit", function () {
-    $.extend($.mobile, {
-        defaultPageTransition: 'slidefade'
-    });
-    $.mobile.transitionFallbacks.slideout = "none"
-    $.mobile.defaultPageTransition = 'slidefade';
-    $.mobile.defaultDialogTransition = 'slidefade';
-    $.mobile.allowCrossDomainPages = true;
-    $.support.cors = true;
-    //ï¿½Ø±ï¿½DOM Cacheï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿?    $.mobile.page.prototype.options.domCache = false;
-    $.mobile.buttonMarkup.hoverDelay = true;
-    $.mobile.loadingMessage = "¼ÓÔØÖÐ";
-    $.mobile.pageLoadErrorMessage = '³ö´íÁË';
-//    $.mobile.ajaxEnabled=false;
-
-});
 function showLoader() {
 
     //ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.for jQuery Mobile 1.2.0
@@ -28,15 +12,7 @@ function hideLoader() {
     //ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½
     $.mobile.loading('hide');
 };
-function bindLink(doc) {
-    $(doc).each(
-        function () {
-            $(this).bind("tap", function () {
-                    sendToServer($(this).attr("path"));
-                }
-            )
-        })
-};
+
 
 function jsonToString(jsonObj) {
     return JSON.stringify(jsonObj);
@@ -73,7 +49,7 @@ function onPullDown() {
 };
 function onPullUp() {
     showSimpleLoad();
- var url = addOneUrl( $("#pullAjaxUrl"));
+ var url = editPath( $("#pullAjaxUrl"));
     $.getJSON(getRootPath()+url ,function(response){
         $("[data-role='listview']").append(buildHtml(response));
         $(".news-content").trigger("create")
@@ -82,7 +58,7 @@ function onPullUp() {
     });
 
 };
-function addOneUrl(docObj){
+function editPath(docObj){
  var pageNumber= docObj.attr("data-page");
      pageNumber =  new Number(pageNumber) + 1 ;
      docObj.attr("data-page",pageNumber);

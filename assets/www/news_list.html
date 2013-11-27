@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gbk"/>
-    <title>–¬Œ≈</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Êñ∞Èóª</title>
     <!--css-->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/image_style.css"/>
@@ -26,18 +26,19 @@
                                 }
                         )
                     })
-        };
-        function getShowPost(url){
-            showLoader();
-            $.getJSON(getRootPath()+ url,function(response){
-                sessionStorage.setItem("post",jsonToString(response));
-                window.location.href="news_show.html";
-                hideLoader();
-            })
-        };
-        $(document).ready(function () {
+        }
+        ;
+        function getShowPost(url) {
+            var getObj = new GetTo(url);
+            getObj.storageName = "post";
+            getObj.send();
+           console.log(getObj.storageName);
+            window.location.href = "news_show.html";
+        }
+        ;
+        $(document).bind("pageinit", function () {
             var params = sessionStorage.getItem("posts");
-            var jsonObj = sessionToJson(params)
+            var jsonObj = flashToJson(params)
             $("[data-role='listview']").append(buildHtml(jsonObj));
             $(".news-content").trigger("create")
             $('.news-list').listview('refresh');
@@ -52,26 +53,26 @@
     </script>
 </head>
 <body>
-°°
+„ÄÄ
 <div data-role="page" data-theme="c" id="news" class="index-page">
-    <!-- /header -->°°
+    <!-- /header -->„ÄÄ
     <div data-role="header" data-theme="c">
-        <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>÷˜≤Àµ•</a>
-        <a href="news_theme.html" data-json="false" data-mini="true" class="addButton ui-btn-right" data-icon="forward">∑µªÿ</a>
+        <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>‰∏ªËèúÂçï</a>
+        <a href="news_theme.html" data-json="false" data-mini="true" class="addButton ui-btn-right" data-icon="forward">ËøîÂõû</a>
 
-        <h1>–¬Œ≈</h1>
+        <h1>Êñ∞Èóª</h1>
     </div>
-    <!-- /content --> °°
+    <!-- /content --> „ÄÄ
     <div data-role="content" class="news-content" data-iscroll>
         <div class="iscroll-pulldown">
             <span class="iscroll-pull-icon"></span>
-            <span class="iscroll-pull-label" data-iscroll-pulled-text="À¢–¬">º”‘ÿ÷–</span>
+            <span class="iscroll-pull-label" data-iscroll-pulled-text="Âà∑Êñ∞">Âä†ËΩΩ‰∏≠</span>
         </div>
         <ul data-role="listview" data-theme="c" class="news-list">
         </ul>
         <div class="iscroll-pullup">
             <span class="iscroll-pull-icon"></span>
-            <span class="iscroll-pull-label" data-iscroll-pulled-text="œ¬“ª“≥">º”‘ÿ÷–</span>
+            <span class="iscroll-pull-label" data-iscroll-pulled-text="‰∏ã‰∏ÄÈ°µ">Âä†ËΩΩ‰∏≠</span>
         </div>
     </div>
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>

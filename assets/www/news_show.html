@@ -18,12 +18,14 @@
     <script src="js/ajax.js"></script>
     <script src="js/tool.js"></script>
     <script type="text/javascript">
-        $(document).bind("pagebeforecreate", function () {
+        $(document).bind("pageinit", function () {
             var params = sessionStorage.getItem("post");
+            console.log(params)
             var jsonObj = flashToJson(params)
             var obj = $(".news-content")
             obj.html(buildshow(jsonObj))
             addImagePath();
+            sessionStorage.removeItem("post")
         })
 
         function buildshow(obj) {

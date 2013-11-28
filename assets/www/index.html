@@ -19,7 +19,7 @@
     <!--九宫格-->
     <div data-role="content" class="main">
         <div class="ui-grid-b">
-            <div class="ui-block-a"><a href="news_theme.html" class="img1" data-ajax="flash">新闻</a></div>
+            <div class="ui-block-a"><a path="api/domains" class="img1" data-ajax="flash">新闻</a></div>
             <div class="ui-block-b"><a href="news_theme.html" class="img2">行业</a></div>
             <div class="ui-block-c"><a href="news_theme.html" class="img3">产品</a></div>
         </div>
@@ -45,9 +45,15 @@
 <script src="js/iScroll.js"></script>
 <script src="js/jquery.mobile.iscrollview.js"></script>
 <!--<script src="js/cordova.js"></script>-->
+<script src="js/storageTool.js"></script>
 <script src="js/ajax.js"></script>
 <script src="js/tool.js"></script>
 <script type="text/javascript">
+    $(document).bind("pageinit", function () {
+        var bindLink = new BindLinkTo()
+        bindLink.pageName= "news_list.html"
+        bindLink.bind("div a", "domains")
+    });
 </script>
 </body>
 </html>

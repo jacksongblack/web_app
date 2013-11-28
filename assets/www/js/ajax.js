@@ -23,28 +23,48 @@ function buildHtml(response) {
         newsContent = newsContent + htmlCache;
         htmlCache = newsContent;
     });
+    console.log(newsContent)
     return newsContent;
 };
-function GetTo(url) {
-    this.url = url;
-    _this_= this;
+function GetTo() {
+    _thisObj_ = this;
+
 }
 
 
 GetTo.prototype = {
     constructor: GetTo,
-    storageName:"flash",
-    send: function () {
-        showLoader();
-        $.getJSON(getRootPath() + this.url, function (response) {
-            sessionStorage.setItem(_this_.storageName, jsonToString(response))
-        });
-        var data = sessionStorage.getItem(_this_.storageName);
-        hideLoader();
-        return stirngToJson(data);
+    send: function (url,valueName) {
+        $.ajax({
+            type:"get",
+            data:"json",
+            url: "http://192.168.0.251:3000/"+ url,
+            content:_thisObj_,
+            async:false,
+
+            error:function(){
+                localStorage.setItem(valueName,"error")
+            },
+            success:function(data){
+                localStorage.setItem(valueName, JSON.stringify(data));
+               var tatus = localStorage.getItem(valueName)
+                if(tatus!=null){
+                    hideLoader();
+                    _thisObj_.jumpPage(_thisObj_.toPage)
+                }
+
+            }
+        })
     },
-    clearSessionStorage: function() {
-        sessionStorage.removeItem(_this_.storageName);
+    clearSessionStorage: function () {
+        localStorage.removeItem(_thisObj_.storageName);
+    },
+    toPage:"#",
+    jumpPage:function(page){
+
+        $.mobile.changePage(page, {transition: "slideup",
+            reverse: false,
+            changeHash: true})
     }
 }
 

@@ -17,31 +17,30 @@
     <script src="js/jquery.mobile.iscrollview.js"></script>
     <script src="js/ajax.js"></script>
     <script src="js/tool.js"></script>
+    <script src="js/storageTool.js"></script>
     <script type="text/javascript">
-        function bindLink(doc) {
-            $(doc).each(
-                    function () {
-                        $(this).bind("tap", function () {
-                                    getPosts($(this).attr("path"));
-                                }
-                        )
-                    })
-        };
-         $(document).bind("pagebeforeshow",function(){
-             bindLink(".list a");
-         })
-        $(document).ready(function(){
-            bindLink("a.ui-link");
-        })
-        //异步发送成功后回调函数，参数为返回的结果
-        function getPosts(url) {
-            showLoader();
-            $.getJSON(getRootPath()+url,function(response){
-                sessionStorage.setItem("posts",jsonToString(response));
-                window.location.href="news_list.html";
-                hideLoader();
-            })
-        };
+         $(document).bind("pageinit",function(){
+
+             var tool = new StorageTool();
+             tool.objectToHtml = function(obj){
+                 var html="";
+                 $.each(obj,function(){
+                  html = '<li><a path="api/domains/'+this.id+'">'+ this.name +'</a></li>' + html;
+                 })
+                 return html
+             };
+             var html = tool.storageToHtml("domains");
+             console.log(tool)
+             $(".list").append(html);
+             $(".news-theme").trigger("create");
+             $('.list').listview('refresh');
+
+             sessionStorage.getItem("domains")
+             var bind = new BindLinkTo;
+             bind.StorageName="posts";
+             bind.pageName="news_list.html"
+             bind.bind("li a")
+         });
     </script>
 </head>
 <body>
@@ -53,10 +52,10 @@
         <h1>新闻</h1>
     </div>
     <!-- /content --> 　
-    <div data-role="content" id="news-theme">
+    <div data-role="content" class="news-theme">
         <div data-role="collapsible-set">
             <ul data-role="listview" data-theme="c" class="list">
-                <li><a path="api/posts?posts_page=1" rel="pop">国内新闻</a></li>
+                <li><a path="api/domains/hoting" rel="pop">国内新闻</a></li>
                 <li><a >国外新闻</a></li>
                 <li><a >科技新闻</a></li>
                 <li><a >市场新闻</a></li>

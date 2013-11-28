@@ -1,14 +1,3 @@
-function jsonToString(jsonObj) {
-    return JSON.stringify(jsonObj);
-};
-function stirngToJson(string) {
-    return eval('(' + string + ')');
-}
-
-function flashToJson(session) {
-//    sessionStorage.clear();
-    return stirngToJson(session);
-}
 
 function showSimpleLoad() {
     $.mobile.loading('show', {
@@ -28,6 +17,7 @@ function onPullDown() {
     $('.news-list').listview('refresh');
     $("#pullAjaxUrl").attr("data-page", "1")
     bindLink("a.ui-link");
+    getobj.clearSessionStorage()
 
 };
 function onPullUp() {
@@ -44,6 +34,29 @@ function editPath(docObj) {
     pageNumber = new Number(pageNumber) + 1;
     docObj.attr("data-page", pageNumber);
     return docObj.attr("href") + pageNumber;
+}
+
+function BindLinkTo() {
+    _thisObj_= this;
+};
+BindLinkTo.prototype ={
+    constructor: BindLinkTo,
+    bind:function(document,keyname){
+        $(document).each(
+            function () {
+                $(this).bind("tap", function () {
+                        _thisObj_.send($(this).attr("path"),keyname);
+                    }
+                )
+            })
+    },
+    send:function(url,valueName){
+     var getTo =  new GetTo()
+        getTo.toPage= this.pageName
+        var status = getTo.send(url,valueName)
+    },
+    pageName:"#"
+
 }
 
 

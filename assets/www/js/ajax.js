@@ -37,7 +37,7 @@ function GetTo() {
 
 GetTo.prototype = {
     constructor: GetTo,
-    send: function (url,valueName) {
+        send: function (url,valueName) {
         $.ajax({
             type:"get",
             data:"json",

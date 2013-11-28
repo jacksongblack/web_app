@@ -11,7 +11,7 @@
 </head>
 <body>
 　
-<div data-role="page" data-theme="c" id="news" class="news-page">
+<div data-role="page" data-theme="c" id="news_list">
     <!--javascript-->
     <script src="js/jquery-1.9.1.js"></script>
     <script src="js/initialization.js"></script>
@@ -31,7 +31,6 @@
             $('.news-list').listview('refresh');
 
 
-            var bind = new BindLinkTo($("url.news-list a.ui-link"))
             bind.StorageName = "post"
             bind.pageName="news_show.html"
             bind.bind();

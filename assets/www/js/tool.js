@@ -53,7 +53,7 @@ BindLinkTo.prototype ={
     send:function(url,valueName){
      var getTo =  new GetTo()
         getTo.toPage= this.pageName
-        var status = getTo.send(url,valueName)
+        getTo.send(url,valueName)
     },
     pageName:"#"
 

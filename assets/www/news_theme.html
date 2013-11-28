@@ -18,34 +18,32 @@
     <script src="js/ajax.js"></script>
     <script src="js/tool.js"></script>
     <script src="js/storageTool.js"></script>
-    <script type="text/javascript">
-         $(document).bind("pageinit",function(){
-
-             var tool = new StorageTool();
-             tool.objectToHtml = function(obj){
-                 var html="";
-                 $.each(obj,function(){
-                  html = '<li><a path="api/domains/'+this.id+'">'+ this.name +'</a></li>' + html;
-                 })
-                 return html
-             };
-             var html = tool.storageToHtml("domains");
-             console.log(tool)
-             $(".list").append(html);
-             $(".news-theme").trigger("create");
-             $('.list').listview('refresh');
-
-             sessionStorage.getItem("domains")
-             var bind = new BindLinkTo;
-             bind.StorageName="posts";
-             bind.pageName="news_list.html"
-             bind.bind("li a")
-         });
-    </script>
 </head>
 <body>
 ¡¡
 <div data-role="page" data-theme="c" id="news">
+    <script type="text/javascript">
+        $(document).bind("pageinit",function(){
+
+            var tool = new StorageTool();
+            tool.objectToHtml = function(obj){
+                var html="";
+                $.each(obj,function(){
+                    html = '<li><a path="api/domains/'+this.id+'">'+ this.name +'</a></li>' + html;
+                })
+                return html
+            };
+            var html = tool.storageToHtml("domains");
+            $(".list").append(html);
+            $(".news-theme").trigger("create");
+            $('.list').listview('refresh');
+
+            var bind = new BindLinkTo;
+            bind.StorageName="posts";
+            bind.pageName="news_list.html"
+            bind.bind("li a")
+        });
+    </script>
     <!-- /header -->¡¡
     <div data-role="header" data-theme="c">
         <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>Ö÷²Ëµ¥</a>

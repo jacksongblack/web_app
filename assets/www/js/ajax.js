@@ -15,7 +15,7 @@ function hideLoader() {
     $.mobile.loading('hide');
 };
 function getRootPath(){
-     return "http://192.168.1.109:3000/"
+     return "http://192.168.0.251:3000/"
 }
 //编辑并创建html页面
 function buildHtml(response) {

@@ -25,7 +25,7 @@
     <script type="text/javascript">
         $(document).bind("pageinit", function () {
             var obj = new StorageTool()
-            $("[data-role='listview']").append(obj.storageToHtml("domains"));
+            $("[data-role='listview']").append(obj.storageToHtml("posts"));
             $.mobile.changePage($(".news-page"))
             $(".news-content").trigger("create")
             $('.news-list').listview('refresh');

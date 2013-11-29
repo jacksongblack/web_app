@@ -21,7 +21,11 @@
 </head>
 <body>
 ¡¡
+<<<<<<< HEAD
 <div data-role="page" data-theme="c" id="news_theme">
+=======
+<div data-role="page" data-theme="c" id="news">
+>>>>>>> b6e79f142067bb3018007e3adffb2fe0bef3c681
     <script type="text/javascript">
         $(document).bind("pageinit",function(){
 
@@ -34,16 +38,13 @@
                 return html
             };
             var html = tool.storageToHtml("domains");
-            console.log(tool)
             $(".list").append(html);
             $(".news-theme").trigger("create");
             $('.list').listview('refresh');
 
-            sessionStorage.getItem("domains")
             var bind = new BindLinkTo;
-            bind.StorageName="posts";
             bind.pageName="news_list.html"
-            bind.bind("li a")
+            bind.bind("li a","posts")
         });
     </script>
     <!-- /header -->¡¡

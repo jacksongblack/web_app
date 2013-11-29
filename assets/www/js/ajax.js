@@ -14,6 +14,9 @@ function showLoader() {
 function hideLoader() {
     $.mobile.loading('hide');
 };
+function getRootPath(){
+     return "http://192.168.1.109:3000/"
+}
 //编辑并创建html页面
 function buildHtml(response) {
     var htmlCache = "";
@@ -25,19 +28,19 @@ function buildHtml(response) {
     });
     return newsContent;
 };
+
 function GetTo() {
     _thisObj_ = this;
 
 }
 
-
 GetTo.prototype = {
     constructor: GetTo,
-    send: function (url,valueName) {
+        send: function (url,valueName) {
         $.ajax({
             type:"get",
             data:"json",
-            url: "http://192.168.0.251:3000/"+ url,
+            url: getRootPath()+ url,
             content:_thisObj_,
             async:false,
 
@@ -61,7 +64,7 @@ GetTo.prototype = {
     toPage:"#",
     jumpPage:function(page){
 
-        $.mobile.changePage(page, {transition: "slideup",
+        $.mobile.changePage(page, {transition: "pop",
             reverse: false,
             changeHash: true})
     }

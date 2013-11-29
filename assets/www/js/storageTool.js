@@ -17,9 +17,10 @@ StorageTool.prototype={
     objectToHtml:function(obj){
         return buildHtml(obj)
     },
-    storageToHtml:function(sessionKeyName){
-       var str = localStorage.getItem(sessionKeyName)
+    storageToHtml:function(KeyName){
+       var str = localStorage.getItem(KeyName)
+        console.log(KeyName)
        var obj = this.objectToHtml(stringToJson(str))
-       return obj
+        return obj
     }
 };

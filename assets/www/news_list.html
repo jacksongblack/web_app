@@ -30,10 +30,9 @@
             $(".news-content").trigger("create")
             $('.news-list').listview('refresh');
 
-
-            bind.StorageName = "post"
+            var bind =new BindLinkTo()
             bind.pageName="news_show.html"
-            bind.bind();
+            bind.bind("li a","post");
         });
         $(document).delegate(".index-page", "pageinit", function (event) {
             $(".iscroll-wrapper", this).bind({

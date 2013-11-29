@@ -23,7 +23,6 @@ function buildHtml(response) {
         newsContent = newsContent + htmlCache;
         htmlCache = newsContent;
     });
-    console.log(newsContent)
     return newsContent;
 };
 function GetTo() {

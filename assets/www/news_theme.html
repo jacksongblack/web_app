@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gbk"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
     <title>新闻</title>
     <!--css-->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -21,11 +21,7 @@
 </head>
 <body>
 　
-<<<<<<< HEAD
 <div data-role="page" data-theme="c" id="news_theme">
-=======
-<div data-role="page" data-theme="c" id="news">
->>>>>>> b6e79f142067bb3018007e3adffb2fe0bef3c681
     <script type="text/javascript">
         $(document).bind("pageinit",function(){
 
@@ -38,6 +34,7 @@
                 return html
             };
             var html = tool.storageToHtml("domains");
+            $(".list").empty();
             $(".list").append(html);
             $(".news-theme").trigger("create");
             $('.list').listview('refresh');
@@ -45,6 +42,13 @@
             var bind = new BindLinkTo;
             bind.pageName="news_list.html"
             bind.bind("li a","posts")
+            bind.send = function(url,valueName){
+                var getTo =  new GetTo()
+                getTo.toPage= this.pageName
+                getTo.send(url,valueName);
+                console.log(url);
+                localStorage.setItem("theme_url",url)
+            }
         });
     </script>
     <!-- /header -->　

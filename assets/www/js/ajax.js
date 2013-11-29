@@ -22,7 +22,7 @@ function buildHtml(response) {
     var htmlCache = "";
     var newsContent;
     $.each(response, function (n, value) {
-        newsContent = "<li><img src=" + value.logo + " class='ul-li-icon'><h3><a  data-ajax='false' path='api/posts/" + value.id + "'>" + value.title + "</a></h3>" + "<p>" + value.description + "</p></li>";
+        newsContent = "<li><img  class='ul-li-icon'><h3><a  data-ajax='false' path='api/posts/" + value.id + "'>" + value.title + "</a></h3>" + "<p>" + value.description + "</p></li>";
         newsContent = newsContent + htmlCache;
         htmlCache = newsContent;
     });
@@ -39,7 +39,7 @@ GetTo.prototype = {
         send: function (url,valueName) {
         $.ajax({
             type:"get",
-            data:"json",
+            dataType:"json",
             url: getRootPath()+ url,
             content:_thisObj_,
             async:false,
@@ -58,12 +58,8 @@ GetTo.prototype = {
             }
         })
     },
-    clearSessionStorage: function () {
-        localStorage.removeItem(_thisObj_.storageName);
-    },
     toPage:"#",
     jumpPage:function(page){
-
         $.mobile.changePage(page, {transition: "pop",
             reverse: false,
             changeHash: true})

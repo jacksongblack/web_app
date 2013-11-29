@@ -19,7 +19,6 @@ StorageTool.prototype={
     },
     storageToHtml:function(KeyName){
        var str = localStorage.getItem(KeyName)
-        console.log(KeyName)
        var obj = this.objectToHtml(stringToJson(str))
         return obj
     }

@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Êñ∞Èóª</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <title>–¬Œ≈</title>
     <!--css-->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/image_style.css"/>
@@ -10,8 +10,8 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.iscrollview.css"/>
 </head>
 <body>
-„ÄÄ
-<div data-role="page" data-theme="c" id="news_list">
+°°
+<div data-role="page" data-theme="c" id="news_list_page" class="index-page">
     <!--javascript-->
     <script src="js/jquery-1.9.1.js"></script>
     <script src="js/initialization.js"></script>
@@ -22,48 +22,66 @@
     <script src="js/ajax.js"></script>
     <script src="js/tool.js"></script>
     <script src="js/storageTool.js"></script>
-    <script type="text/javascript">
+    <script charset="gb2312"  src="js/pullIscroll.js"></script>
+    <script charset="gb2312" type="text/javascript">
         $(document).bind("pageinit", function () {
             var obj = new StorageTool()
-            $("[data-role='listview']").append(obj.storageToHtml("posts"));
+            $(".news-list-ul").append(obj.storageToHtml("posts"));
             $.mobile.changePage($(".news-page"))
-            $(".news-content").trigger("create")
-            $('.news-list').listview('refresh');
+            $(".news-list").trigger("create")
+            $('.news-list-ul').listview('refresh');
+            var theme_url = localStorage.getItem("theme_url");
+            $("#pullAjaxUrl").attr("href",theme_url+"?posts_page=");
 
-            var bind =new BindLinkTo()
-            bind.pageName="news_show.html"
-            bind.bind("li a","post");
-        });
-        $(document).delegate(".index-page", "pageinit", function (event) {
-            $(".iscroll-wrapper", this).bind({
-                "iscroll_onpulldown": onPullDown,
-                "iscroll_onpullup": onPullUp
+
+            $(".iscroll-wrapper", this).bind( {
+                "iscroll_onpulldown" : onPullDown,
+                "iscroll_onpullup"   : onPullUp
             });
-        });
-    </script>
-    <!-- /header -->„ÄÄ
-    <div data-role="header" data-theme="c">
-        <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>‰∏ªËèúÂçï</a>
-        <a href="news_theme.html" data-json="false" data-mini="true" class="addButton ui-btn-right" data-icon="forward">ËøîÂõû</a>
 
-        <h1>Êñ∞Èóª</h1>
+            var bindObj =new BindLinkTo()
+            bindObj.pageName="news_show.html"
+            bindObj.send = function (url,valueName){
+                var getTo =  new GetTo()
+                getTo.toPage= this.pageName
+                getTo.send(url,valueName)
+                getTo.jumpPage = function (page){
+                    window.location = page
+                }
+            }
+            bindObj.bind("ul.news-list-ul li h3 a","post");
+        });
+
+    </script>
+    <!-- /header -->°°
+    <div data-role="header" data-theme="c">
+        <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>÷˜≤Àµ•</a>
+        <a href="news_theme.html"  data-mini="true" class="addButton ui-btn-right" data-icon="forward" data-ajax= false>∑µªÿ</a>
+
+        <h1>–¬Œ≈</h1>
     </div>
-    <!-- /content --> „ÄÄ
-    <div data-role="content" class="news-content" data-iscroll>
+    <!-- /content --> °°
+    <div data-role="content" class="news-list" data-iscroll>
         <div class="iscroll-pulldown">
             <span class="iscroll-pull-icon"></span>
-            <span class="iscroll-pull-label" data-iscroll-pulled-text="Âà∑Êñ∞">Âä†ËΩΩ‰∏≠</span>
+            <span class="iscroll-pull-label" data-iscroll-pulled-text="…œ“ª“≥">º”‘ÿ÷–</span>
         </div>
-        <ul data-role="listview" data-theme="c" class="news-list">
+        <ul data-role="listview" data-theme="c" class="news-list-ul">
         </ul>
         <div class="iscroll-pullup">
             <span class="iscroll-pull-icon"></span>
-            <span class="iscroll-pull-label" data-iscroll-pulled-text="‰∏ã‰∏ÄÈ°µ">Âä†ËΩΩ‰∏≠</span>
+            <span class="iscroll-pull-label" data-iscroll-pulled-text="œ¬“ª“≥">º”‘ÿ÷–</span>
         </div>
     </div>
+    <a id="pullAjaxUrl" href="api/domains/1?posts_page=" data-page="1"></a>
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>
+    <div data-role="popup" id="lastPage">
+        <p>«◊£°µΩ◊Ó∫Û“ª“≥¡À</p>
+    </div>
+    <div data-role="popup" id="firstPage">
+        <p>«◊£°“—æ≠µ⁄“ª“≥¡À<p>
+    </div>
 </div>
 <!-- /page -->
-<a id="pullAjaxUrl" href="api/posts?posts_page=" data-page="1"></a>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gbk"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
     <title>导航</title>
     <!--css-->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -12,6 +12,12 @@
 </head>
 <body>
 <div data-role="page" data-theme="c">
+    <div data-role="popup" id="lastPage">
+        <p>亲！到最后一页了</p>
+    </div>
+    <div data-role="popup" id="firstPage">
+        <p>亲！已经第一页了<p>
+    </div>
     <!--header-->
     <div data-role="header" data-theme="c">
         <h1> 中小微企业服务平台 </h1>
@@ -48,11 +54,12 @@
 <script src="js/storageTool.js"></script>
 <script src="js/ajax.js"></script>
 <script src="js/tool.js"></script>
+<script charset="gb2312" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).bind("pageinit", function () {
         var bindLink = new BindLinkTo()
         bindLink.pageName= "news_theme.html"
-        bindLink.bind("div a", "domains")
+        bindLink.bind(".ui-grid-b div a", "domains")
     });
 </script>
 </body>

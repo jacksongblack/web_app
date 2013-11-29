@@ -16,6 +16,7 @@ function BindLinkTo() {
 BindLinkTo.prototype ={
     constructor: BindLinkTo,
     bind:function(document,keyname){
+
         $(document).each(
             function () {
                 $(this).bind("tap", function () {

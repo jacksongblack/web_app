@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <title>新闻</title>
+    <!--css-->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/image_style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.iscrollview.css"/>
+    <!--javascript-->
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/initialization.js"></script>
+    <script src="js/jquery.mobile-1.3.2.js"></script>
+    <!--<script src="js/cordova.js"></script>-->
+    <script src="js/iScroll.js"></script>
+    <script src="js/jquery.mobile.iscrollview.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/tool.js"></script>
+    <script src="js/storageTool.js"></script>
+</head>
+<body>
+　
+<div data-role="page" data-theme="c" id="industrys_theme">
+    <script type="text/javascript">
+        $(document).bind("pageinit",function(){
+
+            var tool = new StorageTool();
+            tool.objectToHtml = function(obj){
+                var html="";
+                $.each(obj,function(){
+                    html = '<li><a path="api/industries/'+this.id+'">'+ this.name +'</a></li>' + html;
+                })
+                return html
+            };
+            var html = tool.storageToHtml("industries");
+            $(".list").empty();
+            $(".list").append(html);
+            $(".news-theme").trigger("create");
+            $('.list').listview('refresh');
+
+            var bind = new BindLinkTo;
+            bind.pageName="news_list.html"
+            bind.bind("li a","posts")
+            bind.send = function(url,valueName){
+                var getTo =  new GetTo()
+                getTo.toPage= this.pageName
+                getTo.send(url,valueName);
+                console.log(url);
+                localStorage.setItem("theme_url",url)
+            }
+        });
+    </script>
+    <!-- /header -->　
+    <div data-role="header" data-theme="c">
+        <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主菜单</a>
+        <h1>新闻</h1>
+    </div>
+    <!-- /content --> 　
+    <div data-role="content" class="news-theme">
+        <div data-role="collapsible-set">
+            <ul data-role="listview" data-theme="c" class="list">
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /page -->
+</body>
+</html>

@@ -16,7 +16,9 @@
         <p>亲！到最后一页了</p>
     </div>
     <div data-role="popup" id="firstPage">
-        <p>亲！已经第一页了<p>
+        <p>亲！已经第一页了
+
+        <p>
     </div>
     <!--header-->
     <div data-role="header" data-theme="c">
@@ -25,8 +27,10 @@
     <!--九宫格-->
     <div data-role="content" class="main">
         <div class="ui-grid-b">
-            <div class="ui-block-a"><a path="api/domains" class="img1" data-ajax="flash">新闻</a></div>
-            <div class="ui-block-b"><a href="news_theme.html" class="img2">行业</a></div>
+            <div class="ui-block-a"><a href="news_theme.html" path="api/domains" class="img1" data-storageKey="domains">新闻</a>
+            </div>
+            <div class="ui-block-b"><a href="industries_theme.html" path="api/industries" class="img2"
+                                       data-storageKey="industries">行业</a></div>
             <div class="ui-block-c"><a href="news_theme.html" class="img3">产品</a></div>
         </div>
         <!-- /grid-a -->
@@ -58,7 +62,21 @@
 <script type="text/javascript">
     $(document).bind("pageinit", function () {
         var bindLink = new BindLinkTo()
-        bindLink.pageName= "news_theme.html"
+        bindLink.bind = function (document) {
+            $(document).each(
+                    function () {
+                        $(this).bind("tap", function () {
+                                    _thisObj_.send($(this));
+                                }
+                        )
+                    })
+        }
+        bindLink.send = function (obj) {
+            console.log(obj.attr("href"))
+            var getTo = new GetTo();
+            getTo.toPage = obj.attr("href")
+            getTo.send(obj.attr("path"), obj.attr("data-storageKey"))
+        }
         bindLink.bind(".ui-grid-b div a", "domains")
     });
 </script>

@@ -22,7 +22,7 @@ function buildHtml(response) {
     var htmlCache = "";
     var newsContent;
     $.each(response, function (n, value) {
-        newsContent = "<li><img  class='ul-li-icon'><h3><a  data-ajax='false' path='api/posts/" + value.id + "'>" + value.title + "</a></h3>" + "<p>" + value.description + "</p></li>";
+        newsContent = "<li><a  data-ajax='false' path='api/posts/" + value.id + "'><img  class='ul-li-icon'><h3>" + value.title + "</h3>" + "<p>" + value.description + "</p></a></li>";
         newsContent = newsContent + htmlCache;
         htmlCache = newsContent;
     });

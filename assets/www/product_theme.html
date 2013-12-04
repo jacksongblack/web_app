@@ -21,7 +21,7 @@
 </head>
 <body>
 ¡¡
-<div data-role="page" data-theme="c" id="news_theme">
+<div data-role="page" data-theme="c" id="industrys_theme">
     <script type="text/javascript">
         $(document).bind("pageinit",function(){
 
@@ -29,11 +29,11 @@
             tool.objectToHtml = function(obj){
                 var html="";
                 $.each(obj,function(){
-                    html = '<li><a path="api/domains/'+this.id+'">'+ this.name +'</a></li>' + html;
+                    html = '<li><a path="api/industries/product/'+this.id+'">'+ this.name +'</a></li>' + html;
                 })
                 return html
             };
-            var html = tool.storageToHtml("domains");
+            var html = tool.storageToHtml("industries");
             $(".list").empty();
             $(".list").append(html);
             $(".news-theme").trigger("create");

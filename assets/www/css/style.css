@@ -227,3 +227,20 @@ div a {
 .ui-content{
     height: 100%;
 }
+
+.news-content{
+    text-align:center;
+}
+
+.news-content article {
+
+}
+
+.news-content article p {
+}
+
+.news-content article p img{
+    width: 20%;
+    height: 9%;
+    display:block;
+}

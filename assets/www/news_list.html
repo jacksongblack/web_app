@@ -30,8 +30,8 @@
             $.mobile.changePage($(".news-page"))
             $(".news-list").trigger("create")
             $('.news-list-ul').listview('refresh');
-            var theme_url = localStorage.getItem("theme_url");
-            $("#pullAjaxUrl").attr("href",theme_url+"?posts_page=");
+            var url = localStorage.getItem("url");
+            $("#pullAjaxUrl").attr("href",url+"?posts_page=");
 
 
             $(".iscroll-wrapper", this).bind( {

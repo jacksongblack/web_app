@@ -22,9 +22,7 @@
         $(document).bind("pageinit", function () {
             var toolObj = new StorageTool()
             toolObj.objectToHtml= function(obj){
-                var html = "<h3> " + obj.title + "</h3>";
-                html = html + "<p>" + obj.content + "</p>";
-                html = html + "<a href='" + obj.url + "'></a>";
+                var html = "<h2> " + obj.title + "</h2>" +"<article>"+ obj.content +"</article>";
                 return html
             }
             var jsonObj = toolObj.storageToHtml("post")
@@ -36,6 +34,7 @@
             $("img").each(function(){
               var imagePath = $(this).attr("src");
                 $(this).attr("src",getRootPath()+imagePath)
+                $(this).attr("style","")
             })
         }
     </script>

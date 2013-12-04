@@ -26,22 +26,16 @@
         $(document).bind("pageinit",function(){
 
             var tool = new StorageTool();
-            tool.objectToHtml = function(obj){
-                var html="";
-                $.each(obj,function(){
-                    html = '<li><a path="api/industries/products/'+this.id+'">'+ this.name +'</a></li>' + html;
-                })
-                return html
-            };
-            var html = tool.storageToHtml("industries");
-            $(".list").empty();
-            $(".list").append(html);
-            $(".news-theme").trigger("create");
-            $('.list').listview('refresh');
+
+            tool.createHtml = function(obj){
+               return '<li><a path="api/industries/products/'+obj.id+'">'+ obj.name +'</a></li>'
+            }
+
+            tool.review($(".news-theme"),$(".list"),"industries")
 
             var bind = new BindLinkTo;
-            bind.pageName="news_list.html"
-            bind.bind("li a","posts")
+            bind.pageName="products_list.html"
+            bind.bind("li a","products")
             bind.send = function(url,valueName){
                 var getTo =  new GetTo()
                 getTo.toPage= this.pageName

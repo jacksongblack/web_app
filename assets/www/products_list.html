@@ -22,38 +22,60 @@
     <script src="js/ajax.js"></script>
     <script src="js/tool.js"></script>
     <script src="js/storageTool.js"></script>
-    <script charset="gb2312"  src="js/pullIscroll.js"></script>
+    <script charset="gb2312" src="js/pullIscroll.js"></script>
     <script charset="gb2312" type="text/javascript">
         $(document).bind("pageinit", function () {
             var obj = new StorageTool()
-            obj.review($(".news-list"),$(".news-list-ul"),"posts")
+
+            obj.createHtml = function (obj) {
+                return "<li><a  data-ajax='false' path='api/products/" + obj.id + "'><img  class='ul-li-icon'><h3>" + obj.name + "</h3>" + "<p>" + obj.description + "</p></a></li>";
+            }
+
+            obj.review($(".news-list"), $(".news-list-ul"), "products")
+
             var url = localStorage.getItem("url");
-            $("#pullAjaxUrl").attr("href",url+"?posts_page=");
+            $("#pullAjaxUrl").attr("href", url + "?posts_page=");
 
 
-            $(".iscroll-wrapper", this).bind( {
-                "iscroll_onpulldown" : onPullDown,
-                "iscroll_onpullup"   : onPullUp
+            $(".iscroll-wrapper", this).bind({
+                "iscroll_onpulldown": pullDown,
+                "iscroll_onpullup": pullUp
             });
+            function pullDown() {
+                var obj = new PullLoad();
+                obj.template = function (obj) {
+                    return "<li><a  data-ajax='false' path='api/products/" + obj.id + "'><img  class='ul-li-icon'><h3>" + obj.name + "</h3>" + "<p>" + obj.description + "</p></a></li>";
+                }
+                obj.pullDown()
+            }
 
-            var bindObj =new BindLinkTo()
-            bindObj.pageName="news_show.html"
-            bindObj.send = function (url,valueName){
-                var getTo =  new GetTo()
-                getTo.toPage= this.pageName
-                getTo.send(url,valueName)
-                getTo.jumpPage = function (page){
+            function pullUp(){
+                var obj = new PullLoad();
+                obj.template = function (obj) {
+                    return "<li><a  data-ajax='false' path='api/products/" + obj.id + "'><img  class='ul-li-icon'><h3>" + obj.name + "</h3>" + "<p>" + obj.description + "</p></a></li>";
+                }
+                obj.pullUp()
+            }
+
+            var bindObj = new BindLinkTo()
+            bindObj.pageName = "news_show.html"
+            bindObj.send = function (url, valueName) {
+                var getTo = new GetTo()
+                getTo.toPage = this.pageName
+                getTo.send(url, valueName)
+                getTo.jumpPage = function (page) {
                     window.location = page
                 }
             }
-            bindObj.bind("div.ui-btn-text a","post");
+            bindObj.bind("div.ui-btn-text a", "post");
         });
 
     </script>
     <!-- /header -->　
     <div data-role="header" data-theme="c">
         <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主菜单</a>
-        <a href="news_theme.html"  data-mini="true" class="addButton ui-btn-right" data-icon="forward" data-ajax= false>返回</a>
+        <a href="news_theme.html" data-mini="true" class="addButton ui-btn-right" data-icon="forward"
+           data-ajax=false>返回</a>
 
         <h1>新闻</h1>
     </div>
@@ -71,12 +93,15 @@
         </div>
     </div>
     <a id="pullAjaxUrl" href="api/domains/1?posts_page=" data-page="1"></a>
+
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>
     <div data-role="popup" id="lastPage">
         <p>亲！到最后一页了</p>
     </div>
     <div data-role="popup" id="firstPage">
-        <p>亲！已经第一页了<p>
+        <p>亲！已经第一页了
+
+        <p>
     </div>
 </div>
 <!-- /page -->

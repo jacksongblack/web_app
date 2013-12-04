@@ -26,18 +26,12 @@
         $(document).bind("pageinit",function(){
 
             var tool = new StorageTool();
-            tool.objectToHtml = function(obj){
-                var html="";
-                $.each(obj,function(){
-                    html = '<li><a path="api/domains/'+this.id+'">'+ this.name +'</a></li>' + html;
-                })
-                return html
-            };
+
+            tool.createHtml = function(obj){
+              return  '<li><a path="api/domains/'+obj.id+'">'+ obj.name +'</a></li>'
+            }
             var html = tool.storageToHtml("domains");
-            $(".list").empty();
-            $(".list").append(html);
-            $(".news-theme").trigger("create");
-            $('.list').listview('refresh');
+            tool.review($(".news-theme"),$(".list"),"domains")
 
             var bind = new BindLinkTo;
             bind.pageName="news_list.html"
@@ -46,7 +40,6 @@
                 var getTo =  new GetTo()
                 getTo.toPage= this.pageName
                 getTo.send(url,valueName);
-                console.log(url);
                 localStorage.setItem("url",url)
             }
         });

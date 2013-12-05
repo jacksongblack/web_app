@@ -28,21 +28,13 @@
             var tool = new StorageTool();
 
             tool.template = function(obj){
-               return '<li><a path="api/industries/products/'+obj.id+'">'+ obj.name +'</a></li>'
+                return  '<li><a path="api/industries/products/'+obj.id+'">'+ obj.name +'</a></li>'
             }
-
-            tool.review($(".news-theme"),$(".list"),"industries")
+            var html = tool.storageToHtml("domains");
+            tool.review($(".news-theme"),$(".list"),"domains")
 
             var bind = new BindLinkTo;
-            bind.pageName="products_list.html"
-            bind.bind("li a","products")
-            bind.send = function(url,valueName){
-                var getTo =  new GetTo()
-                getTo.toPage= this.pageName
-                getTo.send(url,valueName);
-                console.log(url);
-                localStorage.setItem("url",url)
-            }
+            bind.self.bind("li a","posts","products_list.html")
         });
     </script>
     <!-- /header -->¡¡

@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.iscrollview.css"/>
 </head>
 <body>
-　
 <div data-role="page" data-theme="c" id="news_list_page" class="index-page">
     <!--javascript-->
     <script src="js/jquery-1.9.1.js"></script>
@@ -22,8 +21,8 @@
     <script src="js/storageTool.js"></script>
     <script src="js/sendToServer.js"></script>
     <script src="js/bindingLinks.js"></script>
-    <script charset="gb2312"  src="js/pullIscroll.js"></script>
-    <script charset="gb2312" type="text/javascript">
+    <script   src="js/pullIscroll.js"></script>
+    <script  type="text/javascript">
         $(document).bind("pageinit", function () {
             initialization();
             $(".iscroll-wrapper", this).bind( {
@@ -37,16 +36,12 @@
             function onPullDown() {
                 var obj = new PullLoad();
                 obj.self.pullDown();
-                obj.saveResponseTo("posts");
                 initialization();
             };
             function onPullUp() {
                 var obj = new PullLoad();
                 obj.self.pullUp();
-                obj.saveResponseTo("posts")
-               if (obj.response != 0){
-                   $("#pullAjaxUrl").attr("data-page",obj.self.num)
-               }
+
                 initialization();
             };
             function initialization(){
@@ -54,18 +49,21 @@
                 obj.review($(".news-list"),$(".news-list-ul"),"posts")
                 var url = localStorage.getItem("url");
                 $("#pullAjaxUrl").attr("href",url+"?posts_page=");
+
+               var bindObj = new BindLinkTo;
+                bindObj.self.bind(".news-list-ul div div a  ","post","news_show.html")
             }
         });
 
     </script>
-    <!-- /header -->　
+    <!-- /header -->
     <div data-role="header" data-theme="c">
-        <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主菜单</a>
+        <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主界面</a>
         <a href="news_theme.html"  data-mini="true" class="addButton ui-btn-right" data-icon="forward" data-ajax= false>返回</a>
 
         <h1>新闻</h1>
     </div>
-    <!-- /content --> 　
+    <!-- /content -->
     <div data-role="content" class="news-list" data-iscroll>
         <div class="iscroll-pulldown">
             <span class="iscroll-pull-icon"></span>
@@ -81,10 +79,10 @@
     <a id="pullAjaxUrl" href="api/domains/1?posts_page=" data-page="1"></a>
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>
     <div data-role="popup" id="lastPage">
-        <p>亲！到最后一页了</p>
+        <p>已经到头了</p>
     </div>
     <div data-role="popup" id="firstPage">
-        <p>亲！已经第一页了<p>
+        <p>最后一页<p>
     </div>
 </div>
 <!-- /page -->

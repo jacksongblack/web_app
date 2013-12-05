@@ -15,7 +15,7 @@ function hideLoader() {
     $.mobile.loading('hide');
 };
 function getRootPath() {
-    return "http://192.168.0.251:3000/"
+    return "http://192.168.1.110:3000/"
 }
 
 
@@ -56,8 +56,10 @@ GetTo.prototype = {
         _thisGetToObj_.storageKey= key
         localStorage.setItem(_thisGetToObj_.storageKey, JSON.stringify(_thisGetToObj_.response));
         return localStorage.getItem(_thisGetToObj_.storageKey)
+    },
+    getResponse:function(){
+        return _thisGetToObj_.response
     }
-
 
 }
 

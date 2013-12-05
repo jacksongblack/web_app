@@ -25,6 +25,7 @@ BindLinkTo.prototype.self ={
                        var response = _thisBindLinkObj_.saveResponseTo(keyname)
                         if (response.length != 0){
                             _thisBindLinkObj_.self.url=($(this).attr("path"));
+                            _thisBindLinkObj_.self.savePathToLocalStorage()
                             _thisBindLinkObj_.jumpTo(pageName)
                         }
                         else {
@@ -37,6 +38,7 @@ BindLinkTo.prototype.self ={
     },
     savePathToLocalStorage:function(){
         localStorage.setItem("url", _thisBindLinkObj_.self.url)
+        return localStorage.getItem("url")
     }
 
 }

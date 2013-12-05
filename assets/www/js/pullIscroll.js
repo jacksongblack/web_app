@@ -15,16 +15,18 @@ PullLoad.prototype.self = {
         var docObj = $(document);
         var pageNumber = docObj.attr("data-page");
         _thisPullLoadObj_.pageNumber = _thisPullLoadObj_.self.editPath(pageNumber);
-        pageNumber = _thisPullLoadObj_.pageNumber;
         return docObj.attr("href") + pageNumber
     },
     send: function () {
         var url = _thisPullLoadObj_.self.getPath("#pullAjaxUrl");
 
         _thisPullLoadObj_.send(getRootPath() + url);
-       if (_thisPullLoadObj_.response.length != 0){
-
-       }
+        if (_thisPullLoadObj_.getResponse().length != 0){
+            _thisPullLoadObj_.saveResponseTo("posts");
+            $("#pullAjaxUrl").attr("data-page",_thisPullLoadObj_.self.num)
+        } else{
+            $("#lastPage").popup("open")
+        }
     },
     editPath: function (string) {
         return string

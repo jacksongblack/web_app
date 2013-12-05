@@ -19,15 +19,15 @@
     <!--<script src="js/cordova.js"></script>-->
     <script src="js/iScroll.js"></script>
     <script src="js/jquery.mobile.iscrollview.js"></script>
-    <script src="js/ajax.js"></script>
-    <script src="js/tool.js"></script>
+    <script src="js/sendToServer.js"></script>
+    <script src="js/bindingLinks.js"></script>
     <script src="js/storageTool.js"></script>
     <script charset="gb2312" src="js/pullIscroll.js"></script>
     <script charset="gb2312" type="text/javascript">
         $(document).bind("pageinit", function () {
             var obj = new StorageTool()
 
-            obj.createHtml = function (obj) {
+            obj.template = function (obj) {
                 return "<li><a  data-ajax='false' path='api/products/" + obj.id + "'><img  class='ul-li-icon'><h3>" + obj.name + "</h3>" + "<p>" + obj.description + "</p></a></li>";
             }
 
@@ -45,30 +45,25 @@
                 var obj = new PullLoad();
                 obj.template = function (obj) {
                     return "<li><a  data-ajax='false' path='api/products/" + obj.id + "'><img  class='ul-li-icon'><h3>" + obj.name + "</h3>" + "<p>" + obj.description + "</p></a></li>";
-                }
-                obj.pullDown()
+                };
+                obj.pullDown();
+                initialization();
             }
 
             function pullUp(){
                 var obj = new PullLoad();
                 obj.template = function (obj) {
                     return "<li><a  data-ajax='false' path='api/products/" + obj.id + "'><img  class='ul-li-icon'><h3>" + obj.name + "</h3>" + "<p>" + obj.description + "</p></a></li>";
-                }
+                };
                 obj.pullUp()
+                initialization();
             }
-
-            var bindObj = new BindLinkTo()
-            bindObj.pageName = "news_show.html"
-            bindObj.send = function (url, valueName) {
-                var getTo = new GetTo()
-                getTo.toPage = this.pageName
-                getTo.send(url, valueName)
-                getTo.jumpPage = function (page) {
-                    window.location = page
-                }
-            }
-            bindObj.bind("div.ui-btn-text a", "post");
+            initialization();
         });
+        function initialization(){
+            var bindObj = new BindLinkTo()
+            bindObj.action.bind("div.ui-btn-text a", "post","product_show.html");
+        }
 
     </script>
     <!-- /header -->¡¡

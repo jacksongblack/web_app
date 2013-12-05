@@ -57,8 +57,8 @@
 <script src="js/jquery.mobile.iscrollview.js"></script>
 <!--<script src="js/cordova.js"></script>-->
 <script src="js/storageTool.js"></script>
-<script src="js/ajax.js"></script>
-<script src="js/tool.js"></script>
+<script src="js/sendToServer.js"></script>
+<script src="js/bindingLinks.js"></script>
 <script charset="gb2312" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).bind("pageinit", function () {
@@ -67,7 +67,7 @@
             $(document).each(
                     function () {
                         $(this).bind("tap", function () {
-                                    _thisObj_.send($(this));
+                                    _thisPullLoadObj_.send($(this));
                                 }
                         )
                     })

@@ -19,34 +19,42 @@
     <!--<script src="js/cordova.js"></script>-->
     <script src="js/iScroll.js"></script>
     <script src="js/jquery.mobile.iscrollview.js"></script>
-    <script src="js/ajax.js"></script>
-    <script src="js/tool.js"></script>
     <script src="js/storageTool.js"></script>
+    <script src="js/sendToServer.js"></script>
+    <script src="js/bindingLinks.js"></script>
     <script charset="gb2312"  src="js/pullIscroll.js"></script>
     <script charset="gb2312" type="text/javascript">
         $(document).bind("pageinit", function () {
-            var obj = new StorageTool()
-            obj.review($(".news-list"),$(".news-list-ul"),"posts")
-            var url = localStorage.getItem("url");
-            $("#pullAjaxUrl").attr("href",url+"?posts_page=");
-
-
+            initialization();
             $(".iscroll-wrapper", this).bind( {
                 "iscroll_onpulldown" : onPullDown,
                 "iscroll_onpullup"   : onPullUp
             });
 
             var bindObj =new BindLinkTo()
-            bindObj.pageName="news_show.html"
-            bindObj.send = function (url,valueName){
-                var getTo =  new GetTo()
-                getTo.toPage= this.pageName
-                getTo.send(url,valueName)
-                getTo.jumpPage = function (page){
-                    window.location = page
-                }
+            bindObj.self.bind("div.ui-btn-text a","post","news_show.html");
+
+            function onPullDown() {
+                var obj = new PullLoad();
+                obj.self.pullDown();
+                obj.saveResponseTo("posts");
+                initialization();
+            };
+            function onPullUp() {
+                var obj = new PullLoad();
+                obj.self.pullUp();
+                obj.saveResponseTo("posts")
+               if (obj.response != 0){
+                   $("#pullAjaxUrl").attr("data-page",obj.self.num)
+               }
+                initialization();
+            };
+            function initialization(){
+                var obj = new StorageTool()
+                obj.review($(".news-list"),$(".news-list-ul"),"posts")
+                var url = localStorage.getItem("url");
+                $("#pullAjaxUrl").attr("href",url+"?posts_page=");
             }
-            bindObj.bind("div.ui-btn-text a","post");
         });
 
     </script>

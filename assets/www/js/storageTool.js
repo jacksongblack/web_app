@@ -12,14 +12,14 @@ function StorageTool(){
     sessionClear = function(key){
         localStorage.removeItem(key)
     };
-    _thisObj_ = this;
+    _thisPullLoadObj_ = this;
 };
 StorageTool.prototype={
     objectToHtml:function(obj){
         var htmlCache = "";
         var newsContent;
         $.each(obj, function (n, value) {
-            newsContent = _thisObj_.createHtml(value);
+            newsContent = _thisPullLoadObj_.template(value);
             newsContent = newsContent + htmlCache;
             htmlCache = newsContent;
         });
@@ -30,7 +30,7 @@ StorageTool.prototype={
        var obj = this.objectToHtml(stringToJson(str))
         return obj
     },
-    createHtml:function(obj){
+    template:function(obj){
      return "<li><a  data-ajax='false' path='api/posts/" + obj.id + "'><img  class='ul-li-icon' src='"+ obj.logo +"'><h3>" + obj.title + "</h3>" + "<p>" + obj.description + "</p></a></li>"
     },
     review:function(lastDocObj,docObj,keyStory){

@@ -18,38 +18,42 @@
     <script src="js/sendToServer.js"></script>
     <script src="js/bindingLinks.js"></script>
     <script src="js/storageTool.js"></script>
+    <script type="text/javascript">
+        $(document).bind("pageinit", function () {
+            var toolObj = new StorageTool()
+            toolObj.objectToHtml= function(obj){
+                var html = "<h2> " + obj.name + "</h2>" +"<article>"+ obj.content +"</article>";
+                return html
+            }
+            var jsonObj = toolObj.storageToHtml("post")
+            $(".news-content").append(jsonObj)
+            addImagePath();
+        })
+
+        function addImagePath(){
+            $("img").each(function(){
+              var imagePath = $(this).attr("src");
+                $(this).attr("src",getRootPath()+imagePath)
+                $(this).attr("style","")
+            })
+        }
+    </script>
 </head>
 <body>
 　
-<div data-role="page" data-theme="c" id="news_theme">
-    <script type="text/javascript">
-        $(document).bind("pageinit",function(){
-
-            var tool = new StorageTool();
-
-            tool.template = function(obj){
-              return  '<li><a path="api/domains/'+obj.id+'">'+ obj.name +'</a></li>'
-            }
-            var html = tool.storageToHtml("domains");
-            tool.review($(".news-theme"),$(".list"),"domains")
-
-            var bind = new BindLinkTo;
-            bind.self.bind("li a","posts","news_list.html")
-            bind.self.savePathToLocalStorage();
-        });
-    </script>
+<div data-role="page" data-theme="c" id="news-show-page" class="news-show" data-fullscreen="true">
     <!-- /header -->　
     <div data-role="header" data-theme="c">
         <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主菜单</a>
+        <a href="products_list.html"  data-mini="true" class="addButton ui-btn-right" data-icon="forward" data-ajax= false>返回</a>
+
         <h1>新闻</h1>
     </div>
     <!-- /content --> 　
-    <div data-role="content" class="news-theme">
-        <div data-role="collapsible-set">
-            <ul data-role="listview" data-theme="c" class="list">
-            </ul>
-        </div>
+    <div data-role="content" class="news-content">
+
     </div>
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>
 </div>
 <!-- /page -->
 </body>

@@ -15,8 +15,8 @@
     <!--<script src="js/cordova.js"></script>-->
     <script src="js/iScroll.js"></script>
     <script src="js/jquery.mobile.iscrollview.js"></script>
-    <script src="js/ajax.js"></script>
-    <script src="js/tool.js"></script>
+    <script src="js/sendToServer.js"></script>
+    <script src="js/bindingLinks.js"></script>
     <script src="js/storageTool.js"></script>
 </head>
 <body>
@@ -26,22 +26,15 @@
         $(document).bind("pageinit", function () {
 
             var tool = new StorageTool();
-            tool.createHtml = function (obj) {
+            tool.template = function (obj) {
                 return '<li><a path="api/industries/posts/' + obj.id + '">' + obj.name + '</a></li>'
             };
 
             tool.review($(".news-theme"),$(".list"),"industries")
 
             var bind = new BindLinkTo;
-            bind.pageName = "news_list.html"
-            bind.bind("li a", "posts")
-            bind.send = function (url, valueName) {
-                var getTo = new GetTo()
-                getTo.toPage = this.pageName
-                getTo.send(url, valueName);
-                console.log(url);
-                localStorage.setItem("url", url)
-            }
+
+            bind.bind("li a", "posts","news_list.html")
         });
     </script>
     <!-- /header -->¡¡

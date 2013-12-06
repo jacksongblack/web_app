@@ -18,6 +18,7 @@
     <script src="js/sendToServer.js"></script>
     <script src="js/bindingLinks.js"></script>
     <script src="js/storageTool.js"></script>
+    <script src="js/config.js"></script>
 </head>
 <body>
 ¡¡
@@ -28,7 +29,7 @@
             var tool = new StorageTool();
 
             tool.template = function(obj){
-                return  '<li><a path="api/industries/products/'+obj.id+'">'+ obj.name +'</a></li>'
+                return new SetConfig().htmlTemplate.products_theme(obj)
             }
             var html = tool.storageToHtml("domains");
             tool.review($(".news-theme"),$(".list"),"domains")

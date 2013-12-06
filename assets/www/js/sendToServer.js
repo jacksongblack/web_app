@@ -18,11 +18,13 @@ function GetTo() {
 GetTo.prototype = {
     toPage: "#",
     storageKey: "",
+    data:"",
     send:function(url) {
         $.ajax({
             type: "get",
             dataType: "json",
             url: url,
+            data: _thisGetToObj_.data,
             content: _thisGetToObj_,
             async: false,
 

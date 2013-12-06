@@ -1,15 +1,3 @@
-
-function showSimpleLoad() {
-    $.mobile.loading('show', {
-        textVisible: true,
-        text: "������",
-        textonly: false,
-        theme: "c"
-    })
-}
-
-
-
 function BindLinkTo() {
      GetTo.call(this);
     _thisBindLinkObj_= this;

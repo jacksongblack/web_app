@@ -22,6 +22,7 @@
     <script src="js/sendToServer.js"></script>
     <script src="js/bindingLinks.js"></script>
     <script src="js/storageTool.js"></script>
+    <script src="js/config.js"></script>
     <script charset="gb2312" src="js/pullIscroll.js"></script>
     <script charset="gb2312" type="text/javascript">
         $(document).bind("pageinit", function () {
@@ -35,19 +36,19 @@
             function onPullDown() {
                 var obj = new PullLoad();
                 obj.self.pullDown();
+                obj.saveResponseTo("products")
                 initialization();
             };
             function onPullUp() {
                 var obj = new PullLoad();
                 obj.self.pullUp();
+                obj.saveResponseTo("products")
                 initialization();
             };
             function initialization(){
                 var obj = new StorageTool()
                 obj.template = function(obj){
-                   return "<li><a  data-ajax='false' path='api/products/" + obj.id + "'><img  class='ul-li-icon' src=''><h3>"
-                            + obj.name + "</h3>" + "<p>" + obj.description + "</p></a></li>"
-
+                   return new SetConfig().htmlTemplate.products_list(obj)
                 }
                 obj.review($(".product-list"),$(".products-list-ul"),"products")
                 var url = localStorage.getItem("url");
@@ -80,7 +81,7 @@
             <span class="iscroll-pull-label" data-iscroll-pulled-text="下一页">加载中</span>
         </div>
     </div>
-    <a id="pullAjaxUrl" href="api/domains/1?posts_page=" data-page="1"></a>
+    <a id="pullAjaxUrl" href="api/domains/1?posts_page=" data-page="2"></a>
 
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>
     <div data-role="popup" id="lastPage">

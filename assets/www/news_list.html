@@ -22,6 +22,7 @@
     <script src="js/sendToServer.js"></script>
     <script src="js/bindingLinks.js"></script>
     <script   src="js/pullIscroll.js"></script>
+    <script src="js/config.js"></script>
     <script  type="text/javascript">
         $(document).bind("pageinit", function () {
             initialization();
@@ -29,25 +30,26 @@
                 "iscroll_onpulldown" : onPullDown,
                 "iscroll_onpullup"   : onPullUp
             });
-
             var bindObj =new BindLinkTo()
             bindObj.self.bind("div.ui-btn-text a","post","news_show.html");
 
             function onPullDown() {
                 var obj = new PullLoad();
                 obj.self.pullDown();
+                obj.saveResponseTo("posts")
                 initialization();
             };
             function onPullUp() {
                 var obj = new PullLoad();
                 obj.self.pullUp();
+                obj.saveResponseTo("posts")
                 initialization();
             };
             function initialization(){
                 var obj = new StorageTool()
                 obj.review($(".news-list"),$(".news-list-ul"),"posts")
                 var url = localStorage.getItem("url");
-                $("#pullAjaxUrl").attr("href",url+"?posts_page=");
+                $("#pullAjaxUrl").attr("href",url+"?page_number=");
 
                var bindObj = new BindLinkTo;
                 bindObj.self.bind(".news-list-ul div div a  ","post","news_show.html")
@@ -75,7 +77,7 @@
             <span class="iscroll-pull-label" data-iscroll-pulled-text="下一页">加载中</span>
         </div>
     </div>
-    <a id="pullAjaxUrl" href="api/domains/1?posts_page=" data-page="1"></a>
+    <a id="pullAjaxUrl" href="api/domains/1?posts_page=" data-page="2"></a>
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>
     <div data-role="popup" id="lastPage">
         <p>已经到头了</p>

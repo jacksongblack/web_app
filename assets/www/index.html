@@ -27,12 +27,12 @@
     <!--九宫格-->
     <div data-role="content" class="main">
         <div class="ui-grid-b">
-            <div class="ui-block-a"><a href="news_theme.html" path="api/domains" class="img1" data-storageKey="domains"><img
+            <div class="ui-block-a"><a pageTo="news_theme.html" path="api/domains" class="img1" data-storageKey="domains"><img
                     src="images/xw.png">新闻</a>
             </div>
-            <div class="ui-block-b"><a href="industries_theme.html" path="api/industries" class="img2"
+            <div class="ui-block-b"><a pageTo="industries_theme.html" path="api/industries" class="img2"
                                        data-storageKey="industries"><img src="images/Beaker.png">行业</a></div>
-            <div class="ui-block-c"><a href="product_theme.html" path="api/industries" class="img3"><img src="images/truck.png">产品</a></div>
+            <div class="ui-block-c"><a pageTo="product_theme.html" path="api/industries" class="img3"><img src="images/truck.png">产品</a></div>
         </div>
         <!-- /grid-a -->
         <div class="ui-grid-b">
@@ -63,22 +63,26 @@
 <script type="text/javascript">
     $(document).bind("pageinit", function () {
         var bindLink = new BindLinkTo()
-        bindLink.bind = function (document) {
+        bindLink.self.bind = function (document,key) {
             $(document).each(
                     function () {
                         $(this).bind("tap", function () {
-                                    _thisPullLoadObj_.send($(this));
+                                    _thisBindLinkObj_.send(getRootPath()+$(this).attr("path"));
+                                    var response = _thisBindLinkObj_.saveResponseTo(key);
+                                    if (response.length != 0){
+
+                                        _thisBindLinkObj_.self.url=($(this).attr("path"));
+                                        _thisBindLinkObj_.self.savePathToLocalStorage()
+                                        _thisBindLinkObj_.jumpTo($(this).attr("pageTo"))
+                                    }
+                                    else {
+                                        alert("出错了，可能是没有返回值")
+                                    }
                                 }
                         )
                     })
         }
-        bindLink.send = function (obj) {
-            console.log(obj.attr("href"))
-            var getTo = new GetTo();
-            getTo.toPage = obj.attr("href")
-            getTo.send(obj.attr("path"), obj.attr("data-storageKey"))
-        }
-        bindLink.bind(".ui-grid-b div a", "domains")
+        bindLink.self.bind(".main div div a", "domains")
     });
 </script>
 </body>

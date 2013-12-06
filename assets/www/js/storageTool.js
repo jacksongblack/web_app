@@ -31,7 +31,8 @@ StorageTool.prototype={
         return obj
     },
     template:function(obj){
-     return "<li><a  data-ajax='false' path='api/posts/" + obj.id + "'><img  class='ul-li-icon' src='"+ obj.logo +"'><h3>" + obj.title + "</h3>" + "<p>" + obj.description + "</p></a></li>"
+     return "<li><a  data-ajax='false' path='api/posts/" + obj.id + "'><img  class='ul-li-icon' src='"+ obj.logo +"'><h3>"
+         + obj.title + "</h3>" + "<p>" + obj.description + "</p></a></li>"
     },
     review:function(lastDocObj,docObj,keyStory){
         docObj.append(this.storageToHtml(keyStory));

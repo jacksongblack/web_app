@@ -2,3 +2,4 @@
 *.iml
 /res/xml/*.xml
 /gen
+/out

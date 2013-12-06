@@ -25,62 +25,55 @@
     <script charset="gb2312" src="js/pullIscroll.js"></script>
     <script charset="gb2312" type="text/javascript">
         $(document).bind("pageinit", function () {
-            var obj = new StorageTool()
-
-            obj.template = function (obj) {
-                return "<li><a  data-ajax='false' path='api/products/" + obj.id + "'><img  class='ul-li-icon'><h3>" + obj.name + "</h3>" + "<p>" + obj.description + "</p></a></li>";
-            }
-
-            obj.review($(".news-list"), $(".news-list-ul"), "products")
-
-            var url = localStorage.getItem("url");
-            $("#pullAjaxUrl").attr("href", url + "?posts_page=");
-
-
-            $(".iscroll-wrapper", this).bind({
-                "iscroll_onpulldown": pullDown,
-                "iscroll_onpullup": pullUp
-            });
-            function pullDown() {
-                var obj = new PullLoad();
-                obj.template = function (obj) {
-                    return "<li><a  data-ajax='false' path='api/products/" + obj.id + "'><img  class='ul-li-icon'><h3>" + obj.name + "</h3>" + "<p>" + obj.description + "</p></a></li>";
-                };
-                obj.pullDown();
-                initialization();
-            }
-
-            function pullUp(){
-                var obj = new PullLoad();
-                obj.template = function (obj) {
-                    return "<li><a  data-ajax='false' path='api/products/" + obj.id + "'><img  class='ul-li-icon'><h3>" + obj.name + "</h3>" + "<p>" + obj.description + "</p></a></li>";
-                };
-                obj.pullUp()
-                initialization();
-            }
             initialization();
+            $(".iscroll-wrapper", this).bind( {
+                "iscroll_onpulldown" : onPullDown,
+                "iscroll_onpullup"   : onPullUp
+            });
+
+
+            function onPullDown() {
+                var obj = new PullLoad();
+                obj.self.pullDown();
+                initialization();
+            };
+            function onPullUp() {
+                var obj = new PullLoad();
+                obj.self.pullUp();
+                initialization();
+            };
+            function initialization(){
+                var obj = new StorageTool()
+                obj.template = function(obj){
+                   return "<li><a  data-ajax='false' path='api/products/" + obj.id + "'><img  class='ul-li-icon' src=''><h3>"
+                            + obj.name + "</h3>" + "<p>" + obj.description + "</p></a></li>"
+
+                }
+                obj.review($(".product-list"),$(".products-list-ul"),"products")
+                var url = localStorage.getItem("url");
+                $("#pullAjaxUrl").attr("href",url+"?products-page=");
+
+                var bindObj = new BindLinkTo;
+                bindObj.self.bind(".products-list-ul div div a  ","product","product_show.html")
+            }
         });
-        function initialization(){
-            var bindObj = new BindLinkTo()
-            bindObj.action.bind("div.ui-btn-text a", "post","product_show.html");
-        }
 
     </script>
     <!-- /header -->　
     <div data-role="header" data-theme="c">
         <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主菜单</a>
-        <a href="news_theme.html" data-mini="true" class="addButton ui-btn-right" data-icon="forward"
+        <a href="product_theme.html" data-mini="true" class="addButton ui-btn-right" data-icon="forward"
            data-ajax=false>返回</a>
 
         <h1>新闻</h1>
     </div>
     <!-- /content --> 　
-    <div data-role="content" class="news-list" data-iscroll>
+    <div data-role="content" class="product-list" data-iscroll>
         <div class="iscroll-pulldown">
             <span class="iscroll-pull-icon"></span>
             <span class="iscroll-pull-label" data-iscroll-pulled-text="上一页">加载中</span>
         </div>
-        <ul data-role="listview" data-theme="c" class="news-list-ul">
+        <ul data-role="listview" data-theme="c" class="products-list-ul">
         </ul>
         <div class="iscroll-pullup">
             <span class="iscroll-pull-icon"></span>

@@ -2,20 +2,11 @@
 function getRootPath() {
     return "http://192.168.0.251:3000/"
 };
-function showLoader() {
-
-    $.mobile.loading('show', {
-        textVisible: true, //ֻ��ʾ�ֵ�����
-        theme: 'b',        //������
-        html: " <a onclick='hideLoader()'  data-icon='delete' data-role='button' class='stopLoader' style='display: none;' >加载中..........点击取消</a>"         //Ҫ��ʾ��html���ݣ���ͼƬ��
-    })
-    $('a.stopLoader').show();
-};
 function hideLoader() {
     $.mobile.loading('hide');
 };
 function getRootPath() {
-    return "http://192.168.1.110:3000/"
+    return "http://192.168.0.251:3000/"
 }
 
 

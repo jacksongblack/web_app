@@ -22,10 +22,10 @@
         $(document).bind("pageinit", function () {
             var toolObj = new StorageTool()
             toolObj.objectToHtml= function(obj){
-                var html = "<h2> " + obj.name + "</h2>" +"<article>"+ obj.content +"</article>";
+                var html = "<h2> " + obj.name + "</h2>" +"<article>"+ obj.description  +"</article>";
                 return html
             }
-            var jsonObj = toolObj.storageToHtml("post")
+            var jsonObj = toolObj.storageToHtml("product")
             $(".news-content").append(jsonObj)
             addImagePath();
         })

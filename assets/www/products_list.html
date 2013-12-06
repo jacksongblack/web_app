@@ -52,7 +52,7 @@
                 }
                 obj.review($(".product-list"),$(".products-list-ul"),"products")
                 var url = localStorage.getItem("url");
-                $("#pullAjaxUrl").attr("href",url+"?products-page=");
+                $("#pullAjaxUrl").attr("href",url+"?page_number=");
 
                 var bindObj = new BindLinkTo;
                 bindObj.self.bind(".products-list-ul div div a  ","product","product_show.html")

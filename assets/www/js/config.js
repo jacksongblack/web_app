@@ -5,7 +5,6 @@ SetConfig.prototype.htmlTemplate = {
     news_theme: function (obj) {
         return  '<li><a path="api/domains/' + obj.id + '/posts">' + obj.name + '</a></li>';
     },
-    news_list: "",
     industries_theme: function (obj) {
         return '<li><a path="api/industries/' + obj.id + '/posts">' + obj.name + '</a></li>';
     },
@@ -15,5 +14,9 @@ SetConfig.prototype.htmlTemplate = {
     },
     products_theme: function (obj) {
         return '<li><a path="api/industries/' + obj.id + '/products">' + obj.name + '</a></li>';
+    },
+    news_list: function (obj){
+        return "<li><a  data-ajax='false' path='api/posts/" + obj.id + "'><img  class='ul-li-icon' src='"+ getRootPath() + obj.logo +"'><h3>"
+            + obj.title + "</h3>" + "<p>" + obj.description + "</p></a></li>"
     }
 }

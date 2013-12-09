@@ -12,14 +12,14 @@ function StorageTool(){
     sessionClear = function(key){
         localStorage.removeItem(key)
     };
-    _thisPullLoadObj_ = this;
+    _thisStorageToolObj_ = this;
 };
 StorageTool.prototype={
     objectToHtml:function(obj){
         var htmlCache = "";
         var newsContent;
         $.each(obj, function (n, value) {
-            newsContent = _thisPullLoadObj_.template(value);
+            newsContent = _thisStorageToolObj_.template(value);
             newsContent = newsContent + htmlCache;
             htmlCache = newsContent;
         });
@@ -34,10 +34,17 @@ StorageTool.prototype={
      return "<li><a  data-ajax='false' path='api/posts/" + obj.id + "'><img  class='ul-li-icon' src='"+ obj.logo +"'><h3>"
          + obj.title + "</h3>" + "<p>" + obj.description + "</p></a></li>"
     },
+    editImage:function(){
+            $("img").each(function(){
+                var imagePath = $(this).attr("src");
+                $(this).attr("src",getRootPath()+imagePath)
+                $(this).attr("style","")
+            })
+    },
     review:function(lastDocObj,docObj,keyStory){
         docObj.append(this.storageToHtml(keyStory));
-        lastDocObj.trigger("create")
-        docObj.listview("refresh")
+        lastDocObj.trigger("create");
+        docObj.listview("refresh");
 
     }
 };

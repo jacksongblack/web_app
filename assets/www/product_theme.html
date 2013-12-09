@@ -31,11 +31,10 @@
             tool.template = function(obj){
                 return new SetConfig().htmlTemplate.products_theme(obj)
             }
-            var html = tool.storageToHtml("domains");
-            tool.review($(".news-theme"),$(".list"),"domains")
+            tool.review($(".news-theme"),$(".list"),"industries_products")
 
             var bind = new BindLinkTo;
-            bind.self.bind("li a","products","products_list.html")
+            bind.self.bind("li a")
         });
     </script>
     <!-- /header -->¡¡

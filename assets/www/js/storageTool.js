@@ -45,7 +45,6 @@ StorageTool.prototype={
         docObj.append(this.storageToHtml(keyStory));
         lastDocObj.trigger("create");
         docObj.listview("refresh");
-
     }
 };
 

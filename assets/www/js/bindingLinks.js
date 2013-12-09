@@ -4,22 +4,22 @@ function BindLinkTo() {
 };
 inheritPrototype(BindLinkTo,GetTo);
 BindLinkTo.prototype.self ={
-    bind:function(document,keyname,pageName){
+    bind:function(document){
 
         $(document).each(
             function () {
                 $(this).bind("tap", function () {
-                        _thisBindLinkObj_.send(getRootPath()+ $(this).attr("path"));
-                       var response = _thisBindLinkObj_.saveResponseTo(keyname)
+                        _thisBindLinkObj_.send(getRootPath()+$(this).attr("path"));
+                        var response = _thisBindLinkObj_.saveResponseTo($(this).attr("data-storageKey"));
                         if (response.length != 0){
+
                             _thisBindLinkObj_.self.url=($(this).attr("path"));
                             _thisBindLinkObj_.self.savePathToLocalStorage()
-                            _thisBindLinkObj_.jumpTo(pageName)
+                            _thisBindLinkObj_.jumpTo($(this).attr("pageTo"))
                         }
                         else {
                             alert("出错了，可能是没有返回值")
                         }
-
                     }
                 )
             })

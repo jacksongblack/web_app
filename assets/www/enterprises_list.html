@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <title>新闻</title>
+    <!--css-->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/image_style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.css"/>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.iscrollview.css"/>
+</head>
+<body>
+<div data-role="page" data-theme="c" id="news_list_page" class="index-page">
+    <!--javascript-->
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/initialization.js"></script>
+    <script src="js/jquery.mobile-1.3.2.js"></script>
+    <!--<script src="js/cordova.js"></script>-->
+    <script src="js/iScroll.js"></script>
+    <script src="js/jquery.mobile.iscrollview.js"></script>
+    <script src="js/storageTool.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/sendToServer.js"></script>
+    <script src="js/bindingLinks.js"></script>
+    <script   src="js/pullIscroll.js"></script>
+    <script  type="text/javascript">
+        $(document).bind("pageinit", function () {
+            initialization();
+            $(".iscroll-wrapper", this).bind( {
+                "iscroll_onpulldown" : onPullDown,
+                "iscroll_onpullup"   : onPullUp
+            });
+            var bindObj =new BindLinkTo()
+            bindObj.self.bind("div.ui-btn-text a","post","news_show.html");
+
+            function onPullDown() {
+                var obj = new PullLoad();
+                obj.self.pullDown();
+                obj.saveResponseTo("posts")
+                initialization();
+            };
+            function onPullUp() {
+                var obj = new PullLoad();
+                obj.self.pullUp();
+                obj.saveResponseTo("posts")
+                initialization();
+            };
+            function initialization(){
+                var obj = new StorageTool()
+                obj.template =function(obj){
+                    return  new SetConfig().htmlTemplate.enterprises_list(obj)
+                }
+                obj.review($(".news-list"),$(".news-list-ul"),"enterprise")
+                var url = localStorage.getItem("url");
+                $("#pullAjaxUrl").attr("href",url+"?page_number=");
+
+                var bindObj = new BindLinkTo;
+                bindObj.self.bind(".news-list-ul div div a")
+            }
+        });
+
+    </script>
+    <!-- /header -->
+    <div data-role="header" data-theme="c">
+        <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主界面</a>
+        <a href="news_theme.html"  data-mini="true" class="addButton ui-btn-right" data-icon="forward" data-ajax= false>返回</a>
+
+        <h1>新闻</h1>
+    </div>
+    <!-- /content -->
+    <div data-role="content" class="news-list" data-iscroll>
+        <div class="iscroll-pulldown">
+            <span class="iscroll-pull-icon"></span>
+            <span class="iscroll-pull-label" data-iscroll-pulled-text="上一页">加载中</span>
+        </div>
+        <ul data-role="listview" data-theme="c" class="news-list-ul">
+        </ul>
+        <div class="iscroll-pullup">
+            <span class="iscroll-pull-icon"></span>
+            <span class="iscroll-pull-label" data-iscroll-pulled-text="下一页">加载中</span>
+        </div>
+    </div>
+    <a id="pullAjaxUrl" href="api/domains/1?posts_page=" data-page="2"></a>
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>
+    <div data-role="popup" id="lastPage">
+        <p>已经到头了</p>
+    </div>
+    <div data-role="popup" id="firstPage">
+        <p>最后一页<p>
+    </div>
+</div>
+<!-- /page -->
+</body>
+</html>

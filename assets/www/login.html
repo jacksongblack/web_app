@@ -12,41 +12,28 @@
 </head>
 <body>
 <div data-role="page" data-theme="c">
-    <div data-role="popup" id="lastPage">
-        <p>亲！到最后一页了</p>
-    </div>
-    <div data-role="popup" id="firstPage">
-        <p>亲！已经第一页了
-
-        <p>
-    </div>
     <!--header-->
     <div data-role="header" data-theme="c">
+        <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主界面</a>
         <h1> 中小微企业服务平台 </h1>
     </div>
-    <!--九宫格-->
     <div data-role="content" class="main">
-        <div class="ui-grid-b">
-            <div class="ui-block-a"><a pageTo="news_theme.html" path="api/domains" class="img1" data-storageKey="domains"><img
-                    src="images/xw.png">新闻</a>
+        <from >
+            <div data-role="fieldcontainer">
+                <label for="email">邮箱地址</label>
+                <input type="email" id="email" name="email" id="login_email">
             </div>
-            <div class="ui-block-b"><a pageTo="industries_theme.html" path="api/industries" class="img2"
-                                       data-storageKey="industries"><img src="images/Beaker.png">行业</a></div>
-            <div class="ui-block-c"><a pageTo="product_theme.html" path="api/industries" class="img3"><img src="images/truck.png">产品</a></div>
+            <div data-role="fieldcontainer">
+                <label for="password">密码</label>
+                <input type="password" id="password" name="password" id="login_password">
+            </div>
+            <div data-role="fieldcontainer">
+                <a data-role="button" data-theme="c" id="login_button">登录</a>
+            </div>
+        </from>
+        <div data-role="popup" id="message">
+            <p>最后一页<p>
         </div>
-        <!-- /grid-a -->
-        <div class="ui-grid-b">
-            <div class="ui-block-a"><a href="news_theme.html" class="img4"><img src="images/shop.png">超市</a></div>
-            <div class="ui-block-b"><a href="news_theme.html" class="img5"><img src="images/globe.png">黄页</a></div>
-            <div class="ui-block-c"><a href="news_theme.html" class="img6"><img src="images/search.png">查询</a></div>
-        </div>
-        <!-- /grid-a -->
-        <div class="ui-grid-b">
-            <div class="ui-block-a"><a href="news_theme.html" class="img7"><img src="images/Head.png">登录</a></div>
-            <div class="ui-block-b"><a href="news_theme.html" class="img8"><img src="images/settion.png">配置</a></div>
-            <div class="ui-block-c"><a href="news_theme.html" class="img9"><img src="images/tv.png">更多</a></div>
-        </div>
-        <!-- /grid-a -->
     </div>
 </div>
 <!--javascript-->
@@ -59,30 +46,12 @@
 <script src="js/storageTool.js"></script>
 <script src="js/sendToServer.js"></script>
 <script src="js/bindingLinks.js"></script>
+<script src="js/login.js"></script>
 <script charset="gb2312" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).bind("pageinit", function () {
-        var bindLink = new BindLinkTo()
-        bindLink.self.bind = function (document,key) {
-            $(document).each(
-                    function () {
-                        $(this).bind("tap", function () {
-                                    _thisBindLinkObj_.send(getRootPath()+$(this).attr("path"));
-                                    var response = _thisBindLinkObj_.saveResponseTo(key);
-                                    if (response.length != 0){
-
-                                        _thisBindLinkObj_.self.url=($(this).attr("path"));
-                                        _thisBindLinkObj_.self.savePathToLocalStorage()
-                                        _thisBindLinkObj_.jumpTo($(this).attr("pageTo"))
-                                    }
-                                    else {
-                                        alert("出错了，可能是没有返回值")
-                                    }
-                                }
-                        )
-                    })
-        }
-        bindLink.self.bind(".main div div a", "domains")
+        var bindobj = new Login();
+        bindobj.self.bindButton();
     });
 </script>
 </body>

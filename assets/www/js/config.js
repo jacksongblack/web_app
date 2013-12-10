@@ -23,12 +23,12 @@ SetConfig.prototype.htmlTemplate = {
         return '<li><a data-ajax="false" data-storageKey="enterprise" pageTo="enterprises_list.html"  path="api/industries/' + obj.id + '/enterprises">' + obj.name + '</a></li>';
     },
     enterprises_list:function(obj){
-        return "<li><a  data-ajax='false'  data-storageKey='company' pageTo='enterprise_show.html' path='api/enterprises/" + obj.id + "'><img  class='ul-li-icon' src='"+ getRootPath() + obj.logo +"'><h3>"
+        return "<li><a  data-ajax='false'  data-storageKey='company' pageTo='enterprise_show.html' path='api/enterprises/" + obj.id + "'><img  class='ul-li-icon' src='"+ getRootPath() + obj.image_url +"'><h3>"
             + obj.name + "</h3>" + "<p>邮箱地址:&nbsp" + obj.email+ "</p><p>电话号码:&nbsp"+obj.tel+"</p><p>说明:&nbsp"+obj.description +"</p></a></li>"
     } ,
     enterprises_show:function(obj){
         console.log(obj)
-        var html = "<h2> " + obj.name + "</h2>" +"<article>"+ obj.email +"</article>";
+        var html = "<h2> " + obj.name + "</h2>" +"<article><p>"+ obj.email +"</p><img src="+obj.image_url +"></article>";
         return html
     }
 }

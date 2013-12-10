@@ -1,6 +1,6 @@
 //返回根节点
 function getRootPath() {
-    return "http://192.168.1.104:3000/"
+    return "http://192.168.0.251:3000/"
 }
 
 
@@ -13,13 +13,14 @@ GetTo.prototype = {
     toPage: "#",
     storageKey: "",
     data:"",
+    _thisGetToObj_:this,
     send:function(url) {
         $.ajax({
             type: "get",
             dataType: "json",
             url: url,
-            data: _thisGetToObj_.data,
-            content: _thisGetToObj_,
+            data: this.data,
+            content: this,
             async: false,
 
             error: function () {
@@ -40,7 +41,7 @@ GetTo.prototype = {
       return getRootPath() +url;
     },
     saveResponseTo:function(key){
-        _thisGetToObj_.storageKey= key
+        _thisGetToObj_.storageKey= key;
         localStorage.setItem(_thisGetToObj_.storageKey, JSON.stringify(_thisGetToObj_.response));
         return localStorage.getItem(_thisGetToObj_.storageKey)
     },

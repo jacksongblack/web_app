@@ -1,16 +1,13 @@
 function Login() {
+    GetTo.call(this);
     _thisLogin_ = this;
 }
-inheritPrototype(Login, GetTo)
+inheritPrototype(Login, GetTo) ;
 
 Login.prototype.self = {
-    _thisLogin_: this,
     bindButton: function () {
         var buttonObj = $("#login_button");
         buttonObj.bind("tap",function () {
-
-            var data = _thisLogin_.self.getByValue();
-            _thisLogin_.data = data;
             _thisLogin_.send(getRootPath()+buttonObj.attr("path"));
             _thisLogin_.callback();
         });

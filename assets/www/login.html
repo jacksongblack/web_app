@@ -28,7 +28,7 @@
                 <input type="password" id="password" name="password" id="login_password">
             </div>
             <div data-role="fieldcontainer">
-                <a data-role="button" data-theme="c" id="login_button">µÇÂ¼</a>
+                <a data-role="button" path="api/login" data-theme="c" id="login_button">µÇÂ¼</a>
             </div>
         </from>
         <div data-role="popup" id="message">
@@ -44,10 +44,9 @@
 <script src="js/jquery.mobile.iscrollview.js"></script>
 <!--<script src="js/cordova.js"></script>-->
 <script src="js/storageTool.js"></script>
-<script src="js/sendToServer.js"></script>
 <script src="js/bindingLinks.js"></script>
+<script src="js/sendToServer.js"></script>
 <script src="js/login.js"></script>
-<script charset="gb2312" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).bind("pageinit", function () {
         var bindobj = new Login();

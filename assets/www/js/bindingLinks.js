@@ -9,7 +9,12 @@ BindLinkTo.prototype.self ={
         $(document).each(
             function () {
                 $(this).bind("tap", function () {
-                        _thisBindLinkObj_.send(getRootPath()+$(this).attr("path"));
+                        if($(this).attr("path") != "#"){
+                            _thisBindLinkObj_.send(getRootPath()+$(this).attr("path"));
+                        } else{
+                            _thisBindLinkObj_.jumpTo($(this).attr("pageTo"))
+                        }
+
                         var response = _thisBindLinkObj_.saveResponseTo($(this).attr("data-storageKey"));
                         if (response.length != 0){
 

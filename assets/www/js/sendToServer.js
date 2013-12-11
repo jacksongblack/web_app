@@ -14,12 +14,13 @@ GetTo.prototype = {
     storageKey: "",
     data:"",
     _thisGetToObj_:this,
+    sendType:"get",
     send:function(url) {
         $.ajax({
-            type: "get",
+            type: _thisGetToObj_.sendType,
             dataType: "json",
             url: url,
-            data: this.data,
+            data: _thisGetToObj_.data,
             content: this,
             async: false,
 

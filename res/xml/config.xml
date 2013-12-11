@@ -31,6 +31,9 @@
     </author>
 
     <access origin="http://192.168.0.251:3000/"/>
+    <access origin="http://publicquery.sipo.gov.cn/*"/>
+    <access origin="http://www.kuaidi100.com/*"/>
+    <access origin="*"/>
 
     <!-- <content src="http://mysite.com/myapp.html" /> for external pages -->
     <content src="index.html" />

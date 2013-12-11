@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312 target-densitydpi=device-dpi"/>
     <title>导航</title>
     <!--css-->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -12,29 +12,22 @@
 </head>
 <body>
 <div data-role="page" data-theme="c">
+    <div data-role="popup" id="lastPage">
+        <p>亲！到最后一页了</p>
+    </div>
+    <div data-role="popup" id="firstPage">
+        <p>亲！已经第一页了
+
+        <p>
+    </div>
     <!--header-->
     <div data-role="header" data-theme="c">
         <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主界面</a>
         <h1> 中小微企业服务平台 </h1>
     </div>
+    <!--九宫格-->
     <div data-role="content" class="main">
-        <from name="login" id="login_form">
-            <div data-role="fieldcontainer">
-                <label for="email">邮箱地址</label>
-                <input type="email" id="email" name="email" id="login_email">
-            </div>
-            <div data-role="fieldcontainer">
-                <label for="password">密码</label>
-                <input type="password" id="password" name="password" id="login_password">
-            </div>
-            <div data-role="fieldcontainer">
-                <a data-role="button" path="api/login?" data-theme="c" id="login_button">登录</a>
-            </div>
-        </from>
-        <div data-role="popup" id="message">
-            <a href="#" data-rel="back" data-role="button" data-theme="c" data-icon="delete" data-iconpos="notext" class="ui-btn-right">关闭</a>
-            <p>邮箱或密码错误&nbsp;&nbsp;&nbsp;<p>
-        </div>
+        <iframe src="http://www.kuaidi100.com/frame/index.html"  id="logistics" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="yes"></iframe>
     </div>
 </div>
 <!--javascript-->
@@ -47,12 +40,24 @@
 <script src="js/storageTool.js"></script>
 <script src="js/sendToServer.js"></script>
 <script src="js/bindingLinks.js"></script>
-<script src="js/login.js"></script>
+<script charset="gb2312" type="text/javascript"></script>
 <script type="text/javascript">
-    $(document).bind("pageinit", function () {
-        var bindobj = new Login();
-        bindobj.self.bindButton();
-    });
+        $(document).bind("pageinit", function () {
+            $("#logistics").attr("width",$(window).width())
+            $("#logistics").attr("height",$(window).height())
+        });
+        $( window ).bind("orientationchange", function( event ) {
+//        if(event.orientation){
+//            if(event.orientation == 'portrait'){
+//            }
+//            else if(event.orientation == 'landscape') {
+//            }
+//        }
+            var height =  $("#logistics").attr("height");
+            var width = $("#logistics").attr("width");
+            $("#logistics").attr("height",width);
+            $("#logistics").attr("height",height);
+        });
 </script>
 </body>
 </html>

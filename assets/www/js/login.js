@@ -8,15 +8,15 @@ Login.prototype.self = {
     bindButton: function () {
         var buttonObj = $("#login_button");
         buttonObj.bind("tap",function () {
+            _thisLogin_.sendType="post"
+            _thisLogin_.data= _thisLogin_.self.getByValue()
             _thisLogin_.send(getRootPath()+buttonObj.attr("path"));
-            _thisLogin_.callback();
+            _thisLogin_.self.callback();
         });
     },
     getByValue: function () {
-        var emailObj = $("#login_email")
-        var passwordObj = $("#login_password")
-        var data = "?email=" + emailObj.value + "?password=" + passwordObj.value
-        return data
+        var vals = $("#login_form :input").serialize();
+        return vals
     },
     callback: function () {
         var response = _thisLogin_.getResponse();
@@ -24,7 +24,7 @@ Login.prototype.self = {
             $("#message").popup("open")
 
         } else {
-            if (response != undefined) {
+            if (response.length != 0) {
                 _thisLogin_.saveResponseTo("user");
             }
         }

@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
     <title>新闻</title>
     <!--css-->
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/show.css"/>
     <link rel="stylesheet" type="text/css" href="css/image_style.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.iscrollview.css"/>
@@ -27,8 +27,8 @@
                 return html
             }
             var jsonObj = toolObj.storageToHtml("company")
-            $(".news-content").append(jsonObj);
-            $(".news-content").trigger("create");
+            $("[data-role='content']").append(jsonObj);
+            $("[data-role='content']").trigger("create");
         })
 
     </script>
@@ -44,7 +44,7 @@
         <h1>新闻</h1>
     </div>
     <!-- /content --> 　
-    <div data-role="content" class="news-content">
+    <div data-role="content" class="enterprise_show">
 
     </div>
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>

@@ -1,0 +1,22 @@
+.enterprise_show{
+
+}
+.enterprise_show .photo {
+    margin-left: 1%;
+    width: 20%;
+    float: left;
+}
+.enterprise_show .content{
+    width: 60%;
+    margin-left: 1%;
+    float: left;
+    padding-top: 1%;
+}
+.enterprise_show .content table {
+    width: 100%;
+}
+.enterprise_show .content table,td {
+}
+.enterprise_show .content table,tr {
+    width: 25%;
+}

@@ -19,7 +19,7 @@
     <script src="js/iScroll.js"></script>
     <script src="js/jquery.mobile.iscrollview.js"></script>
     <script src="js/storageTool.js"></script>
-    <script src="js/config.js"></script>
+    <script src="js/Rendering.js"></script>
     <script src="js/sendToServer.js"></script>
     <script src="js/bindingLinks.js"></script>
     <script   src="js/pullIscroll.js"></script>
@@ -48,7 +48,7 @@
             function initialization(){
                 var obj = new StorageTool()
                 obj.template =function(obj){
-                  return  new SetConfig().htmlTemplate.industries_list(obj)
+                  return  new Rendering().htmlTemplate.industries_list(obj)
                 }
                 obj.review($(".news-list"),$(".news-list-ul"),"posts")
                 var url = localStorage.getItem("url");

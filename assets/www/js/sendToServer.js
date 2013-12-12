@@ -24,7 +24,7 @@ GetTo.prototype = {
             async: false,
 
             error: function () {
-               alert("出错了")
+                _thisGetToObj_.response = "error"
             },
             success: function (data) {
                 _thisGetToObj_.callBack(data)

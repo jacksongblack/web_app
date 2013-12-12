@@ -31,22 +31,16 @@ Rendering.prototype.htmlTemplate = {
             + obj.name + "</h3>" + "<p>邮箱地址:&nbsp;&nbsp;" + obj.email + "</p><p>电话号码:&nbsp;&nbsp;" + obj.tel + "</p><p>说明:&nbsp;&nbsp;" + obj.description + "</p></a></li>"
     },
     enterprises_show: function (obj) {
-        var html = "<div class='enterprise'>" +
-            "<div class='content'>" +
-            "<table>" +
-            "<tr>" +
-            "<td rowspan='4'> <a href='#popupPhotoPortrait' data-rel='popup' data-position-to='window'   data-inline='true' data-transition='fade' >" +
-            "<img src=" + getRootPath() + obj.image_url + " style='width:50%'>" +
-            "</a></td><th>名称:</th><td>" + obj.name + "</td></tr>" +
+        console.log(obj.description)
+        return "<div class='image'><a href='#'><img id='avatar' style='width:100%; ' src="+ getRootPath() + obj.image_url +" ></a>" +
+            "<div class='content'><h2>公司信息</h2><table>"+
+            "<tr><th>名称:</th><td>" + obj.name + "</td></tr>" +
             "<tr><th>电话:</th><td>" + obj.tel + "</td></tr>" +
             "<tr><th>邮箱:</th><td>" + obj.email + "</td></tr>" +
-            "<tr><th>地址:</th><td>" + obj.address + "</td></tr></th>" +
-            "</table>" +
+            "<tr><th>地址:</th><td>" + obj.address + "</td></tr>" +
+            "</table><div class='description' style=''><h2>公司简介</h2><p>"+obj.description+"</p></div>" +
+            "<div class='products_list'><h2>公司产品</h2><a data-theme='c' ></div>" +
             "</div>" +
-            '</div>' +
-            "<div id='popupPhotoPortrait'data-role='popup'class='photopopup'data-overlay-theme='c' data-corners='false' data-tolerance='30,15' >" +
-            '<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"> Close</a> <img src="' + getRootPath() + obj.image_url + '" alt="Photo landscape"> ' +
-            '</div>';
-        return html
+            "</div>"
     }
 }

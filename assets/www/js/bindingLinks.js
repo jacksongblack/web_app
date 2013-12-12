@@ -16,6 +16,7 @@ BindLinkTo.prototype.self ={
                             _thisBindLinkObj_.jumpTo($(this).attr("pageTo"))
                         }
                         if($(this).attr("pageTo") == "quit"){
+                            localStorage.clear();
 //                            navigator.app.exitApp();
                         }
                         var response = _thisBindLinkObj_.saveResponseTo($(this).attr("data-storageKey"));

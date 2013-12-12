@@ -1,22 +1,23 @@
 .enterprise_show{
 
 }
-.enterprise_show .photo {
-    margin-left: 1%;
-    width: 20%;
-    float: left;
-}
-.enterprise_show .content{
-    width: 60%;
-    margin-left: 1%;
-    float: left;
-    padding-top: 1%;
-}
-.enterprise_show .content table {
+.image {
+               position:relative;
+              padding-bottom: 10px;
     width: 100%;
 }
-.enterprise_show .content table,td {
+.content  {
+
+    position:absolute;
+    width: 100%;
+    top: 40%;
+    background-color: #ffffff;
+    height: 60%;
 }
-.enterprise_show .content table,tr {
-    width: 25%;
+.description{
+    border-top:1px solid #000000;
+    text-align: right;
+}
+.products_list{
+    border-top:1px solid #000000;
 }

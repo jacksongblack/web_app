@@ -71,6 +71,7 @@ Rendering.prototype.main ={
     objectToHtml:function(obj){
         var htmlCache = "";
         var newsContent;
+        console.log(obj)
         $.each(obj, function (n, value) {
             newsContent = _thisRendRing_.main.template(value);
             newsContent = newsContent + htmlCache;

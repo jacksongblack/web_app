@@ -57,7 +57,7 @@ Rendering.prototype.imageProcessing ={
         $("img").each(function(){
             var imagePath = $(this).attr("src");
             var reg = /http:/g;
-            $(this).attr("style","width:100%");
+            $(this).attr("style","width:90%");
             try {
                 reg.exec(imagePath).length;
             }catch(error) {

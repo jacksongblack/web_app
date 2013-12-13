@@ -12,7 +12,6 @@ Rendering.prototype.htmlTemplate = {
             + obj.title + "</h3>" + "<p>" + obj.description + "</p></a></li>"
     },
     news_show:function (obj){
-        console.log(obj)
         return "<div class='show'><div class='title'><h1> " + obj.title + "</h1><h2>创建时间："+obj.updated_at +"</h2></div>" +"<div class='content'>"+ obj.content  +"</div></div>";
     },
     industries_theme: function (obj) {
@@ -37,7 +36,6 @@ Rendering.prototype.htmlTemplate = {
             + obj.name + "</h3>" + "<p>邮箱地址:&nbsp;&nbsp;" + obj.email + "</p><p>电话号码:&nbsp;&nbsp;" + obj.tel + "</p><p>说明:&nbsp;&nbsp;" + obj.description + "</p></a></li>"
     },
     enterprises_show: function (obj) {
-        console.log(obj.description)
         return "<div class='enterprise'><a href='#'><img id='avatar' style='width:100%; ' src="+ getRootPath() + obj.image_url +" ></a>" +
             "<div class='content'><h2>公司信息</h2><table>"+
             "<tr><th>名称:</th><td>" + obj.name + "</td></tr>" +
@@ -45,7 +43,7 @@ Rendering.prototype.htmlTemplate = {
             "<tr><th>邮箱:</th><td>" + obj.email + "</td></tr>" +
             "<tr><th>地址:</th><td>" + obj.address + "</td></tr>" +
             "</table><div class='description' style=''><h2>公司简介</h2><p>"+obj.description+"</p></div>" +
-            "<div class='products_list'><h2>公司产品</h2><a pageTo='' ></a></div>" +
+            "<div class='products_list'><h2>公司产品</h2><a data-mini='true' data-role='button' pageTo='products_list.html' path=/api/industries/"+obj.id+"/products data-storageKey='products' class='producs' >更多产品信息</a></div>" +
             "</div>" +
             "</div>"
     },

@@ -46,18 +46,6 @@
             $("#logistics").attr("width",$(window).width())
             $("#logistics").attr("height",$(window).height())
         });
-        $( window ).bind("orientationchange", function( event ) {
-//        if(event.orientation){
-//            if(event.orientation == 'portrait'){
-//            }
-//            else if(event.orientation == 'landscape') {
-//            }
-//        }
-            var height =  $("#logistics").attr("height");
-            var width = $("#logistics").attr("width");
-            $("#logistics").attr("height",width);
-            $("#logistics").attr("height",height);
-        });
 </script>
 </body>
 </html>

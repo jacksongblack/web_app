@@ -5,6 +5,7 @@
     <title>ÐÂÎÅ</title>
     <!--css-->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/show.css"/>
     <link rel="stylesheet" type="text/css" href="css/image_style.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.iscrollview.css"/>
@@ -18,25 +19,18 @@
     <script src="js/sendToServer.js"></script>
     <script src="js/bindingLinks.js"></script>
     <script src="js/storageTool.js"></script>
+    <script src="js/Rendering.js"></script>
     <script type="text/javascript">
         $(document).bind("pageinit", function () {
-            var toolObj = new StorageTool()
-            toolObj.objectToHtml= function(obj){
-                var html = "<h2> " + obj.name + "</h2>" +"<article>"+ obj.description  +"</article>";
+            var toolObj = new Rendering()
+            toolObj.main.objectToHtml= function(obj){
+                var html = toolObj.htmlTemplate.product_show(obj)
                 return html
             }
-            var jsonObj = toolObj.storageToHtml("product")
+            var jsonObj = toolObj.main.storageToHtml("product")
             $(".news-content").append(jsonObj)
-            addImagePath();
+            toolObj.imageProcessing.urlProcessing();
         })
-
-        function addImagePath(){
-            $("img").each(function(){
-              var imagePath = $(this).attr("src");
-                $(this).attr("src",getRootPath()+imagePath)
-                $(this).attr("style","")
-            })
-        }
     </script>
 </head>
 <body>

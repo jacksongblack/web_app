@@ -26,12 +26,12 @@
     <script type="text/javascript">
         $(document).bind("pageinit", function () {
 
-            var tool = new StorageTool();
-            tool.template = function (obj) {
-                return new Rendering().htmlTemplate.industries_theme(obj)
+            var tool = new Rendering();
+            tool.main.template = function (obj) {
+                return tool.htmlTemplate.industries_theme(obj)
             };
 
-            tool.review($(".news-theme"),$(".list"),"industries_enterprises")
+            tool.main.review($(".news-theme"),$(".list"),"industries_enterprises")
 
             var bind = new BindLinkTo;
 

@@ -16,17 +16,17 @@
     <script src="js/iScroll.js"></script>
     <script src="js/jquery.mobile.iscrollview.js"></script>
     <script src="js/sendToServer.js"></script>
-    <script src="js/bindingLinks.js"></script>
     <script src="js/storageTool.js"></script>
+    <script src="js/bindingLinks.js"></script>
     <script src="js/Rendering.js"></script>
     <script type="text/javascript">
         $(document).bind("pageinit", function () {
-            var toolObj = new StorageTool()
-            toolObj.objectToHtml= function(obj){
-              var html = new Rendering().htmlTemplate.enterprises_show(obj)
+            var toolObj = new Rendering()
+            toolObj.main.objectToHtml= function(obj){
+              var html = toolObj.htmlTemplate.enterprises_show(obj)
                 return html
             }
-            var jsonObj = toolObj.storageToHtml("company")
+            var jsonObj = toolObj.main.storageToHtml("company")
             $("[data-role='content']").append(jsonObj);
             $("[data-role='content']").trigger("create");
         })

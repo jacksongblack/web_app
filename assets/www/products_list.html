@@ -46,11 +46,11 @@
                 initialization();
             };
             function initialization(){
-                var obj = new StorageTool()
-                obj.template = function(obj){
-                   return new Rendering().htmlTemplate.products_list(obj)
+                var tool = new Rendering()
+                tool.main.template = function(obj){
+                   return tool.htmlTemplate.products_list(obj)
                 }
-                obj.review($(".product-list"),$(".products-list-ul"),"products")
+                tool.main.review($(".product-list"),$(".products-list-ul"),"products")
                 var url = localStorage.getItem("url");
                 $("#pullAjaxUrl").attr("href",url+"?page_number=");
 

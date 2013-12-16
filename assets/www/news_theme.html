@@ -19,24 +19,24 @@
     <script src="js/bindingLinks.js"charset="UTF-8"></script>
     <script src="js/storageTool.js"></script>
     <script src="js/Rendering.js"></script>
-</head>
-<body>
-¡¡
-<div data-role="page" data-theme="c" id="news_theme">
     <script type="text/javascript">
         $(document).bind("pageinit",function(){
 
             var tool = new Rendering();
 
             tool.main.template = function(obj){
-              return tool.htmlTemplate.news_theme(obj)
+                return tool.htmlTemplate.news_theme(obj)
             }
-            tool.main.review($(".news-theme"),$(".list"),"domains")
+            tool.main.review($(".news-theme"),$(".list"),"domains");
 
             var bind = new BindLinkTo;
-            bind.self.bind("li a","posts","news_list.html")
+            bind.self.bind("li a","posts","news_list.html");
         });
     </script>
+</head>
+<body>
+¡¡
+<div data-role="page" data-theme="c" id="news_theme">
     <!-- /header -->¡¡
     <div data-role="header" data-theme="b">
         <a href="index.html" data-mini="true" data-theme="b" data-icon="arrow-l" data-ajax=false>Ö÷²Ëµ¥</a>

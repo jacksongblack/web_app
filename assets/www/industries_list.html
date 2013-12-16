@@ -8,9 +8,6 @@
     <link rel="stylesheet" type="text/css" href="css/image_style.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.iscrollview.css"/>
-</head>
-<body>
-<div data-role="page" data-theme="c" id="news_list_page" class="index-page">
     <!--javascript-->
     <script src="js/jquery-1.9.1.js"></script>
     <script src="js/initialization.js"></script>
@@ -22,8 +19,8 @@
     <script src="js/storageTool.js"></script>
     <script src="js/Rendering.js"></script>
     <script src="js/bindingLinks.js"charset="UTF-8"></script>
-    <script   src="js/pullIscroll.js"></script>
-    <script  type="text/javascript">
+    <script src="js/pullIscroll.js"></script>
+    <script type="text/javascript">
         $(document).bind("pageinit", function () {
             initialization();
             $(".iscroll-wrapper", this).bind( {
@@ -48,18 +45,21 @@
             function initialization(){
                 var tool = new Rendering()
                 tool.main.template =function(obj){
-                  return  tool.htmlTemplate.industries_list(obj)
+                    return  tool.htmlTemplate.industries_list(obj)
                 }
                 tool.main.review($(".news-list"),$(".news-list-ul"),"posts")
                 var url = localStorage.getItem("url");
                 $("#pullAjaxUrl").attr("href",url+"?page_number=");
 
-               var bindObj = new BindLinkTo;
+                var bindObj = new BindLinkTo;
                 bindObj.self.bind(".news-list-ul div div a")
             }
         });
 
     </script>
+</head>
+<body>
+<div data-role="page" data-theme="c" id="news_list_page" class="index-page">
     <!-- /header -->
     <div data-role="header" data-theme="b">
         <a href="index.html" data-mini="true" data-theme="b" data-icon="arrow-l" data-ajax=false>Ö÷½çÃæ</a>

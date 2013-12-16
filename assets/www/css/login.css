@@ -1,0 +1,11 @@
+.logo{
+    width: 40%;
+    -webkit-border-radius: 55%;
+}
+
+.login_form{
+    width: 80%;
+    text-align: center;
+    margin-left:  6%;
+    padding: 5% 5% 5% 5%;
+}

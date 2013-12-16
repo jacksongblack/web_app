@@ -150,4 +150,7 @@
 .ui-grid-b div a.img9:active {
     text-align: center;
 }
-
+.index{
+    width: 17px;
+    -webkit-border-radius: 55%;
+}

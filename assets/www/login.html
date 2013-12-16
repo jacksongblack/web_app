@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="css/image_style.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.iscrollview.css"/>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
 
 </head>
 <body>
@@ -18,19 +19,22 @@
         <h1> µ«¬º </h1>
     </div>
     <div data-role="content" class="main">
-        <from name="login" id="login_form">
+        <div style="text-align: center">
+        <img class="logo" src="images/logo.jpg">
+        </div>
+        <div class="login_form">
+        <from name="login" id="login_form" >
             <div data-role="fieldcontainer">
-                <label for="email">” œ‰µÿ÷∑</label>
-                <input type="email" id="email" name="email" id="login_email">
+                <input type="email" id="email" name="email" id="login_email" value="«Î ‰»Î” œ‰µÿ÷∑" onclick="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999">
             </div>
             <div data-role="fieldcontainer">
-                <label for="password">√‹¬Î</label>
-                <input type="password" id="password" name="password" id="login_password">
+                <input type="text" id="password" name="password" id="login_password" value="«Î ‰»Î√‹¬Î" onclick="if(value==defaultValue){value='';this.style.color='#000';this.type='password'}" onBlur="if(!value){value=defaultValue;this.style.color='#999';this.type='text'}" style="color:#999">
             </div>
             <div data-role="fieldcontainer">
                 <a data-role="button" path="api/login" data-theme="c" id="login_button">µ«¬º</a>
             </div>
         </from>
+        </div>
         <div data-role="popup" id="message">
             <a href="#" data-rel="back" data-role="button" data-theme="c" data-icon="delete" data-iconpos="notext" class="ui-btn-right">πÿ±’</a>
             <p>” œ‰ªÚ√‹¬Î¥ÌŒÛ&nbsp;&nbsp;&nbsp;<p>

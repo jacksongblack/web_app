@@ -43,7 +43,7 @@ BindLinkTo.prototype.self ={
                     }
                 }
                 else {
-                    alert("服务器没有返回值")
+                    alert("服务器没有资料")
                 }
             }
         )

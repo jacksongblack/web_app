@@ -2,12 +2,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
-    <title>导航</title>
+    <title>登录</title>
     <!--css-->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/image_style.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.iscrollview.css"/>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
 
 </head>
 <body>
@@ -15,22 +16,25 @@
     <!--header-->
     <div data-role="header" data-theme="c">
         <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主界面</a>
-        <h1> 中小微企业服务平台 </h1>
+        <h1> 登录 </h1>
     </div>
     <div data-role="content" class="main">
-        <from name="login" id="login_form">
+        <div style="text-align: center">
+        <img class="logo" src="images/logo.png">
+        </div>
+        <div class="login_form">
+        <from name="login" id="login_form" >
             <div data-role="fieldcontainer">
-                <label for="email">邮箱地址</label>
-                <input type="email" id="email" name="email" id="login_email">
+                <input type="email" id="email" name="email" id="login_email" value="请输入邮箱地址" onclick="if(value==defaultValue){value='';this.style.color='#000'}" onBlur="if(!value){value=defaultValue;this.style.color='#999'}" style="color:#999">
             </div>
             <div data-role="fieldcontainer">
-                <label for="password">密码</label>
-                <input type="password" id="password" name="password" id="login_password">
+                <input type="text" id="password" name="password" id="login_password" value="请输入密码" onclick="if(value==defaultValue){value='';this.style.color='#000';this.type='password'}" onBlur="if(!value){value=defaultValue;this.style.color='#999';this.type='text'}" style="color:#999">
             </div>
             <div data-role="fieldcontainer">
-                <a data-role="button" path="api/login" data-theme="c" id="login_button">登录</a>
+                <a data-role="button" path="api/session_create" data-theme="c" id="login_button" data-storageKey="enterprises" pageTo="user.html">登录</a>
             </div>
         </from>
+        </div>
         <div data-role="popup" id="message">
             <a href="#" data-rel="back" data-role="button" data-theme="c" data-icon="delete" data-iconpos="notext" class="ui-btn-right">关闭</a>
             <p>邮箱或密码错误&nbsp;&nbsp;&nbsp;<p>
@@ -46,12 +50,12 @@
 <!--<script src="js/cordova.js"></script>-->
 <script src="js/storageTool.js"></script>
 <script src="js/sendToServer.js"></script>
-<script src="js/bindingLinks.js"></script>
-<script src="js/login.js"></script>
+<script src="js/bindingLinks.js" charset="UTF-8"></script>
+<script src="js/login.js" charset="UTF-8"></script>
 <script type="text/javascript">
     $(document).bind("pageinit", function () {
         var bindobj = new Login();
-        bindobj.self.bindButton();
+        bindobj.self.bindButton($("#login_button"));
     });
 </script>
 </body>

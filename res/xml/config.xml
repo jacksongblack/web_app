@@ -33,7 +33,7 @@
     <access origin="http://192.168.1.106:3000/"/>
     <access origin="http://publicquery.sipo.gov.cn/*"/>
     <access origin="http://www.kuaidi100.com/*"/>
-    <access origin="*"/>
+    <access origin="http:*/"/>
 
     <!-- <content src="http://mysite.com/myapp.html" /> for external pages -->
     <content src="index.html" />

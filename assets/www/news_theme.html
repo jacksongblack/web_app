@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
-    <title>新闻</title>
+    <title>新闻种类</title>
     <!--css-->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/image_style.css"/>
@@ -16,32 +16,31 @@
     <script src="js/iScroll.js"></script>
     <script src="js/jquery.mobile.iscrollview.js"></script>
     <script src="js/sendToServer.js"></script>
-    <script src="js/bindingLinks.js"></script>
+    <script src="js/bindingLinks.js"charset="UTF-8"></script>
     <script src="js/storageTool.js"></script>
     <script src="js/Rendering.js"></script>
+    <script type="text/javascript">
+        $(document).bind("pageinit",function(){
+
+            var tool = new Rendering();
+
+            tool.main.template = function(obj){
+                return tool.htmlTemplate.news_theme(obj)
+            }
+            tool.main.review($(".news-theme"),$(".list"),"domains");
+
+            var bind = new BindLinkTo;
+            bind.self.bind("li a","posts","news_list.html");
+        });
+    </script>
 </head>
 <body>
 　
 <div data-role="page" data-theme="c" id="news_theme">
-    <script type="text/javascript">
-        $(document).bind("pageinit",function(){
-
-            var tool = new StorageTool();
-
-            tool.template = function(obj){
-              return new Rendering().htmlTemplate.news_theme(obj)
-            }
-            var html = tool.storageToHtml("posts");
-            tool.review($(".news-theme"),$(".list"),"domains")
-
-            var bind = new BindLinkTo;
-            bind.self.bind("li a","posts","news_list.html")
-        });
-    </script>
     <!-- /header -->　
-    <div data-role="header" data-theme="c">
-        <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主菜单</a>
-        <h1>新闻</h1>
+    <div data-role="header" data-theme="b">
+        <a href="index.html" data-mini="true" data-theme="b" data-icon="arrow-l" data-ajax=false>主菜单</a>
+        <h1>新闻种类</h1>
     </div>
     <!-- /content --> 　
     <div data-role="content" class="news-theme">

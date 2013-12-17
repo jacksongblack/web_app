@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312 target-densitydpi=device-dpi"/>
-    <title>导航</title>
+    <title>物流查询</title>
     <!--css-->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/image_style.css"/>
@@ -21,13 +21,13 @@
         <p>
     </div>
     <!--header-->
-    <div data-role="header" data-theme="c">
-        <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主界面</a>
-        <h1> 中小微企业服务平台 </h1>
+    <div data-role="header" data-theme="b">
+        <a href="index.html" data-theme="b" data-mini="true" data-icon="arrow-l" data-ajax=false>主界面</a>
+        <h1> 物流查询 </h1>
     </div>
     <!--九宫格-->
     <div data-role="content" class="main">
-        <iframe src="http://www.kuaidi100.com/frame/index.html"  id="logistics" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="yes"></iframe>
+        <iframe src="http://www.kuaidi100.com/frame/index.html"  id="logistics" method="get" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="yes"></iframe>
     </div>
 </div>
 <!--javascript-->
@@ -39,25 +39,17 @@
 <!--<script src="js/cordova.js"></script>-->
 <script src="js/storageTool.js"></script>
 <script src="js/sendToServer.js"></script>
-<script src="js/bindingLinks.js"></script>
+<script src="js/bindingLinks.js" charset="UTF-8"></script>
 <script charset="gb2312" type="text/javascript"></script>
 <script type="text/javascript">
-        $(document).bind("pageinit", function () {
-            $("#logistics").attr("width",$(window).width())
-            $("#logistics").attr("height",$(window).height())
-        });
-        $( window ).bind("orientationchange", function( event ) {
-//        if(event.orientation){
-//            if(event.orientation == 'portrait'){
-//            }
-//            else if(event.orientation == 'landscape') {
-//            }
-//        }
-            var height =  $("#logistics").attr("height");
-            var width = $("#logistics").attr("width");
-            $("#logistics").attr("height",width);
-            $("#logistics").attr("height",height);
-        });
+    $(document).bind("pageinit",function(){
+        $("#logistics").attr("width",$(window).width())
+        $("#logistics").attr("height",$(window).height())
+    });
+    $(window).bind('orientationchange',function(e){
+       var path =  $("#logistics").attr("src")
+        $("#logistics").attr("src")
+    })
 </script>
 </body>
 </html>

@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
-    <title>企业类型</title>
+    <title>企业显示</title>
     <!--css-->
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/show.css"/>
     <link rel="stylesheet" type="text/css" href="css/image_style.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.2.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.iscrollview.css"/>
@@ -16,41 +16,40 @@
     <script src="js/iScroll.js"></script>
     <script src="js/jquery.mobile.iscrollview.js"></script>
     <script src="js/sendToServer.js"></script>
+    <script src="js/storageTool.js" ></script>
     <script src="js/bindingLinks.js" charset="UTF-8"></script>
-    <script src="js/storageTool.js"></script>
     <script src="js/Rendering.js"></script>
+    <script type="text/javascript">
+        $(document).bind("pageinit", function () {
+            var toolObj = new Rendering()
+            toolObj.main.objectToHtml= function(obj){
+                var html = toolObj.htmlTemplate.user(obj)
+                return html
+            }
+            var jsonObj = toolObj.main.storageToHtml("company")
+            $("[data-role='content']").append(jsonObj);
+            $("[data-role='content']").trigger("create");
+            var binding = new BindLinkTo();
+            binding.self.bindlink($(".products_list a"))
+        })
+
+    </script>
 </head>
 <body>
 　
-<div data-role="page" data-theme="c" id="industrys_theme">
-    <script type="text/javascript">
-        $(document).bind("pageinit", function () {
-
-            var tool = new Rendering();
-            tool.main.template = function (obj) {
-                return tool.htmlTemplate.enterprises_theme(obj)
-            };
-
-            tool.main.review($(".enterprises-theme"),$(".list"),"industries")
-
-            var bind = new BindLinkTo;
-
-            bind.self.bind("li a", "posts","news_list.html")
-        });
-    </script>
+<div data-role="page" data-theme="c" id="news-show-page" class="news-show" data-fullscreen="true">
     <!-- /header -->　
     <div data-role="header" data-theme="b">
-        <a href="index.html" data-mini="true" data-theme="b" data-icon="arrow-l" data-ajax=false>主菜单</a>
+        <a href="index.html" data-mini="true"  data-theme="b" data-icon="arrow-l" data-ajax=false>主菜单</a>
+        <a href="enterprises_theme.html"  data-mini="true" class="addButton ui-btn-right" data-icon="forward" data-ajax= false>返回</a>
 
-        <h1>企业类型</h1>
+        <h1>企业信息</h1>
     </div>
     <!-- /content --> 　
-    <div data-role="content" class="enterprises-theme">
-        <div data-role="collapsible-set">
-            <ul data-role="listview" data-theme="c" class="list">
-            </ul>
-        </div>
+    <div data-role="content" class="enterprise_show">
+
     </div>
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>
 </div>
 <!-- /page -->
 </body>

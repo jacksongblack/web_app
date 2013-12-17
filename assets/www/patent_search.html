@@ -21,9 +21,9 @@
         <p>
     </div>
     <!--header-->
-    <div data-role="header" data-theme="c">
-        <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主界面</a>
-        <h1> 中小微企业服务平台 </h1>
+    <div data-role="header" data-theme="b">
+        <a href="index.html" data-mini="true" data-theme="b" data-icon="arrow-l" data-ajax=false>主界面</a>
+        <h1> 专利查询 </h1>
     </div>
     <!--九宫格-->
     <div data-role="content" class="main">
@@ -39,18 +39,12 @@
 <!--<script src="js/cordova.js"></script>-->
 <script src="js/storageTool.js"></script>
 <script src="js/sendToServer.js"></script>
-<script src="js/bindingLinks.js"></script>
+<script src="js/bindingLinks.js" charset="UTF-8"></script>
 <script charset="gb2312" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).bind("pageinit", function () {
         $("#patent").attr("width",$(window).width())
         $("#patent").attr("height",$(window).height())
-    });
-    $( window ).bind("orientationchange", function( event ) {
-                 var height =  $("#patent").attr("height");
-                 var width = $("#patent").attr("width");
-               $("#patent").attr("height",width);
-               $("#patent").attr("height",height);
     });
 </script>
 </body>

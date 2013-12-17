@@ -1,23 +1,36 @@
-.enterprise_show{
 
-}
-.image {
-               position:relative;
-              padding-bottom: 10px;
+.enterprise {
+    position: relative;
+    padding-bottom: 10px;
     width: 100%;
 }
-.content  {
 
-    position:absolute;
+.enterprise .content {
+
+    position: absolute;
     width: 100%;
     top: 40%;
     background-color: #ffffff;
     height: 60%;
 }
-.description{
-    border-top:1px solid #000000;
+
+.enterprise .content .description {
+    border-top: 1px solid #000000;
     text-align: right;
 }
-.products_list{
+
+.enterprise .content .products_list {
+    border-top: 1px solid #000000;
+}
+
+.show {
+
+}
+
+.show .content{
     border-top:1px solid #000000;
+    padding-top: 5%;
+    margin-top: 4%;
+    width: 99%;
+    padding-left:0.5%;
 }

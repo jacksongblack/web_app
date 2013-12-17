@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
-    <title>新闻</title>
+    <title>新闻列表</title>
     <!--css-->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/image_style.css"/>
@@ -18,10 +18,10 @@
     <!--<script src="js/cordova.js"></script>-->
     <script src="js/iScroll.js"></script>
     <script src="js/jquery.mobile.iscrollview.js"></script>
+    <script src="js/sendToServer.js"></script>
     <script src="js/storageTool.js"></script>
     <script src="js/Rendering.js"></script>
-    <script src="js/sendToServer.js"></script>
-    <script src="js/bindingLinks.js"></script>
+    <script src="js/bindingLinks.js" charset="UTF-8"></script>
     <script   src="js/pullIscroll.js"></script>
     <script  type="text/javascript">
         $(document).bind("pageinit", function () {
@@ -46,11 +46,12 @@
                 initialization();
             };
             function initialization(){
-                var obj = new StorageTool()
-                obj.template =function(obj){
-                  return  new Rendering().htmlTemplate.news_list(obj)
-                }
-                obj.review($(".news-list"),$(".news-list-ul"),"posts")
+                var renderingobj = new Rendering();
+                renderingobj.main.template =function(obj){
+                  var html = renderingobj.htmlTemplate.news_list(obj)
+                    return html
+                };
+                renderingobj.main.review($(".news-list"),$(".news-list-ul"),"posts")
                 var url = localStorage.getItem("url");
                 $("#pullAjaxUrl").attr("href",url+"?page_number=");
 
@@ -61,11 +62,11 @@
 
     </script>
     <!-- /header -->
-    <div data-role="header" data-theme="c">
-        <a href="index.html" data-mini="true" data-icon="arrow-l" data-ajax=false>主界面</a>
-        <a href="news_theme.html"  data-mini="true" class="addButton ui-btn-right" data-icon="forward" data-ajax= false>返回</a>
+    <div data-role="header" data-theme="b">
+        <a href="index.html" data-mini="true" data-theme="b" data-icon="arrow-l" data-ajax=false>主界面</a>
+        <a href="news_theme.html"  data-mini="true" data-theme="b" class="addButton ui-btn-right" data-icon="forward" data-ajax= false>返回</a>
 
-        <h1>新闻</h1>
+        <h1>新闻列表</h1>
     </div>
     <!-- /content -->
     <div data-role="content" class="news-list" data-iscroll>

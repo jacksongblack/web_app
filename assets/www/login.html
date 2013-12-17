@@ -31,7 +31,7 @@
                 <input type="text" id="password" name="password" id="login_password" value="ÇëÊäÈëÃÜÂë" onclick="if(value==defaultValue){value='';this.style.color='#000';this.type='password'}" onBlur="if(!value){value=defaultValue;this.style.color='#999';this.type='text'}" style="color:#999">
             </div>
             <div data-role="fieldcontainer">
-                <a data-role="button" path="api/login" data-theme="c" id="login_button">µÇÂ¼</a>
+                <a data-role="button" path="api/session_create" data-theme="c" id="login_button" data-storageKey="enterprises" pageTo="user.html">µÇÂ¼</a>
             </div>
         </from>
         </div>
@@ -51,11 +51,11 @@
 <script src="js/storageTool.js"></script>
 <script src="js/sendToServer.js"></script>
 <script src="js/bindingLinks.js" charset="UTF-8"></script>
-<script src="js/login.js"></script>
+<script src="js/login.js" charset="UTF-8"></script>
 <script type="text/javascript">
     $(document).bind("pageinit", function () {
         var bindobj = new Login();
-        bindobj.self.bindButton();
+        bindobj.self.bindButton($("#login_button"));
     });
 </script>
 </body>

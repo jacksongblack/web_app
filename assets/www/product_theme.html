@@ -28,10 +28,7 @@
 
             var tool = new Rendering();
 
-            tool.main.template = function(obj){
-                return tool.htmlTemplate.products_theme(obj)
-            }
-            tool.main.review($(".news-theme"),$(".list"),"industries_products")
+            tool.main.review($(".news-theme"),$(".list"),"industries_products",tool.htmlTemplate.products_theme)
 
             var bind = new BindLinkTo;
             bind.self.bind("li a")

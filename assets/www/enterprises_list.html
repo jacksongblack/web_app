@@ -47,10 +47,7 @@
             };
             function initialization(){
                 var tool = new Rendering()
-                tool.main.template =function(obj){
-                    return  tool.htmlTemplate.enterprises_list(obj)
-                }
-                tool.main.review($(".news-list"),$(".news-list-ul"),"enterprises")
+                tool.main.review($(".news-list"),$(".news-list-ul"),"enterprises",tool.htmlTemplate.enterprises_list)
                 var url = localStorage.getItem("url");
                 $("#pullAjaxUrl").attr("href",url+"?page_number=");
 

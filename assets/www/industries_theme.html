@@ -23,11 +23,8 @@
         $(document).bind("pageinit", function () {
 
             var tool = new Rendering();
-            tool.main.template = function (obj) {
-                return tool.htmlTemplate.industries_theme(obj)
-            };
 
-            tool.main.review($(".news-theme"),$(".list"),"industries_enterprises")
+            tool.main.review($(".news-theme"),$(".list"),"industries_enterprises", tool.htmlTemplate.industries_theme)
 
             var bind = new BindLinkTo;
 

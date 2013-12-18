@@ -27,11 +27,8 @@
         $(document).bind("pageinit", function () {
 
             var tool = new Rendering();
-            tool.main.template = function (obj) {
-                return tool.htmlTemplate.enterprises_theme(obj)
-            };
 
-            tool.main.review($(".enterprises-theme"),$(".list"),"industries")
+            tool.main.review($(".enterprises-theme"),$(".list"),"industries",tool.htmlTemplate.enterprises_theme)
 
             var bind = new BindLinkTo;
 

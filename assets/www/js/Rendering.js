@@ -4,6 +4,7 @@ function Rendering() {
 }
 inheritPrototype(Rendering,StorageTool)
 Rendering.prototype.htmlTemplate = {
+    jsonObj:"",
     user:function(obj){
         return "<div class='enterprise'><a href='#'><img id='avatar' style='width:100%; ' src="+ getRootPath() + obj.image_url +" ></a>" +
             "<div class='content'><h2>公司信息</h2><table>"+
@@ -80,28 +81,35 @@ Rendering.prototype.imageAction ={
 }
 
 Rendering.prototype.main ={
-    objectToHtml:function(obj){
+    objectToHtml:function(templateName){
         var htmlCache = "";
         var newsContent;
-        $.each(obj, function (n, value) {
-            newsContent = _thisRendRing_.main.template(value);
-            newsContent = newsContent + htmlCache;
-            htmlCache = newsContent;
-        });
-        return newsContent;
+        if(_thisRendRing_.htmlTemplate.jsonObj instanceof Array){
+            $.each(_thisRendRing_.htmlTemplate.jsonObj, function (n, value) {
+                newsContent = _thisRendRing_.main.template(templateName,value);
+                newsContent = newsContent + htmlCache;
+                htmlCache = newsContent;
+            });
+            return newsContent;
+        }
+     return   _thisRendRing_.main.template(templateName,_thisRendRing_.htmlTemplate.jsonObj);
     },
-    storageToHtml:function(KeyName){
+    storageToHtml:function(KeyName,templateName){
         var str = localStorage.getItem(KeyName)
-        var obj = _thisRendRing_.main.objectToHtml(_thisRendRing_.stringToJson(str))
+        _thisRendRing_.htmlTemplate.jsonObj = _thisRendRing_.stringToJson(str)
+        var obj = _thisRendRing_.main.objectToHtml(templateName)
         return obj
     },
-    template:function(obj){
-        return "<li><a  data-ajax='false' path='api/posts/" + obj.id + "'><img  class='ul-li-icon' src='"+ obj.logo +"'><h3>"
-            + obj.title + "</h3>" + "<p>" + obj.description + "</p></a></li>"
+    template:function(fn,value){
+          return  fn(value);
     },
-    review:function(lastDocObj,docObj,keyStory){
-        docObj.append(_thisRendRing_.main.storageToHtml(keyStory));
+    review:function(lastDocObj,docObj,KeyName,templateName){
+        docObj.append(_thisRendRing_.main.storageToHtml(KeyName,templateName));
         lastDocObj.trigger("create");
-        docObj.listview("refresh");
+        try{
+            docObj.listview("refresh");
+        }catch(error) {
+            return;
+        }
     }
 }

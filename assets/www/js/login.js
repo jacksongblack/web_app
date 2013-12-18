@@ -29,7 +29,6 @@ Login.prototype.self = {
             _thisLogin_.sendType = "get";
             _thisLogin_.data ="";
             _thisLogin_.send(getRootPath() + "api/user");
-            console.log(_thisLogin_.getResponse())
             _thisLogin_.saveResponseTo(docObj.attr("data-storageKey"));
             _thisLogin_.jumpTo(docObj.attr("pageTo"));
         }

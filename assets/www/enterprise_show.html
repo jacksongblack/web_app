@@ -22,13 +22,7 @@
     <script type="text/javascript">
         $(document).bind("pageinit", function () {
             var toolObj = new Rendering()
-            toolObj.main.objectToHtml= function(obj){
-              var html = toolObj.htmlTemplate.enterprises_show(obj)
-                return html
-            }
-            var jsonObj = toolObj.main.storageToHtml("company")
-            $("[data-role='content']").append(jsonObj);
-            $("[data-role='content']").trigger("create");
+            toolObj.main.review($("[data-role='content']"),$("[data-role='content']"),"company",toolObj.htmlTemplate.enterprises_show)
             var binding = new BindLinkTo();
             binding.self.bindlink($(".products_list a"))
         })

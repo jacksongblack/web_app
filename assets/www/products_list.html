@@ -47,10 +47,7 @@
             };
             function initialization(){
                 var tool = new Rendering()
-                tool.main.template = function(obj){
-                   return tool.htmlTemplate.products_list(obj)
-                }
-                tool.main.review($(".product-list"),$(".products-list-ul"),"products")
+                tool.main.review($(".product-list"),$(".products-list-ul"),"products",tool.htmlTemplate.products_list)
                 var url = localStorage.getItem("url");
                 $("#pullAjaxUrl").attr("href",url+"?page_number=");
 

@@ -24,10 +24,7 @@
 
             var tool = new Rendering();
 
-            tool.main.template = function(obj){
-                return tool.htmlTemplate.news_theme(obj)
-            }
-            tool.main.review($(".news-theme"),$(".list"),"domains");
+            tool.main.review($(".news-theme"),$(".list"),"domains",tool.htmlTemplate.news_theme);
 
             var bind = new BindLinkTo;
             bind.self.bind("li a","posts","news_list.html");

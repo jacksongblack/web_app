@@ -23,12 +23,7 @@
     <script type="text/javascript">
         $(document).bind("pageinit", function () {
             var toolObj = new Rendering()
-            toolObj.main.objectToHtml= function(obj){
-                var html = toolObj.htmlTemplate.product_show(obj)
-                return html
-            }
-            var jsonObj = toolObj.main.storageToHtml("product")
-            $(".news-content").append(jsonObj)
+            var jsonObj = toolObj.main.review($(".news-content"),$(".news-content"),"product",toolObj.htmlTemplate.product_show)
             toolObj.imageAction.urlProcessing();
         })
     </script>

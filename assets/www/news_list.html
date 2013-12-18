@@ -47,11 +47,7 @@
             };
             function initialization(){
                 var renderingobj = new Rendering();
-                renderingobj.main.template =function(obj){
-                  var html = renderingobj.htmlTemplate.news_list(obj)
-                    return html
-                };
-                renderingobj.main.review($(".news-list"),$(".news-list-ul"),"posts")
+                renderingobj.main.review($(".news-list"),$(".news-list-ul"),"posts",renderingobj.htmlTemplate.news_list)
                 var url = localStorage.getItem("url");
                 $("#pullAjaxUrl").attr("href",url+"?page_number=");
 

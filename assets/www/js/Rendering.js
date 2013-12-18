@@ -12,7 +12,7 @@ Rendering.prototype.htmlTemplate = {
             "<tr><th>邮箱:</th><td>" + obj.email + "</td></tr>" +
             "<tr><th>地址:</th><td>" + obj.address + "</td></tr>" +
             "</table><div class='description' style=''><h2>公司简介</h2><p>"+obj.description+"</p></div>" +
-            "<div class='products_list'><h2>用户操作</h2><a data-mini='true' data-role='button' pageTo='update_user.html' path=/api/industries/"+obj.id+"/products data-storageKey='products' class='producs' >修改产品信息</a></div>" +
+            "<div class='products_list'><h2>用户操作</h2><a data-mini='true' data-role='button' pageTo='update_password.html' path=/api/industries/"+obj.id+"/products data-storageKey='products' class='producs' >修改密码</a></div>" +
             "</div>" +
             "</div>"
     },
@@ -64,7 +64,7 @@ Rendering.prototype.htmlTemplate = {
     }
 }
 
-Rendering.prototype.imageProcessing ={
+Rendering.prototype.imageAction ={
     urlProcessing: function() {
         $("img").each(function(){
             var imagePath = $(this).attr("src");

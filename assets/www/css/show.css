@@ -33,4 +33,14 @@
     margin-top: 4%;
     width: 99%;
     padding-left:0.5%;
+    text-align: center;
+}
+.logo{
+    width: 22%;
+    -webkit-border-radius: 55%;
+}
+.form_style{
+    width: 80%;
+    margin-left: 11%;
+    margin-top: 2%;
 }

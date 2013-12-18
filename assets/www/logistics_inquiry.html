@@ -27,7 +27,7 @@
     </div>
     <!--¾Å¹¬¸ñ-->
     <div data-role="content" class="main">
-        <iframe src="http://www.kuaidi100.com/frame/index.html"  id="logistics" method="get" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="yes"></iframe>
+        <iframe src="http://www.kuaidi100.com/frame/index.html"  id="logistics" frameborder="0" border="0" marginwidth="0" marginheight="0" method="get"  scrolling="auto"></iframe>
     </div>
 </div>
 <!--javascript-->
@@ -43,10 +43,12 @@
 <script charset="gb2312" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).bind("pageinit",function(){
-        $("#logistics").attr("width",$(window).width()*0.80)
-        $("#logistics").attr("height",$(window).height()*0.80)
+        $("#logistics").attr("width",$(window).width())
+        $("#logistics").attr("height",$(window).height())
     });
     $(window).bind('orientationchange',function(e){
+        $("#logistics").attr("width",$(window).width())
+        $("#logistics").attr("height",$(window).height())
        var path =  $("#logistics").attr("src")
         $("#logistics").attr("src",path)
     })

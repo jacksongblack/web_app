@@ -22,6 +22,7 @@ BindLinkTo.prototype.self ={
                 } else{
                     _thisBindLinkObj_.jumpTo($(obj).attr("pageTo"))
                 }
+
                 if($(obj).attr("pageTo") == "quit"){
                     localStorage.clear();
                     navigator.app.exitApp();

@@ -27,7 +27,7 @@
     </div>
     <!--¾Å¹¬¸ñ-->
     <div data-role="content" class="main">
-        <iframe id="patent" src="http://publicquery.sipo.gov.cn/search/query.jsp" method="get"  frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="yes"></iframe>
+        <iframe id="patent" src="http://publicquery.sipo.gov.cn/search/query.jsp" method="get"  frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="auto"></iframe>
     </div>
 </div>
 <!--javascript-->
@@ -43,9 +43,15 @@
 <script charset="gb2312" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).bind("pageinit", function () {
-        $("#patent").attr("width",$(window).width())
+        $("#patent").attr("width",$(window).width()*0.96)
         $("#patent").attr("height",$(window).height())
     });
+    $(window).bind('orientationchange',function(e){
+        $("#patent").attr("width",$(window).width())
+        $("#patent").attr("height",$(window).height())
+        var path =  $("#patent").attr("src")
+        $("#patent").attr("src",path)
+    })
 </script>
 </body>
 </html>

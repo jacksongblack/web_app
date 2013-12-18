@@ -43,12 +43,12 @@
 <script charset="gb2312" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).bind("pageinit",function(){
-        $("#logistics").attr("width",$(window).width())
-        $("#logistics").attr("height",$(window).height())
+        $("#logistics").attr("width",$(window).width()*0.80)
+        $("#logistics").attr("height",$(window).height()*0.80)
     });
     $(window).bind('orientationchange',function(e){
        var path =  $("#logistics").attr("src")
-        $("#logistics").attr("src")
+        $("#logistics").attr("src",path)
     })
 </script>
 </body>

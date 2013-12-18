@@ -26,7 +26,7 @@
                 var html = toolObj.htmlTemplate.user(obj)
                 return html
             }
-            var jsonObj = toolObj.main.storageToHtml("company")
+            var jsonObj = toolObj.main.storageToHtml("enterprises")
             $("[data-role='content']").append(jsonObj);
             $("[data-role='content']").trigger("create");
             var binding = new BindLinkTo();
@@ -41,12 +41,11 @@
     <!-- /header -->　
     <div data-role="header" data-theme="b">
         <a href="index.html" data-mini="true"  data-theme="b" data-icon="arrow-l" data-ajax=false>主菜单</a>
-        <a href="enterprises_theme.html"  data-mini="true" class="addButton ui-btn-right" data-icon="forward" data-ajax= false>返回</a>
 
         <h1>企业信息</h1>
     </div>
     <!-- /content --> 　
-    <div data-role="content" class="enterprise_show">
+    <div data-role="content" class="_show">
 
     </div>
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>

@@ -81,23 +81,23 @@ Rendering.prototype.imageAction ={
 }
 
 Rendering.prototype.main ={
-    objectToHtml:function(templateName){
+    jsonToHtml:function(templateName){
         var htmlCache = "";
-        var newsContent;
+        var html;
         if(_thisRendRing_.htmlTemplate.jsonObj instanceof Array){
             $.each(_thisRendRing_.htmlTemplate.jsonObj, function (n, value) {
-                newsContent = _thisRendRing_.main.template(templateName,value);
-                newsContent = newsContent + htmlCache;
-                htmlCache = newsContent;
+                html = _thisRendRing_.main.template(templateName,value);
+                html = html + htmlCache;
+                htmlCache = html;
             });
-            return newsContent;
+            return html;
         }
      return   _thisRendRing_.main.template(templateName,_thisRendRing_.htmlTemplate.jsonObj);
     },
     storageToHtml:function(KeyName,templateName){
         var str = localStorage.getItem(KeyName)
         _thisRendRing_.htmlTemplate.jsonObj = _thisRendRing_.stringToJson(str)
-        var obj = _thisRendRing_.main.objectToHtml(templateName)
+        var obj = _thisRendRing_.main.jsonToHtml(templateName)
         return obj
     },
     template:function(fn,value){

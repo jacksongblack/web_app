@@ -23,6 +23,7 @@
     <script type="text/javascript">
         $(document).bind("pageinit", function () {
             var bindobj = new Login();
+            bindobj.self.checkStatus();
             bindobj.self.bindButton($("#login_button"));
         });
     </script>

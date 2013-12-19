@@ -25,6 +25,7 @@ BindLinkTo.prototype.self ={
 
                 if($(obj).attr("pageTo") == "quit"){
                     localStorage.clear();
+                    _thisBindLinkObj_.send(getRootPath()+"api/destroy_session")
                     navigator.app.exitApp();
                 }
                 var response = _thisBindLinkObj_.getResponse($(obj).attr("data-storageKey"));

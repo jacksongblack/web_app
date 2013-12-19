@@ -13,7 +13,8 @@ Rendering.prototype.htmlTemplate = {
             "<tr><th>邮箱:</th><td>" + obj.email + "</td></tr>" +
             "<tr><th>地址:</th><td>" + obj.address + "</td></tr>" +
             "</table><div class='description' style=''><h2>公司简介</h2><p>"+obj.description+"</p></div>" +
-            "<div class='products_list'><h2>用户操作</h2><a data-mini='true' data-role='button' pageTo='update_password.html' path=/api/industries/"+obj.id+"/products data-storageKey='products' class='producs' >修改密码</a></div>" +
+            "<div class='products_list'><h2>用户操作</h2><a  data-role='button' data-inline='true' data-theme='b' pageTo='update_password.html' path=/api/industries/"+obj.id+"/products data-storageKey='products' class='producs' >修改密码</a>" +
+            "<a data-theme='b' data-inline='true' id='logout' data-role='button' path='api/destroy_session'pageTo='index.html'>退出登录</a></div>" +
             "</div>" +
             "</div>"
     },

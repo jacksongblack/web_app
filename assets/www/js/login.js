@@ -41,6 +41,13 @@ Login.prototype.self = {
         } else {
             alert("×¢ÏúÊ§°Ü")
         }
+    },
+    checkStatus:function(){
+        _thisLogin_.send(getRootPath()+"api/test")
+        console.log(_thisLogin_.getResponse())
+        if (_thisLogin_.getResponse() =="Already logged"){
+           _thisLogin_.jumpTo("user.html")
+        }
     }
 
 }

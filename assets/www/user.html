@@ -23,7 +23,7 @@
     <script type="text/javascript">
         $(document).bind("pageinit", function () {
             var toolObj = new Rendering()
-            toolObj.main.review($("[data-role='content']"),$("[data-role='content']"),"enterprises",toolObj.htmlTemplate.user)
+            toolObj.main.review($("[data-role='page']"),$("[data-role='content']"),"enterprises",toolObj.htmlTemplate.user)
             var binding = new BindLinkTo();
             binding.self.bindlink($(".products_list a"))
             var logout = new Logout();
@@ -42,7 +42,7 @@
         <h1>企业信息</h1>
     </div>
     <!-- /content --> 　
-    <div data-role="content" class="_show">
+    <div data-role="content" class="">
 
     </div>
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>

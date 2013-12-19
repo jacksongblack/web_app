@@ -22,7 +22,7 @@
     <script type="text/javascript">
         $(document).bind("pageinit", function () {
             var toolObj = new Rendering()
-            toolObj.main.review($("[data-role='content']"),$("[data-role='content']"),"company",toolObj.htmlTemplate.enterprises_show)
+            toolObj.main.review($("[data-role='page']"),$("[data-role='content']"),"company",toolObj.htmlTemplate.enterprises_show)
             var binding = new BindLinkTo();
             binding.self.bindlink($(".products_list a"))
         })
@@ -34,8 +34,8 @@
 　
 <div data-role="page" data-theme="c" id="news-show-page" class="news-show" data-fullscreen="true">
 
-    <div data-role="header" data-theme="b">
-        <a href="index.html" data-mini="true"  data-theme="b" data-icon="arrow-l" data-ajax="false">主菜单</a>
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <a href="index.html" data-mini="true"  data-theme="b" data-icon="arrow-l" data-ajax=false>主菜单</a>
         <a href="enterprises_theme.html"  data-mini="true" class="addButton ui-btn-right" data-icon="forward" data-ajax= false>返回</a>
 
         <h1>企业信息</h1>

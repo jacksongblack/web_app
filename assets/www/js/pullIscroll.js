@@ -21,6 +21,7 @@ PullLoad.prototype.self = {
             }
             $("#pullAjaxUrl").attr("data-page", _thisPullLoadObj_.self.num)
         } else {
+            console.log("11111111111111111111")
             $("#lastPage").popup("open")
         }
     },

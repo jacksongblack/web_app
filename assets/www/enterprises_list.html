@@ -33,13 +33,13 @@
             function onPullDown() {
                 var obj = new PullLoad();
                 obj.self.pullDown();
-                obj.saveResponseTo("enterprise")
+                obj.saveResponseTo("enterprises")
                 initialization();
             };
             function onPullUp() {
                 var obj = new PullLoad();
                 obj.self.pullUp();
-                obj.saveResponseTo("enterprise")
+                obj.saveResponseTo("enterprises")
                 initialization();
             };
             function initialization(){
@@ -57,8 +57,8 @@
     <!-- /header -->
 </head>
 <body>
-<div data-role="page" data-theme="c" id="news_list_page" class="index-page">
-    <div data-role="header" data-theme="b">
+<div data-role="page" data-theme="c" id="news_list_page" class="index-page" data-fullscreen="true">
+    <div data-role="header" data-theme="b" >
         <a href="index.html" data-mini="true" data-theme="b" data-icon="arrow-l" data-ajax='false'>主界面</a>
         <a href="news_theme.html"  data-mini="true" class="addButton ui-btn-right" data-icon="forward" data-ajax= false>返回</a>
 

@@ -57,7 +57,7 @@ Rendering.prototype.htmlTemplate = {
             "<tr><th>邮箱:</th><td>" + obj.email + "</td></tr>" +
             "<tr><th>地址:</th><td>" + obj.address + "</td></tr>" +
             "</table><div class='description' style=''><h2>公司简介</h2><p>"+obj.description+"</p></div>" +
-            "<div class='products_list'><h2>公司产品</h2><a data-mini='true' data-role='button' pageTo='products_list.html' path=/api/industries/"+obj.id+"/products data-storageKey='products' class='producs' >更多产品信息</a></div>" +
+            "<div class='products_list'><a data-mini='true' data-role='button' pageTo='products_list.html' path=/api/industries/"+obj.id+"/products data-storageKey='products' class='producs' >更多产品信息</a></div>" +
             "</div>" +
             "</div>"
     },

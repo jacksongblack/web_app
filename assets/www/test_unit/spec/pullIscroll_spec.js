@@ -2,7 +2,8 @@ describe("À­¶¯Ë¢ÐÂ²âÊÔ",function(){
     beforeEach(function(){
         var testData={
 
-        }
+        };
+        $("#pullAjaxUrl")
          pullObj = new PullLoad();
         spyOn(pullObj,'send')
         spyOn(pullObj,'getResponse').andReturn(testData)

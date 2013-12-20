@@ -1,14 +1,13 @@
 describe("拉动刷新测试",function(){
-    beforeEach(function(){
-        var testData={
 
-        };
-        $("#pullAjaxUrl")
-         pullObj = new PullLoad();
-        spyOn(pullObj,'send')
-        spyOn(pullObj,'getResponse').andReturn(testData)
+    beforeEach(function(){
+        jasmine.getFixtures().fixturesPath = '../../';
+        localStorage.setItem("url","http://0.0.0.0:3000/")
     })
-    it("向下拉动时,如果取得数据,则渲染页面",function(){
-        expect(pullObj)
+    it("获取页面远程链接地址",function(){
+
+        loadFixtures('news_list.html')
+        expect(pullObj.self.getPath()).toBe("http://0.0.0.0:3000")
     })
+
 })

@@ -27,7 +27,7 @@
             tool.main.review($(".news-theme"),$(".list"),"domains",tool.htmlTemplate.news_theme);
 
             var bind = new BindLinkTo;
-            bind.self.bind("li a","posts","news_list.html");
+            bind.self.bind("li a",bind.self.savePathToLocalStorage);
         });
     </script>
     <!-- /header -->¡¡

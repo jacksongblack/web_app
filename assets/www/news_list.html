@@ -25,7 +25,7 @@
     <script   src="js/pullIscroll.js"></script>
     <script  type="text/javascript">
         $(document).bind("pageinit", function () {
-            initialization();
+            initialization("posts");
             $(".iscroll-wrapper", this).bind( {
                 "iscroll_onpulldown" : onPullDown,
                 "iscroll_onpullup"   : onPullUp
@@ -36,18 +36,18 @@
             function onPullDown() {
                 var obj = new PullLoad();
                 obj.self.pullDown();
-                obj.saveResponseTo("posts")
-                initialization();
+                obj.saveResponseTo("posts_list")
+                initialization("posts_list");
             };
             function onPullUp() {
                 var obj = new PullLoad();
                 obj.self.pullUp();
-                obj.saveResponseTo("posts")
-                initialization();
+                obj.saveResponseTo("posts_list")
+                initialization("posts_list");
             };
-            function initialization(){
+            function initialization(keyName){
                 var renderingobj = new Rendering();
-                renderingobj.main.review($(".news-list"),$(".news-list-ul"),"posts",renderingobj.htmlTemplate.news_list)
+                renderingobj.main.review($(".news-list"),$(".news-list-ul"),keyName,renderingobj.htmlTemplate.news_list)
                 var url = localStorage.getItem("url");
                 $("#pullAjaxUrl").attr("href",url+"?page_number=");
 

@@ -4,17 +4,17 @@ function BindLinkTo() {
 };
 inheritPrototype(BindLinkTo,GetTo);
 BindLinkTo.prototype.self ={
-    bind:function(document){
+    bind:function(document,fn){
         $(document).each(
             function () {
-              _thisBindLinkObj_.self.bindlink(this)
+              _thisBindLinkObj_.self.bindlink(this,fn)
             })
     },
     savePathToLocalStorage:function(){
         localStorage.setItem("url", _thisBindLinkObj_.self.url)
         return localStorage.getItem("url")
     },
-    bindlink:function(obj){
+    bindlink:function(obj,fn){
         $(obj).bind("tap", function () {
                 if($(obj).attr("path") != "#"){
                     _thisBindLinkObj_.send(getRootPath()+$(obj).attr("path"));
@@ -36,7 +36,9 @@ BindLinkTo.prototype.self ={
 
                 if (flag !='false' && response != "error"){
                     _thisBindLinkObj_.self.url=($(obj).attr("path"));
-                    _thisBindLinkObj_.self.savePathToLocalStorage();
+                 if (fn instanceof Object){
+                    fn();
+                 }
                     _thisBindLinkObj_.saveResponseTo($(obj).attr("data-storageKey"));
                     _thisBindLinkObj_.jumpTo($(obj).attr("pageTo"));
                     if (response == "error"){

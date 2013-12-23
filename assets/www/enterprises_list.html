@@ -22,7 +22,7 @@
     <script   src="js/pullIscroll.js"></script>
     <script  type="text/javascript">
         $(document).bind("pageinit", function () {
-            initialization();
+            initialization("enterprises");
             $(".iscroll-wrapper", this).bind( {
                 "iscroll_onpulldown" : onPullDown,
                 "iscroll_onpullup"   : onPullUp
@@ -33,18 +33,18 @@
             function onPullDown() {
                 var obj = new PullLoad();
                 obj.self.pullDown();
-                obj.saveResponseTo("enterprises")
-                initialization();
+                obj.saveResponseTo("enterprises_list")
+                initialization("enterprises_list");
             };
             function onPullUp() {
                 var obj = new PullLoad();
                 obj.self.pullUp();
-                obj.saveResponseTo("enterprises")
-                initialization();
+                obj.saveResponseTo("enterprises_list")
+                initialization("enterprises_list");
             };
-            function initialization(){
+            function initialization(KeyName){
                 var tool = new Rendering()
-                tool.main.review($(".news-list"),$(".news-list-ul"),"enterprises",tool.htmlTemplate.enterprises_list)
+                tool.main.review($(".news-list"),$(".news-list-ul"),KeyName,tool.htmlTemplate.enterprises_list)
                 var url = localStorage.getItem("url");
                 $("#pullAjaxUrl").attr("href",url+"?page_number=");
 

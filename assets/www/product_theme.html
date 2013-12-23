@@ -27,7 +27,7 @@
             tool.main.review($(".news-theme"),$(".list"),"industries_products",tool.htmlTemplate.products_theme)
 
             var bind = new BindLinkTo;
-            bind.self.bind("li a")
+            bind.self.bind("li a",bind.self.savePathToLocalStorage())
         });
     </script>
     <!-- /header -->¡¡

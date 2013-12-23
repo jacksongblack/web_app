@@ -22,7 +22,7 @@
     <script charset="gb2312" src="js/pullIscroll.js"></script>
     <script charset="gb2312" type="text/javascript">
         $(document).bind("pageinit", function () {
-            initialization();
+            initialization("products");
             $(".iscroll-wrapper", this).bind( {
                 "iscroll_onpulldown" : onPullDown,
                 "iscroll_onpullup"   : onPullUp
@@ -32,18 +32,18 @@
             function onPullDown() {
                 var obj = new PullLoad();
                 obj.self.pullDown();
-                obj.saveResponseTo("products")
-                initialization();
+                obj.saveResponseTo("products_list")
+                initialization("products_list");
             };
             function onPullUp() {
                 var obj = new PullLoad();
                 obj.self.pullUp();
-                obj.saveResponseTo("products")
-                initialization();
+                obj.saveResponseTo("products_list")
+                initialization("products_list");
             };
-            function initialization(){
+            function initialization(keyName){
                 var tool = new Rendering()
-                tool.main.review($(".product-list"),$(".products-list-ul"),"products",tool.htmlTemplate.products_list)
+                tool.main.review($(".product-list"),$(".products-list-ul"),keyName,tool.htmlTemplate.products_list)
                 var url = localStorage.getItem("url");
                 $("#pullAjaxUrl").attr("href",url+"?page_number=");
 

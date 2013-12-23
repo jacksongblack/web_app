@@ -48,7 +48,7 @@
             function initialization(keyName){
                 var renderingobj = new Rendering();
                 renderingobj.main.review($(".news-list"),$(".news-list-ul"),keyName,renderingobj.htmlTemplate.news_list)
-                var url = localStorage.getItem("url");
+                var url = localStorage.getItem("news_list_url");
                 $("#pullAjaxUrl").attr("href",url+"?page_number=");
 
                var bindObj = new BindLinkTo;

@@ -44,7 +44,7 @@
             function initialization(keyName){
                 var tool = new Rendering()
                 tool.main.review($(".product-list"),$(".products-list-ul"),keyName,tool.htmlTemplate.products_list)
-                var url = localStorage.getItem("url");
+                var url = localStorage.getItem("products_list_url");
                 $("#pullAjaxUrl").attr("href",url+"?page_number=");
 
                 var bindObj = new BindLinkTo;

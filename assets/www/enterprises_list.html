@@ -45,7 +45,7 @@
             function initialization(KeyName){
                 var tool = new Rendering()
                 tool.main.review($(".news-list"),$(".news-list-ul"),KeyName,tool.htmlTemplate.enterprises_list)
-                var url = localStorage.getItem("url");
+                var url = localStorage.getItem("enterprises_list_url");
                 $("#pullAjaxUrl").attr("href",url+"?page_number=");
 
                 var bindObj = new BindLinkTo;

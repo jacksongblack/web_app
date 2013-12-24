@@ -63,15 +63,26 @@ Rendering.prototype.htmlTemplate = {
     },
     product_show:function (obj) {
         return "<div class='show'><div class='title'><h1> " + obj.name + "</h1><h2>创建时间："+obj.updated_at +"</h2></div>" +"<div class='content'>"+ obj.description  +"</div></div>";
+    },
+    technologies_list:function(obj){
+        return "<li><a  data-ajax='false'  data-storageKey='technology' pageTo='technology_show.html' path='api/technologies/" + obj.id + "'><img  class='ul-li-icon' src='" + getRootPath() + obj.image_url + "'><h3>"
+            + obj.name + "</h3>" + "<p>" + obj.introduction + "</p></a></li>"
+
+    },
+    technology_show:function(obj){
+        return "<div class='show'><div class='title'><h1> " + obj.name + "</h1><h2>创建时间："+obj.updated_at +"</h2></div>" +"<div class='content'>"+ obj.services  +"</div></div>";
     }
 }
 
 Rendering.prototype.imageAction ={
     urlProcessing: function() {
+        $("div.img-box").each(function(){
+           $(this).attr("style","")
+        })
         $("img").each(function(){
             var imagePath = $(this).attr("src");
             var reg = /http:/g;
-            $(this).attr("style","width:90%");
+            $(this).attr("style","width: 90%; ");
             try {
                 reg.exec(imagePath).length;
             }catch(error) {
@@ -96,9 +107,10 @@ Rendering.prototype.main ={
      return   _thisRendRing_.main.template(templateName,_thisRendRing_.htmlTemplate.jsonObj);
     },
     storageToHtml:function(KeyName,templateName){
-        var str = localStorage.getItem(KeyName)
-        _thisRendRing_.htmlTemplate.jsonObj = _thisRendRing_.stringToJson(str)
-        var obj = _thisRendRing_.main.jsonToHtml(templateName)
+        var str = localStorage.getItem(KeyName);
+        console.log(str)
+        _thisRendRing_.htmlTemplate.jsonObj = _thisRendRing_.stringToJson(str);
+        var obj = _thisRendRing_.main.jsonToHtml(templateName);
         return obj
     },
     template:function(fn,value){

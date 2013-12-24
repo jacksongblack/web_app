@@ -36,9 +36,9 @@
         </div>
         <!-- /grid-a -->
         <div class="ui-grid-b">
-            <div class="ui-block-a "><a href="news_theme.html" class="img4"><img src="images/shop.png">科技服务超市</a></div>
+            <div class="ui-block-a "><a pageTo="technologies_list.html" path="api/technologies" data-storageKey="technologies" class="img4"><img src="images/shop.png">科技服务超市</a></div>
             <div class="ui-block-b "><a pageTo="enterprises_theme.html" path="api/industries" class="img5"data-storageKey="industries"><img src="images/globe.png">企业黄页</a></div>
-            <div class="ui-block-c "><a pageTo="patent_search.html"path="#" class="img6"><img src="images/search.png">专利查询</a></div>
+            <div class="ui-block-c "><a pageTo="search.html"path="#" class="img6"><img src="images/search.png">综合搜索</a></div>
         </div>
         <!-- /grid-a -->
         <div class="ui-grid-b">
@@ -67,7 +67,7 @@
 <script type="text/javascript">
     $(document).bind("pageinit", function () {
         var bindLink = new BindLinkTo()
-        bindLink.self.bind(".main div div a")
+        bindLink.self.bind(".main div div a",bindLink.self.savePathToLocalStorage,"technologies_list_url")
     });
 </script>
 </body>

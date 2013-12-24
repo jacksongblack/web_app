@@ -23,11 +23,21 @@
     <!--header-->
     <div data-role="header" data-theme="b">
         <a href="index.html" data-mini="true" data-theme="b" data-icon="arrow-l" data-ajax="false">主界面</a>
+
         <h1> 专利查询 </h1>
     </div>
     <!--九宫格-->
     <div data-role="content" class="main">
-        <iframe id="patent" src="http://publicquery.sipo.gov.cn/search/query.jsp" method="get"  frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="auto"></iframe>
+        <form id="search">
+            <label>搜索类型</label>
+            <select id="training" name="training">
+                <option value="xx">新闻</option>
+                <option value="xx">行业信息</option>
+                <option value="xx">产品信息</option>
+                <option value="xx">企业信息</option>
+            </select>
+
+        </form>
     </div>
 </div>
 <!--javascript-->
@@ -43,14 +53,14 @@
 <script charset="gb2312" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).bind("pageinit", function () {
-        $("#patent").attr("width",$(window).width()*0.96)
-        $("#patent").attr("height",$(window).height())
+        $("#patent").attr("width", $(window).width() * 0.96)
+        $("#patent").attr("height", $(window).height())
     });
-    $(window).bind('orientationchange',function(e){
-        $("#patent").attr("width",$(window).width())
-        $("#patent").attr("height",$(window).height())
-        var path =  $("#patent").attr("src")
-        $("#patent").attr("src",path)
+    $(window).bind('orientationchange', function (e) {
+        $("#patent").attr("width", $(window).width())
+        $("#patent").attr("height", $(window).height())
+        var path = $("#patent").attr("src")
+        $("#patent").attr("src", path)
     })
 </script>
 </body>

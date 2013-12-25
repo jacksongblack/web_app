@@ -30,9 +30,16 @@ BindLinkTo.prototype.self ={
                 }
                 var response = _thisBindLinkObj_.getResponse($(obj).attr("data-storageKey"));
                 var flag = "false"
-                $.each(response,function(){
+                try{
+                    $.each(response,function(){
                     flag="true"
                 })
+                }catch (error){
+                    if(error instanceof TypeError){
+                        _thisBindLinkObj_.popupMessage("服务器出现错误")
+                        return
+                    }
+                }
 
                 if (flag !='false' && response != "error"){
                     _thisBindLinkObj_.self.url=($(obj).attr("path"));
@@ -41,10 +48,6 @@ BindLinkTo.prototype.self ={
                  }
                     _thisBindLinkObj_.saveResponseTo($(obj).attr("data-storageKey"));
                     _thisBindLinkObj_.jumpTo($(obj).attr("pageTo"));
-                    if (response == "error"){
-                        $("#message p").html("返回值出错了")
-                        $("#message p").popup("open")
-                    }
                 }
                 else {
                     _thisBindLinkObj_.popupMessage("服务器没有资料")

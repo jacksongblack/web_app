@@ -12,7 +12,7 @@ ComprehensiveSearch.prototype.self = {
         return false
     },
     bindclickEvent: function () {
-        $("#domain").bind("tap", function () {
+        $("#button").bind("tap", function () {
             if (_thisSearch_.self.checkValue() == true) {
                 switch ($("#domain").val()) {
                     case "domains":
@@ -31,6 +31,8 @@ ComprehensiveSearch.prototype.self = {
                         _thisSearch_.self.processing( "posts", "industries_list_url", "industries_list.html")
                         break
                 }
+            }else{
+                _thisSearch_.popupMessage("请输入关键字并选择信息所属种类")
             }
         })
 
@@ -38,9 +40,9 @@ ComprehensiveSearch.prototype.self = {
     processing: function ( responseKeyname, urlKeyName, pageName) {
         _thisSearch_.sendType = "post"
         _thisSearch_.data = $("#search").serialize()
-        console.log($("#search").serialize())
         _thisSearch_.send(getRootPath() + "api/search")
-        if (_thisSearch_.getResponse() == true) {
+        if (_thisSearch_.getResponse().length != 0) {
+            console.log(_thisSearch_.getResponse())
             _thisSearch_.saveResponseTo(responseKeyname)
             _thisSearch_.savePathTo(urlKeyName)
             _thisSearch_.jumpTo(pageName)

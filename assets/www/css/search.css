@@ -1,5 +1,16 @@
 .content{
-    margin-top: 17%;
+
+    margin-top: 5%;
     width: 90%;
     margin-left: 4%;
+}
+.content .search{
+    margin-top: 2%;
+    margin-left: 11%;
+    width: 80%;
+}
+.content .source{
+    margin-top: 2%;
+    margin-left: 25%;
+    width: 50%;
 }

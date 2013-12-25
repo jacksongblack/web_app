@@ -9,12 +9,12 @@ PullLoad.prototype.self = {
     num:2,
     getPath: function (document) {
         var docObj = $(document);
-        return docObj.attr("href") + _thisPullLoadObj_.self.num
+        return docObj.attr("href") + _thisPullLoadObj_.self.num +"&"+ localStorage.getItem("PullParams")
     },
     send: function () {
         var url = _thisPullLoadObj_.self.getPath("#pullAjaxUrl");
 
-        _thisPullLoadObj_.send(getRootPath() + url);
+        _thisPullLoadObj_.send(getRootPath() + url );
         if (_thisPullLoadObj_.getResponse().length != 0) {
             if( _thisPullLoadObj_.self.num == 1){
                 _thisPullLoadObj_.self.num =2;

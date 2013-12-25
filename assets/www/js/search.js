@@ -38,13 +38,14 @@ ComprehensiveSearch.prototype.self = {
 
     },
     processing: function ( responseKeyname, urlKeyName, pageName) {
-        _thisSearch_.sendType = "post"
         _thisSearch_.data = $("#search").serialize()
+        localStorage.setItem("PullParams",_thisSearch_.data)
+        localStorage.getItem("PullParams")
         _thisSearch_.send(getRootPath() + "api/search")
         if (_thisSearch_.getResponse().length != 0) {
             console.log(_thisSearch_.getResponse())
             _thisSearch_.saveResponseTo(responseKeyname)
-            _thisSearch_.savePathTo(urlKeyName)
+             localStorage.setItem(urlKeyName,"api/search")
             _thisSearch_.jumpTo(pageName)
         }else{
             _thisSearch_.popupMessage("没有搜索到任何东西")

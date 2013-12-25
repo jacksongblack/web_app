@@ -108,7 +108,6 @@ Rendering.prototype.main ={
     },
     storageToHtml:function(KeyName,templateName){
         var str = localStorage.getItem(KeyName);
-        console.log(str)
         _thisRendRing_.htmlTemplate.jsonObj = _thisRendRing_.stringToJson(str);
         var obj = _thisRendRing_.main.jsonToHtml(templateName);
         return obj

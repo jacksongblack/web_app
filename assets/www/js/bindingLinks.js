@@ -47,7 +47,7 @@ BindLinkTo.prototype.self ={
                     }
                 }
                 else {
-                    alert("服务器没有资料")
+                    _thisBindLinkObj_.popupMessage("服务器没有资料")
                 }
             }
         )

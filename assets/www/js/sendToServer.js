@@ -41,6 +41,9 @@ GetTo.prototype = {
         $.each(response,function(){
           flag =true
         })
+        if (flag == false){
+
+        }
         return flag
     },
     getPath:function(url){
@@ -57,6 +60,15 @@ GetTo.prototype = {
     savePathTo:function(urlName){
         localStorage.setItem(urlName, _thisGetToObj_.url)
         return localStorage.getItem(urlName)
+    },
+    popupMessage:function(message){
+        try{
+            $("#message p").html(message+"&nbsp&nbsp&nbsp")
+            $("#message").popup("open")
+        }catch (error){
+            alert(error.message)
+        }
+
     }
 
 }

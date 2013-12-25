@@ -1,6 +1,6 @@
 //返回根节点
 function getRootPath() {
-    return "http://192.168.0.139:3000/"
+    return "http://192.168.0.251:3000/"
 }
 
 

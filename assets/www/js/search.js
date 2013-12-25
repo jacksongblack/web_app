@@ -42,7 +42,7 @@ ComprehensiveSearch.prototype.self = {
         localStorage.setItem("PullParams",_thisSearch_.data)
         localStorage.getItem("PullParams")
         _thisSearch_.send(getRootPath() + "api/search")
-        if (_thisSearch_.getResponse().length != 0) {
+        if (_thisSearch_.getResponse().length != 0 &&_thisSearch_.getResponse()!= "error") {
             console.log(_thisSearch_.getResponse())
             _thisSearch_.saveResponseTo(responseKeyname)
              localStorage.setItem(urlKeyName,"api/search")

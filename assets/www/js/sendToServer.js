@@ -15,6 +15,7 @@ GetTo.prototype = {
     data:"",
     sendType:"get",
     send:function(url) {
+        _thisGetToObj_.url = url
         $.ajax({
             type: _thisGetToObj_.sendType,
             dataType: "json",
@@ -35,7 +36,12 @@ GetTo.prototype = {
         window.location = page
     },
     callBack: function(response) {
+        var flag = false;
         _thisGetToObj_.response = response
+        $.each(response,function(){
+          flag =true
+        })
+        return flag
     },
     getPath:function(url){
       return getRootPath() +url;
@@ -47,6 +53,10 @@ GetTo.prototype = {
     },
     getResponse:function(){
         return _thisGetToObj_.response
+    },
+    savePathTo:function(urlName){
+        localStorage.setItem(urlName, _thisGetToObj_.url)
+        return localStorage.getItem(urlName)
     }
 
 }

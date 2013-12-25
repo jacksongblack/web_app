@@ -10,7 +10,7 @@ BindLinkTo.prototype.self ={
               _thisBindLinkObj_.self.bindlink(this,fn,urlName)
             })
     },
-    savePathToLocalStorage:function(urlName){
+    savePathTo:function(urlName){
         localStorage.setItem(urlName, _thisBindLinkObj_.self.url)
         return localStorage.getItem(urlName)
     },

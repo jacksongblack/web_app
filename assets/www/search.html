@@ -24,19 +24,20 @@
     <div data-role="header" data-theme="b">
         <a href="index.html" data-mini="true" data-theme="b" data-icon="arrow-l" data-ajax="false">主界面</a>
 
-        <h1> 专利查询 </h1>
+        <h1> 综合搜索 </h1>
     </div>
-    <!--九宫格-->
+    <!--搜索输入框-->
     <div data-role="content" class="main">
-        <form id="search">
-            <label>搜索类型</label>
-            <select id="training" name="training">
-                <option value="xx">新闻</option>
-                <option value="xx">行业信息</option>
-                <option value="xx">产品信息</option>
-                <option value="xx">企业信息</option>
-            </select>
-
+        <form id="search" data-role="fieldcontainer">
+                <input type="search" id="keyword" name="search">
+                <select id="domain" name="source">
+                    <option value="" data-placeholder="true">请选择搜索类型</option>
+                    <option value="domains">新闻</option>
+                    <option value="industries">行业信息</option>
+                    <option value="technologies">科技服务超市</option>
+                    <option value="products">产品信息</option>
+                    <option value="enterprises">企业信息</option>
+                </select>
         </form>
     </div>
 </div>
@@ -50,17 +51,12 @@
 <script src="js/storageTool.js"></script>
 <script src="js/sendToServer.js"></script>
 <script src="js/bindingLinks.js" charset="UTF-8"></script>
+<script src="js/search.js" charset="gb2312"></script>
 <script charset="gb2312" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).bind("pageinit", function () {
-        $("#patent").attr("width", $(window).width() * 0.96)
-        $("#patent").attr("height", $(window).height())
-    });
-    $(window).bind('orientationchange', function (e) {
-        $("#patent").attr("width", $(window).width())
-        $("#patent").attr("height", $(window).height())
-        var path = $("#patent").attr("src")
-        $("#patent").attr("src", path)
+      var searchObj = new ComprehensiveSearch();
+      searchObj.self.bindclickEvent();
     })
 </script>
 </body>

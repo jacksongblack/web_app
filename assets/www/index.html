@@ -11,7 +11,7 @@
 
 </head>
 <body>
-<div data-role="page" data-theme="c">
+<div data-role="page" data-theme="c" class="main">
     <div data-role="popup" id="lastPage">
         <p>亲！到最后一页了</p>
     </div>
@@ -25,26 +25,29 @@
         <!--<h1> 中小微企业服务平台 </h1>-->
     <!--</div>-->
     <!--九宫格-->
-    <div data-role="content" class="main">
+    <div data-role="content">
+        <div>
+          <image src="images/logo.png" style="width: 100%;height: 90%"></image>
+        </div>
         <div class="ui-grid-b">
-            <div class="ui-block-a "><a pageTo="news_theme.html" path="api/domains" class="img1" data-storageKey="domains"><img
+            <div class="show_border ui-block-a"><a pageTo="news_theme.html" path="api/domains" class="img1" data-storageKey="domains"><img
                     src="images/xw.png">新闻</a>
             </div>
-            <div class="ui-block-b "><a pageTo="industries_theme.html" path="api/industries" class="img2"
+            <div class="ui-block-b show_border"><a pageTo="industries_theme.html" path="api/industries" class="img2"
                                        data-storageKey="industries_enterprises"><img src="images/Beaker.png">行业信息</a></div>
-            <div class="ui-block-c "><a pageTo="products_theme.html" path="api/industries" class="img3" data-storageKey="industries_products"><img src="images/tv.png">产品</a></div>
+            <div class="ui-block-c show_border"><a pageTo="products_theme.html" path="api/industries" class="img3" data-storageKey="industries_products"><img src="images/tv.png">产品</a></div>
         </div>
         <!-- /grid-a -->
         <div class="ui-grid-b">
-            <div class="ui-block-a "><a pageTo="technologies_list.html" path="api/technologies" data-storageKey="technologies" class="img4"><img src="images/shop.png">科技服务超市</a></div>
-            <div class="ui-block-b "><a pageTo="enterprises_theme.html" path="api/industries" class="img5"data-storageKey="industries"><img src="images/globe.png">企业黄页</a></div>
-            <div class="ui-block-c "><a pageTo="search.html"path="#" class="img6"><img src="images/search.png">综合搜索</a></div>
+            <div class="ui-block-a show_border"><a pageTo="technologies_list.html" path="api/technologies" data-storageKey="technologies" class="img4"><img src="images/shop.png">科技服务超市</a></div>
+            <div class="ui-block-b show_border"><a pageTo="enterprises_theme.html" path="api/industries" class="img5"data-storageKey="industries"><img src="images/globe.png">企业黄页</a></div>
+            <div class="ui-block-c show_border"><a pageTo="search.html"path="#" class="img6"><img src="images/search.png">综合搜索</a></div>
         </div>
         <!-- /grid-a -->
         <div class="ui-grid-b">
-            <div class="ui-block-a "><a pageTo="login.html" path="#" class="img7"><img src="images/Head.png">登录</a></div>
-            <div class="ui-block-b "><a pageTo="logistics_inquiry.html" path="#" class="img8"><img src="images/truck.png">物流查询</a></div>
-            <div class="ui-block-c "><a pageTo="quit" path="#" class="img9"><img src="images/back.png">退出</a></div>
+            <div class="ui-block-a show_border"><a pageTo="login.html" path="#" class="img7"><img src="images/Head.png">登录</a></div>
+            <div class="ui-block-b show_border"><a pageTo="logistics_inquiry.html" path="#" class="img8"><img src="images/truck.png">物流查询</a></div>
+            <div class="ui-block-c show_border"><a pageTo="quit" path="#" class="img9"><img src="images/back.png">退出</a></div>
         </div>
         <!-- /grid-a -->
     </div>

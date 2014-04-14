@@ -4,6 +4,7 @@ function BindLinkTo() {
 };
 inheritPrototype(BindLinkTo,GetTo);
 BindLinkTo.prototype.self ={
+    constructor:BindLinkTo,
     bind:function(document,fn,urlName){
         $(document).each(
             function () {
@@ -27,6 +28,11 @@ BindLinkTo.prototype.self ={
                     localStorage.clear();
                     _thisBindLinkObj_.send(getRootPath()+"api/destroy_session")
                     navigator.app.exitApp();
+                }
+                if($(obj).attr("pageTo") == "login.html"){
+                    localStorage.clear();
+                    _thisBindLinkObj_.jumpTo("login.html")
+                    return
                 }
                 var response = _thisBindLinkObj_.getResponse($(obj).attr("data-storageKey"));
                 var flag = "false"

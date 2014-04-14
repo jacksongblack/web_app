@@ -6,6 +6,10 @@ body, p, div, ul, ol, li, dl, dt, dd, span, var, em, a, img, strong, table, td, 
     font-size: 16px;
 }
 
+div .show_border{
+    border: 1px solid #999999;
+}
+
 a img {
     border: none;
 }
@@ -215,8 +219,8 @@ div a {
 }
 
 .main div{
-    margin-bottom:3%;
-    margin-top:3%;
+    /*margin-bottom:3%;*/
+    /*margin-top:3%;*/
 }
 
 .ui-page{

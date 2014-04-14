@@ -1,6 +1,6 @@
 //返回根节点
 function getRootPath() {
-    return "http://192.168.0.251:3000/"
+    return "http://192.168.10.144:3000/"
 }
 
 
@@ -64,6 +64,7 @@ GetTo.prototype = {
     popupMessage:function(message){
         try{
             $("#message p").html(message+"&nbsp&nbsp&nbsp")
+            $("#message p").first().empty();
             $("#message").popup("open")
         }catch (error){
             alert(error.message)

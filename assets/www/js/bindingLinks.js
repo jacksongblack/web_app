@@ -22,6 +22,7 @@ BindLinkTo.prototype.self ={
 
                 } else{
                     _thisBindLinkObj_.jumpTo($(obj).attr("pageTo"))
+                    return
                 }
 
                 if($(obj).attr("pageTo") == "quit"){

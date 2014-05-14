@@ -1,6 +1,6 @@
 //返回根节点
 function getRootPath() {
-    return "http://192.168.10.105:3000/"
+    return "http://192.168.1.107:3000/"
 }
 
 
@@ -63,9 +63,14 @@ GetTo.prototype = {
     },
     popupMessage:function(message){
         try{
-            $("#message p").html(message+"&nbsp&nbsp&nbsp")
-            $("#message p").first().empty();
+            console.log(message)
+            var messageDom = $("#message p")
+            messageDom.html(message+"&nbsp&nbsp&nbsp")
+            if(messageDom.length != 1){
+                messageDom.first().empty();
+            }
             $("#message").popup("open")
+            setTimeout("$('#message').popup('close')",450)
         }catch (error){
             alert(error.message)
         }

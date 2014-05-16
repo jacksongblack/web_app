@@ -23,7 +23,7 @@
     <script type="text/javascript">
         $(document).bind("pageinit", function () {
             var toolObj = new Rendering()
-            toolObj.main.review($("[data-role='page']"),$("[data-role='content']"),"enterprises",toolObj.htmlTemplate.user)
+            toolObj.main.review($("[data-role='page']"),$("[class='content']"),"enterprises",toolObj.htmlTemplate.user)
             var logout = new Logout();
             logout.self.bindbutton();
         })
@@ -32,7 +32,7 @@
 </head>
 <body>
 　
-<div data-role="page" data-theme="c" id="news-show-page" class="news-show" data-fullscreen="true">
+<div data-role="page" data-theme="c" id="news-show-page" class="news-show" >
 
     <div data-role="header" data-theme="b">
         <a href="index.html" data-mini="true"  data-theme="b" data-icon="arrow-l" data-ajax="false">主菜单</a>
@@ -40,7 +40,7 @@
         <h1>企业信息</h1>
     </div>
     <!-- /content --> 　
-    <div data-role="content" class="">
+    <div class="content">
 
     </div>
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>

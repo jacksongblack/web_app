@@ -8,9 +8,7 @@
 
 .enterprise .content {
 
-    position: absolute;
-    width: 94%;
-    margin-top: -10%;
+    width: 100%;
     background-color: #ffffff;
     height: auto;
 }

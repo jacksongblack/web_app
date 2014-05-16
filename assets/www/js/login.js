@@ -5,6 +5,7 @@ function Login() {
 inheritPrototype(Login, GetTo);
 
 Login.prototype.self = {
+    constructor:Login,
     bindButton: function (docObj) {
         var buttonObj = docObj;
         buttonObj.bind("tap", function () {
@@ -39,15 +40,19 @@ Login.prototype.self = {
         if (response.status == "ok") {
             alert(response.message)
         } else {
-            alert("×¢ÏúÊ§°Ü")
+            alert("×¢ï¿½ï¿½Ê§ï¿½ï¿½")
         }
     },
     checkStatus:function(){
-        _thisLogin_.send(getRootPath()+"api/test")
-        console.log(_thisLogin_.getResponse())
-        if (_thisLogin_.getResponse() =="Already logged"){
-           _thisLogin_.jumpTo("user.html")
+        try{
+            _thisLogin_.send(getRootPath()+"api/test")
+            if (_thisLogin_.getResponse() =="Already logged"){
+                _thisLogin_.jumpTo("user.html")
+            }
+        }catch (error){
+            _thisLogin_.popMessage(error)
         }
+
     }
 
 }

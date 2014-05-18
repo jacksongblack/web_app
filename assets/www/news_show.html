@@ -20,15 +20,20 @@
     <script src="js/bindingLinks.js" charset="UTF-8"></script>
     <script src="js/storageTool.js"></script>
     <script src="js/Rendering.js"></script>
+    <script>var duoshuoQuery = {short_name:"jacksong"};</script>
+    <script src="http://static.duoshuo.com/embed.js"></script>
+    <script src="js/duoshuo.js"></script>
+
     <script type="text/javascript">
         $(document).bind("pageinit", function () {
             var toolObj = new Rendering()
             toolObj.main.review($(".news-content"),$(".news-content"),"post",toolObj.htmlTemplate.news_show)
             toolObj.imageAction.urlProcessing();
+
         })
 
-
     </script>
+    <meta name="uyan_auth" content="123273e9bc" />
     <!-- /header -->
 </head>
 <body>
@@ -41,9 +46,10 @@
     </div>
     <!-- /content --> ¡¡
     <div data-role="content" class="news-content">
-
     </div>
-    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>
+    <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer">
+    </div>
+    <div class="ds-thread"  data-thread-key="/2014/05/04/node.js³õÌ½" data-title="node.js³õÌ½"  data-url="/2014/05/04/node.js%E5%88%9D%E6%8E%A2.html"></div>
 </div>
 <!-- /page -->
 </body>

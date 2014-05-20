@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type"  name="viewport"  content="text/html; charset=gb2312"/>
+    <meta http-equiv="Content-Type"  name="viewport"  content="text/html; charset=gb2312 width=device-width;target-densitydpi=device-dpi;height=device-height initial-scale=1"/>
     <title>导航</title>
     <!--css-->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
@@ -12,11 +12,11 @@
 </head>
 <body>
 <div data-role="page" data-theme="c" class="main">
+    <div id="logo">
+        <image src="images/logo.png" style="width:100%"></image>
+    </div>
     <!--九宫格-->
-    <div data-role="" >
-        <div>
-            <image src="images/logo.png" style="width: 100%;height: 72%"></image>
-        </div>
+    <div id="nav_menu">
         <div class="ui-grid-b">
             <div class="show_border ui-block-a"><a pageTo="news_theme.html" path="api/domains" class="img1"
                                                    data-storageKey="domains"><img
@@ -72,7 +72,14 @@
     $(document).bind("pageinit", function () {
         var bindLink = new BindLinkTo()
         bindLink.self.bind(".main div div a", bindLink.self.savePathTo, "technologies_list_url")
+        window.setTimeout('setLogoImage()',250)
     });
+    function setLogoImage(){
+        var windows_y = $(document.body).height()
+        var nav_y = $('#nav_menu').height()
+        $("#logo img").height(windows_y - nav_y)
+
+    }
 </script>
 </body>
 </html>

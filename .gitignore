@@ -3,3 +3,4 @@
 /res/xml/*.xml
 /gen
 /out
+/.idea/*

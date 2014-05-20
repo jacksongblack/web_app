@@ -7,14 +7,14 @@ Rendering.prototype.htmlTemplate = {
     jsonObj: "",
     user: function (obj) {
         return "<div class='enterprise'><a href='#'><img id='avatar' style='width:100%; ' src=" + getRootPath() + obj.image_url + " ></a>" +
-            "<div class='content'><h2>¹«Ë¾ÐÅÏ¢</h2><table>" +
-            "<tr><th>Ãû³Æ:</th><td>" + obj.name + "</td></tr>" +
-            "<tr><th>µç»°:</th><td>" + obj.tel + "</td></tr>" +
-            "<tr><th>ÓÊÏä:</th><td>" + obj.email + "</td></tr>" +
-            "<tr><th>µØÖ·:</th><td>" + obj.address + "</td></tr>" +
-            "</table><div class='description' style=''><h2>¹«Ë¾¼ò½é</h2><p>" + obj.description + "</p></div>" +
-            "<div class='products_list'><h2>ÓÃ»§²Ù×÷</h2><a  data-role='button' data-inline='true' data-theme='b' pageTo='update_password.html' path=/api/industries/" + obj.id + "/products data-storageKey='products' class='producs' >ÐÞ¸ÄÃÜÂë</a>" +
-            "<a data-theme='b' data-inline='true' id='logout' data-role='button' path='api/destroy_session'pageTo='index.html'>ÍË³öµÇÂ¼</a></div>" +
+            "<div class='content'><h2>ï¿½ï¿½Ë¾ï¿½ï¿½Ï¢</h2><table>" +
+            "<tr><th>ï¿½ï¿½ï¿½:</th><td>" + obj.name + "</td></tr>" +
+            "<tr><th>ï¿½ç»°:</th><td>" + obj.tel + "</td></tr>" +
+            "<tr><th>ï¿½ï¿½ï¿½ï¿½:</th><td>" + obj.email + "</td></tr>" +
+            "<tr><th>ï¿½ï¿½Ö·:</th><td>" + obj.address + "</td></tr>" +
+            "</table><div class='description' style=''><h2>ï¿½ï¿½Ë¾ï¿½ï¿½ï¿½</h2><p>" + obj.description + "</p></div>" +
+            "<div class='products_list'><h2>ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½</h2><a  data-role='button' data-inline='true' data-theme='b' pageTo='update_password.html' path=/api/industries/" + obj.id + "/products data-storageKey='products' class='producs' >ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½</a>" +
+            "<a data-theme='b' data-inline='true' id='logout' data-role='button' path='api/destroy_session'pageTo='index.html'>ï¿½Ë³ï¿½ï¿½ï¿½Â¼</a></div>" +
             "</div>" +
             "</div>"
     },
@@ -26,7 +26,7 @@ Rendering.prototype.htmlTemplate = {
             + obj.title + "</h3>" + "<p>" + obj.description + "</p></a></li>"
     },
     news_show: function (obj) {
-        return "<div class='show'><div class='title'><h1> " + obj.title + "</h1><h2>´´½¨Ê±¼ä£º" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.content + "</div></div>";
+        return "<div class='show'><div class='title'><h1> " + obj.title + "</h1><h2>ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.content + "</div></div>";
     },
     industries_theme: function (obj) {
         return '<li><a data-storageKey="posts" pageTo="industries_list.html" path="api/industries/' + obj.id + '/posts">' + obj.name + '</a></li>';
@@ -37,7 +37,7 @@ Rendering.prototype.htmlTemplate = {
     },
     products_list: function (obj) {
         return  "<li><a  data-ajax='false' data-storageKey='product' pageTo='product_show.html' path='api/products/" + obj.id + "'><img  class='ul-li-icon' src='" + getRootPath() + obj.image_url + "'><h3>"
-            + obj.name + "</h3>" + "<p>¼Û¸ñ:&nbsp;&nbsp;" + obj.price + "</p>";
+            + obj.name + "</h3>" + "<p>ï¿½Û¸ï¿½:&nbsp;&nbsp;" + obj.price + "</p>";
     },
     products_theme: function (obj) {
         return '<li><a data-ajax="false" data-storageKey="products" pageTo="products_list.html" path="api/industries/' + obj.id + '/products">' + obj.name + '</a></li>';
@@ -47,22 +47,22 @@ Rendering.prototype.htmlTemplate = {
     },
     enterprises_list: function (obj) {
         return "<li><a  data-ajax='false'  data-storageKey='company' pageTo='enterprise_show.html' path='api/enterprises/" + obj.id + "'><img  class='ul-li-icon' src='" + getRootPath() + obj.image_url + "'><h3>"
-            + obj.name + "</h3>" + "<p>ÓÊÏäµØÖ·:&nbsp;&nbsp;" + obj.email + "</p><p>µç»°ºÅÂë:&nbsp;&nbsp;" + obj.tel + "</p><p>ËµÃ÷:&nbsp;&nbsp;" + obj.description + "</p></a></li>"
+            + obj.name + "</h3>" + "<p>ï¿½ï¿½ï¿½ï¿½ï¿½Ö·:&nbsp;&nbsp;" + obj.email + "</p><p>ï¿½ç»°ï¿½ï¿½ï¿½ï¿½:&nbsp;&nbsp;" + obj.phone + "</p><p>Ëµï¿½ï¿½:&nbsp;&nbsp;" + obj.description + "</p></a></li>"
     },
     enterprises_show: function (obj) {
         return "<div class='enterprise'><a href='#'><img id='avatar' style='width:100%; ' src=" + getRootPath() + obj.image_url + " ></a>" +
-            "<div class='content'><h2>¹«Ë¾ÐÅÏ¢</h2><table>" +
-            "<tr><th>Ãû³Æ:</th><td>" + obj.name + "</td></tr>" +
-            "<tr><th>µç»°:</th><td>" + obj.tel + "</td></tr>" +
-            "<tr><th>ÓÊÏä:</th><td>" + obj.email + "</td></tr>" +
-            "<tr><th>µØÖ·:</th><td>" + obj.address + "</td></tr>" +
-            "</table><div class='description' style=''><h2>¹«Ë¾¼ò½é</h2><p>" + obj.description + "</p></div>" +
-            "<div class='products_list'><a data-mini='true' data-role='button' pageTo='products_list.html' path=/api/industries/" + obj.id + "/products data-storageKey='products' class='producs' >¸ü¶à²úÆ·ÐÅÏ¢</a></div>" +
+            "<div class='content'><h2>ï¿½ï¿½Ë¾ï¿½ï¿½Ï¢</h2><table>" +
+            "<tr><th>ï¿½ï¿½ï¿½:</th><td>" + obj.name + "</td></tr>" +
+            "<tr><th>ï¿½ç»°:</th><td>" + obj.phone + "</td></tr>" +
+            "<tr><th>ï¿½ï¿½ï¿½ï¿½:</th><td>" + obj.email + "</td></tr>" +
+            "<tr><th>ï¿½ï¿½Ö·:</th><td>" + obj.address + "</td></tr>" +
+            "</table><div class='description' style=''><h2>ï¿½ï¿½Ë¾ï¿½ï¿½ï¿½</h2><p>" + obj.description + "</p></div>" +
+            "<div class='products_list'><a data-mini='true' data-role='button' pageTo='products_list.html' path=/api/industries/" + obj.id + "/products data-storageKey='products' class='producs' >ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½Ï¢</a></div>" +
             "</div>" +
             "</div>"
     },
     product_show: function (obj) {
-        return "<div class='show'><div class='title'><h1> " + obj.name + "</h1><h2>´´½¨Ê±¼ä£º" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.description + "</div></div>";
+        return "<div class='show'><div class='title'><h1> " + obj.name + "</h1><h2>ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.description + "</div></div>";
     },
     technologies_list: function (obj) {
         return "<li><a  data-ajax='false'  data-storageKey='technology' pageTo='technology_show.html' path='api/technologies/" + obj.id + "'><img  class='ul-li-icon' src='" + getRootPath() + obj.image_url + "'><h3>"
@@ -70,7 +70,7 @@ Rendering.prototype.htmlTemplate = {
 
     },
     technology_show: function (obj) {
-        return "<div class='show'><div class='title'><h1> " + obj.name + "</h1><h2>´´½¨Ê±¼ä£º" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.services + "</div></div>";
+        return "<div class='show'><div class='title'><h1> " + obj.name + "</h1><h2>ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.services + "</div></div>";
     }
 }
 

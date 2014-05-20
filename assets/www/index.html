@@ -80,6 +80,9 @@
         $("#logo img").height(windows_y - nav_y)
 
     }
+   $(window).bind('orientationchange',function(e){
+       window.setTimeout('setLogoImage()',250)
+   })
 </script>
 </body>
 </html>

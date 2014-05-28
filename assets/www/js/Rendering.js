@@ -26,7 +26,11 @@ Rendering.prototype.htmlTemplate = {
             + obj.title + "</h3>" + "<p>" + obj.description + "</p></a></li>"
     },
     news_show: function (obj) {
-        return "<div class='show'><div class='title'><h1> " + obj.title + "</h1><h2>����ʱ�䣺" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.content + "</div></div>";
+        console.log(obj)
+        return "<div class='show'><div class='title'><h1> " + obj.title + "</h1><h2>����ʱ�䣺" + obj.updated_at + "</h2></div>" +
+            "<div class='content'>" + obj.content +
+            "<div class='ds-thread'  data-thread-key=" + obj.id + " data-title=" + obj.title + "  data-url=" + obj.url + "></div>" +
+            "</div></div>";
     },
     industries_theme: function (obj) {
         return '<li><a data-storageKey="posts" pageTo="industries_list.html" path="api/industries/' + obj.id + '/posts">' + obj.name + '</a></li>';
@@ -115,9 +119,9 @@ Rendering.prototype.main = {
     template: function (fn, value) {
         try {
             return  fn(value);
-        }catch (error){
-          var getToObj =  new GetTo()
-           getToObj.jumpTo("index.html")
+        } catch (error) {
+            var getToObj = new GetTo()
+            getToObj.jumpTo("index.html")
         }
 
     },

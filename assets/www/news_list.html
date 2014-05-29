@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
 <html xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
-    <title>ĞÂÎÅÁĞ±í</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>æ–°é—»åˆ—è¡¨</title>
     <!--css-->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <link rel="stylesheet" type="text/css" href="css/image_style.css"/>
@@ -12,26 +12,26 @@
 <body>
 <div data-role="page" data-theme="c" id="news_list_page" class="index-page">
     <!--javascript-->
-    <script src="js/jquery-1.9.1.js"></script>
-    <script src="js/initialization.js"></script>
-    <script src="js/jquery.mobile-1.3.2.js"></script>
+    <script src="js/jquery-1.9.1.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/initialization.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.3.2.js" charset="utf-8" type="text/javascript"></script>
     <!--<script src="js/cordova.js"></script>-->
-    <script src="js/iScroll.js"></script>
-    <script src="js/jquery.mobile.iscrollview.js"></script>
-    <script src="js/sendToServer.js"></script>
-    <script src="js/storageTool.js"></script>
-    <script src="js/Rendering.js"></script>
-    <script src="js/bindingLinks.js" charset="UTF-8"></script>
-    <script   src="js/pullIscroll.js"></script>
-    <script  type="text/javascript">
+    <script src="js/iScroll.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/jquery.mobile.iscrollview.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/sendToServer.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/storageTool.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/Rendering.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/bindingLinks.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/pullIscroll.js" charset="utf-8" type="text/javascript"></script>
+    <script type="text/javascript">
         $(document).bind("pageinit", function () {
             initialization("posts");
-            $(".iscroll-wrapper", this).bind( {
-                "iscroll_onpulldown" : onPullDown,
-                "iscroll_onpullup"   : onPullUp
+            $(".iscroll-wrapper", this).bind({
+                "iscroll_onpulldown": onPullDown,
+                "iscroll_onpullup": onPullUp
             });
-            var bindObj =new BindLinkTo()
-            bindObj.self.bind("div.ui-btn-text a","post","news_show.html");
+            var bindObj = new BindLinkTo()
+            bindObj.self.bind("div.ui-btn-text a", "post", "news_show.html");
 
             function onPullDown() {
                 var obj = new PullLoad();
@@ -45,46 +45,50 @@
                 obj.saveResponseTo("posts_list")
                 initialization("posts_list");
             };
-            function initialization(keyName){
+            function initialization(keyName) {
                 var renderingobj = new Rendering();
-                renderingobj.main.review($(".news-list"),$(".news-list-ul"),keyName,renderingobj.htmlTemplate.news_list)
+                renderingobj.main.review($(".news-list"), $(".news-list-ul"), keyName, renderingobj.htmlTemplate.news_list)
                 var url = localStorage.getItem("news_list_url");
-                $("#pullAjaxUrl").attr("href",url+"?page_number=");
+                $("#pullAjaxUrl").attr("href", url + "?page_number=");
 
-               var bindObj = new BindLinkTo;
+                var bindObj = new BindLinkTo;
                 bindObj.self.bind(".news-list-ul div div a")
-               renderingobj.imageAction.urlProcessing()
+                renderingobj.imageAction.urlProcessing()
             }
         });
 
     </script>
     <!-- /header -->
     <div data-role="header" data-theme="b" data-position="fixed">
-        <a href="index.html" data-mini="true" data-theme="b" data-icon="arrow-l" data-ajax="false">Ö÷²Ëµ¥</a>
-        <a href="news_theme.html"  data-mini="true" data-theme="b" class="addButton ui-btn-right" data-icon="forward" data-ajax= false>·µ»Ø</a>
+        <a href="index.html" data-mini="true" data-theme="b" data-icon="arrow-l" data-ajax="false">ä¸»èœå•</a>
+        <a href="news_theme.html" data-mini="true" data-theme="b" class="addButton ui-btn-right" data-icon="forward"
+           data-ajax=false>è¿”å›</a>
 
-        <h1>ĞÂÎÅÁĞ±í</h1>
+        <h1>æ–°é—»åˆ—è¡¨</h1>
     </div>
     <!-- /content -->
     <div data-role="content" class="news-list" data-iscroll>
         <div class="iscroll-pulldown">
             <span class="iscroll-pull-icon"></span>
-            <span class="iscroll-pull-label" data-iscroll-pulled-text="¼ÓÔØÖĞ" data-icon="refresh">ÏòÉÏÀ­Ë¢ĞÂ</span>
+            <span class="iscroll-pull-label" data-iscroll-pulled-text="åŠ è½½ä¸­" data-icon="refresh">å‘ä¸Šæ‹‰åˆ·æ–°</span>
         </div>
         <ul data-role="listview" data-theme="c" class="news-list-ul">
         </ul>
         <div class="iscroll-pullup">
             <span class="iscroll-pull-icon"></span>
-            <span class="iscroll-pull-label" data-iscroll-pulled-text="¼ÓÔØÖĞ" data-icon="refresh">ÏòÉÏÀ­Ë¢ĞÂÏÂÒ»Ò³</span>
+            <span class="iscroll-pull-label" data-iscroll-pulled-text="åŠ è½½ä¸­" data-icon="refresh">å‘ä¸Šæ‹‰åˆ·æ–°ä¸‹ä¸€é¡µ</span>
         </div>
     </div>
     <a id="pullAjaxUrl" href="api/domains/1?posts_page=" data-page="2"></a>
+
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>
     <div data-role="popup" id="lastPage">
-        <p>Ç×£¡×îºóÒ»Ò³</p>
+        <p>äº²ï¼æœ€åä¸€é¡µ</p>
     </div>
     <div data-role="popup" id="firstPage">
-        <p>Ë¢ĞÂÍê³É<p>
+        <p>åˆ·æ–°å®Œæˆ
+
+        <p>
     </div>
     <div data-role="popup" id="message">
         <p></p>

@@ -7,14 +7,14 @@ Rendering.prototype.htmlTemplate = {
     jsonObj: "",
     user: function (obj) {
         return "<div class='enterprise'><a href='#'><img id='avatar' style='width:100%; ' src=" + getRootPath() + obj.image_url + " ></a>" +
-            "<div class='content'><h2>��˾��Ϣ</h2><table>" +
+            "<div class='content'><h2>公司信息</h2><table>" +
             "<tr><th>公司名称:</th><td>" + obj.name + "</td></tr>" +
             "<tr><th>电话号码:</th><td>" + obj.tel + "</td></tr>" +
             "<tr><th>邮箱地址:</th><td>" + obj.email + "</td></tr>" +
             "<tr><th>公司地址:</th><td>" + obj.address + "</td></tr>" +
             "</table><div class='description' style=''><h2>公司说明</h2><p>" + obj.description + "</p></div>" +
-            "<div class='products_list'><h2>更多产品信息</h2><a  data-role='button' data-inline='true' data-theme='b' pageTo='update_password.html' path=/api/industries/" + obj.id + "/products data-storageKey='products' class='producs' >�޸�����</a>" +
-            "<a data-theme='b' data-inline='true' id='logout' data-role='button' path='api/destroy_session'pageTo='index.html'>推出登陆</a></div>" +
+            "<div class='products_list'><h2>操作</h2><a  data-role='button' data-inline='true' data-theme='b' pageTo='update_password.html' path=/api/industries/" + obj.id + "/products data-storageKey='products' class='producs' >修改密码</a>" +
+            "<a data-theme='b' data-inline='true' id='logout' data-role='button' path='api/destroy_session'pageTo='index.html'>退出登陆</a></div>" +
             "</div>" +
             "</div>"
     },

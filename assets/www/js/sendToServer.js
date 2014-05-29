@@ -38,9 +38,13 @@ GetTo.prototype = {
     callBack: function(response) {
         var flag = false;
         _thisGetToObj_.response = response
-        $.each(response,function(){
-          flag =true
-        })
+        try{ $.each(response,function(){
+            flag =true
+        })}
+        catch(e) {
+            console.log(e)
+        }
+
         if (flag == false){
 
         }

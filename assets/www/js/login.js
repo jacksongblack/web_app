@@ -40,7 +40,7 @@ Login.prototype.self = {
         if (response.status == "ok") {
             alert(response.message)
         } else {
-            alert("ע��ʧ��")
+            alert("密码修改成功")
         }
     },
     checkStatus:function(){

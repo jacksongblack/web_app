@@ -9,7 +9,7 @@ Rendering.prototype.htmlTemplate = {
         return "<div class='enterprise'><a href='#'><img id='avatar' style='width:100%; ' src=" + getRootPath() + obj.image_url + " ></a>" +
             "<div class='content'><h2>公司信息</h2><table>" +
             "<tr><th>公司名称:</th><td>" + obj.name + "</td></tr>" +
-            "<tr><th>电话号码:</th><td>" + obj.tel + "</td></tr>" +
+            "<tr><th>电话号码:</th><td>" + obj.phone + "</td></tr>" +
             "<tr><th>邮箱地址:</th><td>" + obj.email + "</td></tr>" +
             "<tr><th>公司地址:</th><td>" + obj.address + "</td></tr>" +
             "</table><div class='description' style=''><h2>公司说明</h2><p>" + obj.description + "</p></div>" +
@@ -26,7 +26,7 @@ Rendering.prototype.htmlTemplate = {
             + obj.title + "</h3>" + "<p>" + obj.description + "</p></a></li>"
     },
     news_show: function (obj) {
-        return "<div class='show'><div class='title'><h1> " + obj.title + "</h1><h2>����ʱ�䣺" + obj.updated_at + "</h2></div>" +
+        return "<div class='show'><div class='title'><h1> " + obj.title + "</h1><h2>时间:" + obj.updated_at + "</h2></div>" +
             "<div class='content'>" + obj.content +
             "<div class='ds-thread'  data-thread-key=" + obj.id + " data-title=" + obj.title + "  data-url=" + obj.url + "></div>" +
             "</div></div>";
@@ -40,7 +40,7 @@ Rendering.prototype.htmlTemplate = {
     },
     products_list: function (obj) {
         return  "<li><a  data-ajax='false' data-storageKey='product' pageTo='product_show.html' path='api/products/" + obj.id + "'><img  class='ul-li-icon' src='" + getRootPath() + obj.image_url + "'><h3>"
-            + obj.name + "</h3>" + "<p>�۸�:&nbsp;&nbsp;" + obj.price + "</p>";
+            + obj.name + "</h3>" + "<p>价格:&nbsp;&nbsp;" + obj.price + "</p>";
     },
     products_theme: function (obj) {
         return '<li><a data-ajax="false" data-storageKey="products" pageTo="products_list.html" path="api/industries/' + obj.id + '/products">' + obj.name + '</a></li>';
@@ -50,7 +50,7 @@ Rendering.prototype.htmlTemplate = {
     },
     enterprises_list: function (obj) {
         return "<li><a  data-ajax='false'  data-storageKey='company' pageTo='enterprise_show.html' path='api/enterprises/" + obj.id + "'><img  class='ul-li-icon' src='" + getRootPath() + obj.image_url + "'><h3>"
-            + obj.name + "</h3>" + "<p>�����ַ:&nbsp;&nbsp;" + obj.email + "</p><p>�绰����:&nbsp;&nbsp;" + obj.phone + "</p><p>˵��:&nbsp;&nbsp;" + obj.description + "</p></a></li>"
+            + obj.name + "</h3>" + "<p>邮箱地址ַ:&nbsp;&nbsp;" + obj.email + "</p><p>电话号码:&nbsp;&nbsp;" + obj.phone + "</p><p>简介:&nbsp;&nbsp;" + obj.description + "</p></a></li>"
     },
     enterprises_show: function (obj) {
         return "<div class='enterprise'><a href='#'><img id='avatar' style='width:100%; ' src=" + getRootPath() + obj.image_url + " ></a>" +
@@ -66,7 +66,7 @@ Rendering.prototype.htmlTemplate = {
             "</div>"
     },
     product_show: function (obj) {
-        return "<div class='show'><div class='title'><h1> " + obj.name + "</h1><h2>����ʱ�䣺" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.description +
+        return "<div class='show'><div class='title'><h1> " + obj.name + "</h1><h2>时间:" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.description +
             "<div class='ds-thread'  data-thread-key=" + obj.id + " data-title=" + obj.title + "  data-url=" + obj.url + "></div>" +
             "</div></div>";
     },
@@ -76,7 +76,7 @@ Rendering.prototype.htmlTemplate = {
 
     },
     technology_show: function (obj) {
-        return "<div class='show'><div class='title'><h1> " + obj.name + "</h1><h2>����ʱ�䣺" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.services +
+        return "<div class='show'><div class='title'><h1> " + obj.name + "</h1><h2>时间:" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.services +
             "<div class='ds-thread'  data-thread-key=" + obj.id + " data-title=" + obj.title + "  data-url=" + obj.url + "></div>" +
             "</div></div>";
     }

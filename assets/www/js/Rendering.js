@@ -8,13 +8,13 @@ Rendering.prototype.htmlTemplate = {
     user: function (obj) {
         return "<div class='enterprise'><a href='#'><img id='avatar' style='width:100%; ' src=" + getRootPath() + obj.image_url + " ></a>" +
             "<div class='content'><h2>��˾��Ϣ</h2><table>" +
-            "<tr><th>���:</th><td>" + obj.name + "</td></tr>" +
-            "<tr><th>�绰:</th><td>" + obj.tel + "</td></tr>" +
-            "<tr><th>����:</th><td>" + obj.email + "</td></tr>" +
-            "<tr><th>��ַ:</th><td>" + obj.address + "</td></tr>" +
-            "</table><div class='description' style=''><h2>��˾���</h2><p>" + obj.description + "</p></div>" +
-            "<div class='products_list'><h2>�û�����</h2><a  data-role='button' data-inline='true' data-theme='b' pageTo='update_password.html' path=/api/industries/" + obj.id + "/products data-storageKey='products' class='producs' >�޸�����</a>" +
-            "<a data-theme='b' data-inline='true' id='logout' data-role='button' path='api/destroy_session'pageTo='index.html'>�˳���¼</a></div>" +
+            "<tr><th>公司名称:</th><td>" + obj.name + "</td></tr>" +
+            "<tr><th>电话号码:</th><td>" + obj.tel + "</td></tr>" +
+            "<tr><th>邮箱地址:</th><td>" + obj.email + "</td></tr>" +
+            "<tr><th>公司地址:</th><td>" + obj.address + "</td></tr>" +
+            "</table><div class='description' style=''><h2>公司说明</h2><p>" + obj.description + "</p></div>" +
+            "<div class='products_list'><h2>更多产品信息</h2><a  data-role='button' data-inline='true' data-theme='b' pageTo='update_password.html' path=/api/industries/" + obj.id + "/products data-storageKey='products' class='producs' >�޸�����</a>" +
+            "<a data-theme='b' data-inline='true' id='logout' data-role='button' path='api/destroy_session'pageTo='index.html'>推出登陆</a></div>" +
             "</div>" +
             "</div>"
     },
@@ -26,7 +26,6 @@ Rendering.prototype.htmlTemplate = {
             + obj.title + "</h3>" + "<p>" + obj.description + "</p></a></li>"
     },
     news_show: function (obj) {
-        console.log(obj)
         return "<div class='show'><div class='title'><h1> " + obj.title + "</h1><h2>����ʱ�䣺" + obj.updated_at + "</h2></div>" +
             "<div class='content'>" + obj.content +
             "<div class='ds-thread'  data-thread-key=" + obj.id + " data-title=" + obj.title + "  data-url=" + obj.url + "></div>" +
@@ -55,18 +54,21 @@ Rendering.prototype.htmlTemplate = {
     },
     enterprises_show: function (obj) {
         return "<div class='enterprise'><a href='#'><img id='avatar' style='width:100%; ' src=" + getRootPath() + obj.image_url + " ></a>" +
-            "<div class='content'><h2>��˾��Ϣ</h2><table>" +
-            "<tr><th>���:</th><td>" + obj.name + "</td></tr>" +
-            "<tr><th>�绰:</th><td>" + obj.phone + "</td></tr>" +
-            "<tr><th>����:</th><td>" + obj.email + "</td></tr>" +
-            "<tr><th>��ַ:</th><td>" + obj.address + "</td></tr>" +
-            "</table><div class='description' style=''><h2>��˾���</h2><p>" + obj.description + "</p></div>" +
-            "<div class='products_list'><a data-mini='true' data-role='button' pageTo='products_list.html' path=/api/industries/" + obj.id + "/products data-storageKey='products' class='producs' >����Ʒ��Ϣ</a></div>" +
+            "<div class='content'><h2>公司信息</h2><table>" +
+            "<tr><th>公司名称:</th><td>" + obj.name + "</td></tr>" +
+            "<tr><th>电话号码:</th><td>" + obj.phone + "</td></tr>" +
+            "<tr><th>电子邮箱:</th><td>" + obj.email + "</td></tr>" +
+            "<tr><th>公司地址:</th><td>" + obj.address + "</td></tr>" +
+            "</table><div class='description' style=''><h2>公司说明</h2><p>" + obj.description + "</p></div>" +
+            "<div class='products_list'><a data-mini='true' data-role='button' pageTo='products_list.html' path=/api/industries/" + obj.id + "/products data-storageKey='products' class='producs' >查看更多信息</a></div>" +
+            "<div class='ds-thread'  data-thread-key=" + obj.id + " data-title=" + obj.title + "  data-url=" + obj.url + "></div>" +
             "</div>" +
             "</div>"
     },
     product_show: function (obj) {
-        return "<div class='show'><div class='title'><h1> " + obj.name + "</h1><h2>����ʱ�䣺" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.description + "</div></div>";
+        return "<div class='show'><div class='title'><h1> " + obj.name + "</h1><h2>����ʱ�䣺" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.description +
+            "<div class='ds-thread'  data-thread-key=" + obj.id + " data-title=" + obj.title + "  data-url=" + obj.url + "></div>" +
+            "</div></div>";
     },
     technologies_list: function (obj) {
         return "<li><a  data-ajax='false'  data-storageKey='technology' pageTo='technology_show.html' path='api/technologies/" + obj.id + "'><img  class='ul-li-icon' src='" + getRootPath() + obj.image_url + "'><h3>"
@@ -74,7 +76,9 @@ Rendering.prototype.htmlTemplate = {
 
     },
     technology_show: function (obj) {
-        return "<div class='show'><div class='title'><h1> " + obj.name + "</h1><h2>����ʱ�䣺" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.services + "</div></div>";
+        return "<div class='show'><div class='title'><h1> " + obj.name + "</h1><h2>����ʱ�䣺" + obj.updated_at + "</h2></div>" + "<div class='content'>" + obj.services +
+            "<div class='ds-thread'  data-thread-key=" + obj.id + " data-title=" + obj.title + "  data-url=" + obj.url + "></div>" +
+            "</div></div>";
     }
 }
 

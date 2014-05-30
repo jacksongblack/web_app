@@ -23,7 +23,7 @@
         $(document).bind("pageinit", function () {
             var toolObj = new Rendering()
             toolObj.main.review($("[data-role='page']"),$("[class='enterprise_show']"),"company",toolObj.htmlTemplate.enterprises_show)
-            var binding = new BindLinkTo();
+            var binding = new BindLinkTo;
             binding.self.bindlink($(".products_list a"))
         })
 
@@ -45,6 +45,9 @@
 
     </div>
     <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-transition="none" data-id="footer"></div>
+    <div data-role="popup" id="message">
+        <p></p>
+    </div>
 </div>
 <!-- /page -->
 </body>
